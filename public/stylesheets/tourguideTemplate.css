@@ -1,6 +1,6 @@
 .document-well
 {
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -13,5 +13,17 @@
     color: #999999;
     text-decoration: none;
     background-color: transparent;
-    cursor: not-allowed;
 }
+
+.list-group > li.disabled {
+    color: #999999;
+}
+.list-group > li.disabled:hover,
+.list-group > li.disabled:focus {
+    color: #999999;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+#map-canvas { height: 100% }
+

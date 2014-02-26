@@ -29,13 +29,45 @@
 
   <script src="/javascripts/index.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  </head>
 
+
+  <script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuKc9mQmTkmImXmq6XhTybz3dqPFmONfg&sensor=false">
+  </script>
+
+
+  <script type="text/javascript">
+      function setGoogleMap(position)
+      {
+          var mapProp = {
+              center:new google.maps.LatLng( position.coords.latitude, position.coords.longitude),
+              zoom:15,
+              mapTypeId:google.maps.MapTypeId.ROADMAP
+          };
+          var map=new google.maps.Map(document.getElementById("googleMap")
+                  ,mapProp);
+      }
+
+      google.maps.event.addDomListener(window, 'load', initMap);
+
+      function initMap()
+      {
+          if (navigator.geolocation)
+          {
+              navigator.geolocation.getCurrentPosition(setGoogleMap);
+          }
+          else{x.innerHTML = "Geolocation is not supported by this browser.";}
+      }
+
+
+  </script>
+
+  </head>
 
 
   <body>
 
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-default navbar-fixed-top" style="display: hidden" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -59,22 +91,28 @@
 
     <div class="well well-sm document-well">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-4">
+                <h5>Place</h5>
+                <div class="well well-sm">
+                    <span class="label label-default">Placeholder 1</span>
+                </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-5  ">
+            </div>
+            <div class="col-md-3 ">
                 <h4>Weather Forecast</h4>
                     <h4><span class="label label-default">Placeholder 2</span></h4>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <h4>Place</h4>
+            <div class="col-md-7">
+                <h4>Information</h4>
                 <div class="well ">
-                    <h4><span class="label label-default">Placeholder 1</span></h4>
-                 </div>
+                    <span class="label label-default">Placeholder 4</span>
+                </div>
             </div>
-            <div class="col-md-5"></div>
-            <div class="col-md-3">
+            <div class="col-md-2"></div>
+            <div class=" col-md-3">
                 <div class="row">
                     <div class="col-xs-8">
                             <h4><span class="label label-default">Placeholder 3</span></h4>
@@ -87,28 +125,41 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-md-8">
-                <h4>Information</h4>
-                <div class="well ">
-                <h4><span class="label label-default">Placeholder 4</span></h4>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-8">
-                <h4>Point of Interests</h4>
-                <div class="well ">
+            <div class="col-md-7">
+                <h4>Point of Interests  </h4>
+                <div class="well well-sm">
+                    <span class="label label-default">Placeholder 5</span>
                     <div class="list-group">
-                        <a class="list-group-item disabled">Cras justo odio</a>
-                        <a class="list-group-item disabled">Dapibus ac facilisis in</a>
-                        <a class="list-group-item disabled">Morbi leo risus</a>
-                        <a  class="list-group-item disabled">Porta ac consectetur ac</a>
-                        <a class="list-group-item disabled">Vestibulum at eros</a>
+                            <a class="list-group-item disabled">Cras justo odio</a>
+                            <a class="list-group-item disabled">Dapibus ac facilisis in</a>
+                            <a class="list-group-item disabled">Morbi leo risus</a>
+                            <a  class="list-group-item disabled">Porta ac consectetur ac</a>
+                            <a class="list-group-item disabled">Vestibulum at eros</a>
                     </div>
                 </div>
             </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-3">
+                <h4>Holidays - Event</h4>
+                <div class="well well-sm">
+                    <span class="label label-default">Placeholder 6</span>
+                    <ul class="list-group">
+                        <li class="list-group-item disabled">Cras justo odio</li>
+                        <li class="list-group-item disabled">Dapibus ac facilisis in</li>
+                    </ul>
+                    <div id="googleMap" style="width:220px;height:240px;"></div>
+
+                </div>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-md-9"></div>
+            <div class="col-md-2">
+            </div>
+        </div>
+
     </div>
 
 </div>

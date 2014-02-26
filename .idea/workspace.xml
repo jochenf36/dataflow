@@ -2,44 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c20b362-3511-4b9e-8fd2-b50bb71954f7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/weathericons-regular-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/weathericons-regular-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/weathericons-regular-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Node_js_Dependencies_for_dataflow.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/tourguideTemplate.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/tourguideTemplate.ejs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/tourguideTemplate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/weather-icons.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/weathericons-regular-webfont.svg" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/.svn/all-wcprops" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/.svn/entries" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/.svn/text-base/account_form.js.svn-base" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/.svn/text-base/account_validation.js.svn-base" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/.svn/text-base/template_handler.js.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/account_form.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/account_validation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/template_handler.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/javascripts/contextmenu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/javascripts/createTemplate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/javascripts/formHandler.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/javascripts/jquery.sticky.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/javascripts/smooth-scroll.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/routes/createTemplate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/routes/loginform.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/routes/user.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/createDeStandaardTemplate.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/indexOLD.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/loginform.ejs" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/javascripts/smoothscroll.js" afterPath="$PROJECT_DIR$/public/libs/smoothscroll.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/routes/debug.js" afterPath="$PROJECT_DIR$/routes/editor.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/views/debug.ejs" afterPath="$PROJECT_DIR$/views/editor.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataflow.iml" afterPath="$PROJECT_DIR$/.idea/dataflow.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.ejs" afterPath="$PROJECT_DIR$/views/index.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/index.js" afterPath="$PROJECT_DIR$/public/javascripts/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/tourguideTemplate.css" afterPath="$PROJECT_DIR$/public/stylesheets/tourguideTemplate.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tourguideTemplate.ejs" afterPath="$PROJECT_DIR$/views/tourguideTemplate.ejs" />
     </list>
     <ignored path="dataflow.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,8 +34,11 @@
           <file leaf-file-name="tourguideTemplate.ejs" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/views/tourguideTemplate.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="106" column="27" selection-start="4112" selection-end="4112" vertical-scroll-proportion="0.5550062" vertical-offset="1141" max-vertical-offset="1950">
-                  <folding />
+                <state line="51" column="0" selection-start="2187" selection-end="2187" vertical-scroll-proportion="0.64771324" vertical-offset="241" max-vertical-offset="2715">
+                  <folding>
+                    <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -89,7 +59,7 @@
           <file leaf-file-name="tourguideTemplate.css" pinned="true" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/stylesheets/tourguideTemplate.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="7" column="24" selection-start="105" selection-end="113" vertical-scroll-proportion="0.120551094" vertical-offset="0" max-vertical-offset="871">
+                <state line="29" column="0" selection-start="520" selection-end="520" vertical-scroll-proportion="0.49942595" vertical-offset="0" max-vertical-offset="871">
                   <folding />
                 </state>
               </provider>
@@ -591,15 +561,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/tourguideTemplate.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="24" selection-start="105" selection-end="113" vertical-scroll-proportion="0.120551094" vertical-offset="0" max-vertical-offset="871">
+        <state line="29" column="0" selection-start="520" selection-end="520" vertical-scroll-proportion="0.49942595" vertical-offset="0" max-vertical-offset="871">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/tourguideTemplate.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="27" selection-start="4112" selection-end="4112" vertical-scroll-proportion="0.5550062" vertical-offset="1141" max-vertical-offset="1950">
-          <folding />
+        <state line="51" column="0" selection-start="2187" selection-end="2187" vertical-scroll-proportion="0.64771324" vertical-offset="241" max-vertical-offset="2715">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
