@@ -2,10 +2,228 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c20b362-3511-4b9e-8fd2-b50bb71954f7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/debug.ejs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/debug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/all-wcprops" afterPath="$PROJECT_DIR$/public/fonts/.svn/all-wcprops" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/entries" afterPath="$PROJECT_DIR$/public/fonts/.svn/entries" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/FontAwesome.otf.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/FontAwesome.otf.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/fontawesome-webfont.eot.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/fontawesome-webfont.eot.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/fontawesome-webfont.svg.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/fontawesome-webfont.svg.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/fontawesome-webfont.ttf.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/fontawesome-webfont.ttf.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/fontawesome-webfont.woff.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/fontawesome-webfont.woff.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/proximanova-bold-webfont.eot.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/proximanova-bold-webfont.eot.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/proximanova-bold-webfont.svg.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/proximanova-bold-webfont.svg.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/proximanova-bold-webfont.ttf.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/proximanova-bold-webfont.ttf.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/proximanova-bold-webfont.woff.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/proximanova-bold-webfont.woff.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/proximanova-light-webfont.eot.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/proximanova-light-webfont.eot.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/proximanova-light-webfont.svg.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/proximanova-light-webfont.svg.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/proximanova-light-webfont.ttf.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/proximanova-light-webfont.ttf.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/proximanova-light-webfont.woff.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/proximanova-light-webfont.woff.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/proximanova-regular-webfont.eot.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/proximanova-regular-webfont.eot.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/proximanova-regular-webfont.svg.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/proximanova-regular-webfont.svg.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/proximanova-regular-webfont.ttf.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/proximanova-regular-webfont.ttf.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/proximanova-regular-webfont.woff.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/proximanova-regular-webfont.woff.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/proximanova-semibold-webfont.eot.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/proximanova-semibold-webfont.eot.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/proximanova-semibold-webfont.svg.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/proximanova-semibold-webfont.svg.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/proximanova-semibold-webfont.ttf.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/proximanova-semibold-webfont.ttf.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/prop-base/proximanova-semibold-webfont.woff.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/prop-base/proximanova-semibold-webfont.woff.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/FontAwesome.otf.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/FontAwesome.otf.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/fontawesome-webfont.eot.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/fontawesome-webfont.eot.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/fontawesome-webfont.svg.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/fontawesome-webfont.svg.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/fontawesome-webfont.ttf.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/fontawesome-webfont.ttf.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/fontawesome-webfont.woff.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/fontawesome-webfont.woff.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/proximanova-bold-webfont.eot.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/proximanova-bold-webfont.eot.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/proximanova-bold-webfont.svg.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/proximanova-bold-webfont.svg.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/proximanova-bold-webfont.ttf.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/proximanova-bold-webfont.ttf.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/proximanova-bold-webfont.woff.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/proximanova-bold-webfont.woff.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/proximanova-light-webfont.eot.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/proximanova-light-webfont.eot.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/proximanova-light-webfont.svg.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/proximanova-light-webfont.svg.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/proximanova-light-webfont.ttf.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/proximanova-light-webfont.ttf.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/proximanova-light-webfont.woff.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/proximanova-light-webfont.woff.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/proximanova-regular-webfont.eot.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/proximanova-regular-webfont.eot.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/proximanova-regular-webfont.svg.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/proximanova-regular-webfont.svg.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/proximanova-regular-webfont.ttf.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/proximanova-regular-webfont.ttf.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/proximanova-regular-webfont.woff.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/proximanova-regular-webfont.woff.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/proximanova-semibold-webfont.eot.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/proximanova-semibold-webfont.eot.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/proximanova-semibold-webfont.svg.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/proximanova-semibold-webfont.svg.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/proximanova-semibold-webfont.ttf.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/proximanova-semibold-webfont.ttf.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/.svn/text-base/proximanova-semibold-webfont.woff.svn-base" afterPath="$PROJECT_DIR$/public/fonts/.svn/text-base/proximanova-semibold-webfont.woff.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/public/fonts/FontAwesome.otf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/proximanova-bold-webfont.eot" afterPath="$PROJECT_DIR$/public/fonts/proximanova-bold-webfont.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/proximanova-bold-webfont.svg" afterPath="$PROJECT_DIR$/public/fonts/proximanova-bold-webfont.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/proximanova-bold-webfont.ttf" afterPath="$PROJECT_DIR$/public/fonts/proximanova-bold-webfont.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/proximanova-bold-webfont.woff" afterPath="$PROJECT_DIR$/public/fonts/proximanova-bold-webfont.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/proximanova-light-webfont.eot" afterPath="$PROJECT_DIR$/public/fonts/proximanova-light-webfont.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/proximanova-light-webfont.svg" afterPath="$PROJECT_DIR$/public/fonts/proximanova-light-webfont.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/proximanova-light-webfont.ttf" afterPath="$PROJECT_DIR$/public/fonts/proximanova-light-webfont.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/proximanova-light-webfont.woff" afterPath="$PROJECT_DIR$/public/fonts/proximanova-light-webfont.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/proximanova-regular-webfont.eot" afterPath="$PROJECT_DIR$/public/fonts/proximanova-regular-webfont.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/proximanova-regular-webfont.svg" afterPath="$PROJECT_DIR$/public/fonts/proximanova-regular-webfont.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/proximanova-regular-webfont.ttf" afterPath="$PROJECT_DIR$/public/fonts/proximanova-regular-webfont.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/proximanova-regular-webfont.woff" afterPath="$PROJECT_DIR$/public/fonts/proximanova-regular-webfont.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/proximanova-semibold-webfont.eot" afterPath="$PROJECT_DIR$/public/fonts/proximanova-semibold-webfont.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/proximanova-semibold-webfont.svg" afterPath="$PROJECT_DIR$/public/fonts/proximanova-semibold-webfont.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/proximanova-semibold-webfont.ttf" afterPath="$PROJECT_DIR$/public/fonts/proximanova-semibold-webfont.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fonts/proximanova-semibold-webfont.woff" afterPath="$PROJECT_DIR$/public/fonts/proximanova-semibold-webfont.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/.svn/all-wcprops" afterPath="$PROJECT_DIR$/public/libs/.svn/all-wcprops" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/.svn/entries" afterPath="$PROJECT_DIR$/public/libs/.svn/entries" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/.svn/text-base/CircularBuffer.js.svn-base" afterPath="$PROJECT_DIR$/public/libs/.svn/text-base/CircularBuffer.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/.svn/text-base/backbone.js.svn-base" afterPath="$PROJECT_DIR$/public/libs/.svn/text-base/backbone.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/.svn/text-base/hammer.min.js.svn-base" afterPath="$PROJECT_DIR$/public/libs/.svn/text-base/hammer.min.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/.svn/text-base/jquery-ui.js.svn-base" afterPath="$PROJECT_DIR$/public/libs/.svn/text-base/jquery-ui.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/.svn/text-base/jquery.js.svn-base" afterPath="$PROJECT_DIR$/public/libs/.svn/text-base/jquery.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/.svn/text-base/jquery.ui.touch-punch.js.svn-base" afterPath="$PROJECT_DIR$/public/libs/.svn/text-base/jquery.ui.touch-punch.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/.svn/text-base/underscore.js.svn-base" afterPath="$PROJECT_DIR$/public/libs/.svn/text-base/underscore.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/CircularBuffer.js" afterPath="$PROJECT_DIR$/public/libs/CircularBuffer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/backbone.js" afterPath="$PROJECT_DIR$/public/libs/backbone.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/hammer.min.js" afterPath="$PROJECT_DIR$/public/libs/hammer.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/jquery-ui.js" afterPath="$PROJECT_DIR$/public/libs/jquery-ui.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/jquery.js" afterPath="$PROJECT_DIR$/public/libs/jquery.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/jquery.ui.touch-punch.js" afterPath="$PROJECT_DIR$/public/libs/jquery.ui.touch-punch.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/underscore.js" afterPath="$PROJECT_DIR$/public/libs/underscore.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/.svn/all-wcprops" afterPath="$PROJECT_DIR$/public/src/.svn/all-wcprops" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/.svn/entries" afterPath="$PROJECT_DIR$/public/src/.svn/entries" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/.svn/text-base/dataflow.js.svn-base" afterPath="$PROJECT_DIR$/public/src/.svn/text-base/dataflow.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/.svn/text-base/state.js.svn-base" afterPath="$PROJECT_DIR$/public/src/.svn/text-base/state.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/dataflow.js" afterPath="$PROJECT_DIR$/public/src/dataflow.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/elements/.svn/all-wcprops" afterPath="$PROJECT_DIR$/public/src/elements/.svn/all-wcprops" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/elements/.svn/entries" afterPath="$PROJECT_DIR$/public/src/elements/.svn/entries" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/elements/.svn/text-base/dataflow-app.html.svn-base" afterPath="$PROJECT_DIR$/public/src/elements/.svn/text-base/dataflow-app.html.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/elements/.svn/text-base/dataflow-edge.html.svn-base" afterPath="$PROJECT_DIR$/public/src/elements/.svn/text-base/dataflow-edge.html.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/elements/.svn/text-base/dataflow-graph.html.svn-base" afterPath="$PROJECT_DIR$/public/src/elements/.svn/text-base/dataflow-graph.html.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/elements/.svn/text-base/dataflow-node.html.svn-base" afterPath="$PROJECT_DIR$/public/src/elements/.svn/text-base/dataflow-node.html.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/elements/dataflow-app.html" afterPath="$PROJECT_DIR$/public/src/elements/dataflow-app.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/elements/dataflow-edge.html" afterPath="$PROJECT_DIR$/public/src/elements/dataflow-edge.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/elements/dataflow-graph.html" afterPath="$PROJECT_DIR$/public/src/elements/dataflow-graph.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/elements/dataflow-node.html" afterPath="$PROJECT_DIR$/public/src/elements/dataflow-node.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/all-wcprops" afterPath="$PROJECT_DIR$/public/src/modules/.svn/all-wcprops" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/entries" afterPath="$PROJECT_DIR$/public/src/modules/.svn/entries" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/text-base/card-view.js.svn-base" afterPath="$PROJECT_DIR$/public/src/modules/.svn/text-base/card-view.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/text-base/card.js.svn-base" afterPath="$PROJECT_DIR$/public/src/modules/.svn/text-base/card.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/text-base/edge-inspect-view.js.svn-base" afterPath="$PROJECT_DIR$/public/src/modules/.svn/text-base/edge-inspect-view.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/text-base/edge-view.js.svn-base" afterPath="$PROJECT_DIR$/public/src/modules/.svn/text-base/edge-view.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/text-base/edge.js.svn-base" afterPath="$PROJECT_DIR$/public/src/modules/.svn/text-base/edge.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/text-base/graph-view.js.svn-base" afterPath="$PROJECT_DIR$/public/src/modules/.svn/text-base/graph-view.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/text-base/graph.js.svn-base" afterPath="$PROJECT_DIR$/public/src/modules/.svn/text-base/graph.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/text-base/input-view.js.svn-base" afterPath="$PROJECT_DIR$/public/src/modules/.svn/text-base/input-view.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/text-base/input.js.svn-base" afterPath="$PROJECT_DIR$/public/src/modules/.svn/text-base/input.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/text-base/menucard-view.js.svn-base" afterPath="$PROJECT_DIR$/public/src/modules/.svn/text-base/menucard-view.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/text-base/menucard.js.svn-base" afterPath="$PROJECT_DIR$/public/src/modules/.svn/text-base/menucard.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/text-base/node-inspect-view.js.svn-base" afterPath="$PROJECT_DIR$/public/src/modules/.svn/text-base/node-inspect-view.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/text-base/node-view.js.svn-base" afterPath="$PROJECT_DIR$/public/src/modules/.svn/text-base/node-view.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/text-base/node.js.svn-base" afterPath="$PROJECT_DIR$/public/src/modules/.svn/text-base/node.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/text-base/output-view.js.svn-base" afterPath="$PROJECT_DIR$/public/src/modules/.svn/text-base/output-view.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/.svn/text-base/output.js.svn-base" afterPath="$PROJECT_DIR$/public/src/modules/.svn/text-base/output.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/card-view.js" afterPath="$PROJECT_DIR$/public/src/modules/card-view.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/card.js" afterPath="$PROJECT_DIR$/public/src/modules/card.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/edge-inspect-view.js" afterPath="$PROJECT_DIR$/public/src/modules/edge-inspect-view.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/edge-view.js" afterPath="$PROJECT_DIR$/public/src/modules/edge-view.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/edge.js" afterPath="$PROJECT_DIR$/public/src/modules/edge.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/graph-view.js" afterPath="$PROJECT_DIR$/public/src/modules/graph-view.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/graph.js" afterPath="$PROJECT_DIR$/public/src/modules/graph.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/input-view.js" afterPath="$PROJECT_DIR$/public/src/modules/input-view.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/input.js" afterPath="$PROJECT_DIR$/public/src/modules/input.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/menucard-view.js" afterPath="$PROJECT_DIR$/public/src/modules/menucard-view.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/menucard.js" afterPath="$PROJECT_DIR$/public/src/modules/menucard.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/node-inspect-view.js" afterPath="$PROJECT_DIR$/public/src/modules/node-inspect-view.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/node-view.js" afterPath="$PROJECT_DIR$/public/src/modules/node-view.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/node.js" afterPath="$PROJECT_DIR$/public/src/modules/node.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/output-view.js" afterPath="$PROJECT_DIR$/public/src/modules/output-view.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/modules/output.js" afterPath="$PROJECT_DIR$/public/src/modules/output.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/.svn/all-wcprops" afterPath="$PROJECT_DIR$/public/src/nodes/.svn/all-wcprops" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/.svn/entries" afterPath="$PROJECT_DIR$/public/src/nodes/.svn/entries" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/.svn/text-base/Filter.js.svn-base" afterPath="$PROJECT_DIR$/public/src/nodes/.svn/text-base/Filter.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/.svn/text-base/PlaceHolder.js.svn-base" afterPath="$PROJECT_DIR$/public/src/nodes/.svn/text-base/PlaceHolder.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/.svn/text-base/TextComponent.js.svn-base" afterPath="$PROJECT_DIR$/public/src/nodes/.svn/text-base/TextComponent.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/.svn/text-base/base-resizable.js.svn-base" afterPath="$PROJECT_DIR$/public/src/nodes/.svn/text-base/base-resizable.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/.svn/text-base/base.js.svn-base" afterPath="$PROJECT_DIR$/public/src/nodes/.svn/text-base/base.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/.svn/text-base/dataflow-input.js.svn-base" afterPath="$PROJECT_DIR$/public/src/nodes/.svn/text-base/dataflow-input.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/.svn/text-base/dataflow-output.js.svn-base" afterPath="$PROJECT_DIR$/public/src/nodes/.svn/text-base/dataflow-output.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/.svn/text-base/dataflow-subgraph.js.svn-base" afterPath="$PROJECT_DIR$/public/src/nodes/.svn/text-base/dataflow-subgraph.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/.svn/text-base/test.js.svn-base" afterPath="$PROJECT_DIR$/public/src/nodes/.svn/text-base/test.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/Filter.js" afterPath="$PROJECT_DIR$/public/src/nodes/Filter.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/PlaceHolder.js" afterPath="$PROJECT_DIR$/public/src/nodes/PlaceHolder.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/TextComponent.js" afterPath="$PROJECT_DIR$/public/src/nodes/TextComponent.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/base-resizable.js" afterPath="$PROJECT_DIR$/public/src/nodes/base-resizable.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/base.js" afterPath="$PROJECT_DIR$/public/src/nodes/base.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/dataflow-input.js" afterPath="$PROJECT_DIR$/public/src/nodes/dataflow-input.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/dataflow-output.js" afterPath="$PROJECT_DIR$/public/src/nodes/dataflow-output.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/dataflow-subgraph.js" afterPath="$PROJECT_DIR$/public/src/nodes/dataflow-subgraph.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nodes/test.js" afterPath="$PROJECT_DIR$/public/src/nodes/test.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/.svn/all-wcprops" afterPath="$PROJECT_DIR$/public/src/plugins/.svn/all-wcprops" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/.svn/entries" afterPath="$PROJECT_DIR$/public/src/plugins/.svn/entries" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/.svn/text-base/edit.js.svn-base" afterPath="$PROJECT_DIR$/public/src/plugins/.svn/text-base/edit.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/.svn/text-base/elements.js.svn-base" afterPath="$PROJECT_DIR$/public/src/plugins/.svn/text-base/elements.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/.svn/text-base/inspector.js.svn-base" afterPath="$PROJECT_DIR$/public/src/plugins/.svn/text-base/inspector.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/.svn/text-base/keybinding.js.svn-base" afterPath="$PROJECT_DIR$/public/src/plugins/.svn/text-base/keybinding.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/.svn/text-base/library.js.svn-base" afterPath="$PROJECT_DIR$/public/src/plugins/.svn/text-base/library.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/.svn/text-base/log.js.svn-base" afterPath="$PROJECT_DIR$/public/src/plugins/.svn/text-base/log.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/.svn/text-base/menu.js.svn-base" afterPath="$PROJECT_DIR$/public/src/plugins/.svn/text-base/menu.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/.svn/text-base/notification.js.svn-base" afterPath="$PROJECT_DIR$/public/src/plugins/.svn/text-base/notification.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/.svn/text-base/search.js.svn-base" afterPath="$PROJECT_DIR$/public/src/plugins/.svn/text-base/search.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/.svn/text-base/view-source.js.svn-base" afterPath="$PROJECT_DIR$/public/src/plugins/.svn/text-base/view-source.js.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/edit.js" afterPath="$PROJECT_DIR$/public/src/plugins/edit.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/elements.js" afterPath="$PROJECT_DIR$/public/src/plugins/elements.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/inspector.js" afterPath="$PROJECT_DIR$/public/src/plugins/inspector.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/keybinding.js" afterPath="$PROJECT_DIR$/public/src/plugins/keybinding.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/library.js" afterPath="$PROJECT_DIR$/public/src/plugins/library.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/log.js" afterPath="$PROJECT_DIR$/public/src/plugins/log.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/menu.js" afterPath="$PROJECT_DIR$/public/src/plugins/menu.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/notification.js" afterPath="$PROJECT_DIR$/public/src/plugins/notification.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/search.js" afterPath="$PROJECT_DIR$/public/src/plugins/search.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/plugins/view-source.js" afterPath="$PROJECT_DIR$/public/src/plugins/view-source.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/state.js" afterPath="$PROJECT_DIR$/public/src/state.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/.svn/all-wcprops" afterPath="$PROJECT_DIR$/public/themes/.svn/all-wcprops" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/.svn/entries" afterPath="$PROJECT_DIR$/public/themes/.svn/entries" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/.svn/all-wcprops" afterPath="$PROJECT_DIR$/public/themes/default/.svn/all-wcprops" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/.svn/entries" afterPath="$PROJECT_DIR$/public/themes/default/.svn/entries" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/.svn/text-base/dataflow.css.svn-base" afterPath="$PROJECT_DIR$/public/themes/default/.svn/text-base/dataflow.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/.svn/text-base/font-awesome.css.svn-base" afterPath="$PROJECT_DIR$/public/themes/default/.svn/text-base/font-awesome.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/.svn/text-base/font-proximanova.css.svn-base" afterPath="$PROJECT_DIR$/public/themes/default/.svn/text-base/font-proximanova.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/dataflow.css" afterPath="$PROJECT_DIR$/public/themes/default/dataflow.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/font-awesome.css" afterPath="$PROJECT_DIR$/public/themes/default/font-awesome.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/font-proximanova.css" afterPath="$PROJECT_DIR$/public/themes/default/font-proximanova.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/modules/.svn/all-wcprops" afterPath="$PROJECT_DIR$/public/themes/default/modules/.svn/all-wcprops" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/modules/.svn/entries" afterPath="$PROJECT_DIR$/public/themes/default/modules/.svn/entries" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/modules/.svn/text-base/card.css.svn-base" afterPath="$PROJECT_DIR$/public/themes/default/modules/.svn/text-base/card.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/modules/.svn/text-base/edge.css.svn-base" afterPath="$PROJECT_DIR$/public/themes/default/modules/.svn/text-base/edge.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/modules/.svn/text-base/jqui.css.svn-base" afterPath="$PROJECT_DIR$/public/themes/default/modules/.svn/text-base/jqui.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/modules/.svn/text-base/node.css.svn-base" afterPath="$PROJECT_DIR$/public/themes/default/modules/.svn/text-base/node.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/modules/.svn/text-base/port.css.svn-base" afterPath="$PROJECT_DIR$/public/themes/default/modules/.svn/text-base/port.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/modules/.svn/text-base/search.css.svn-base" afterPath="$PROJECT_DIR$/public/themes/default/modules/.svn/text-base/search.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/modules/card.css" afterPath="$PROJECT_DIR$/public/themes/default/modules/card.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/modules/edge.css" afterPath="$PROJECT_DIR$/public/themes/default/modules/edge.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/modules/jqui.css" afterPath="$PROJECT_DIR$/public/themes/default/modules/jqui.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/modules/node.css" afterPath="$PROJECT_DIR$/public/themes/default/modules/node.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/modules/port.css" afterPath="$PROJECT_DIR$/public/themes/default/modules/port.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/default/modules/search.css" afterPath="$PROJECT_DIR$/public/themes/default/modules/search.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/.svn/all-wcprops" afterPath="$PROJECT_DIR$/public/themes/nostyle/.svn/all-wcprops" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/.svn/entries" afterPath="$PROJECT_DIR$/public/themes/nostyle/.svn/entries" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/.svn/text-base/dataflow.css.svn-base" afterPath="$PROJECT_DIR$/public/themes/nostyle/.svn/text-base/dataflow.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/dataflow.css" afterPath="$PROJECT_DIR$/public/themes/nostyle/dataflow.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/modules/.svn/all-wcprops" afterPath="$PROJECT_DIR$/public/themes/nostyle/modules/.svn/all-wcprops" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/modules/.svn/entries" afterPath="$PROJECT_DIR$/public/themes/nostyle/modules/.svn/entries" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/modules/.svn/text-base/actionbar.css.svn-base" afterPath="$PROJECT_DIR$/public/themes/nostyle/modules/.svn/text-base/actionbar.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/modules/.svn/text-base/edge.css.svn-base" afterPath="$PROJECT_DIR$/public/themes/nostyle/modules/.svn/text-base/edge.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/modules/.svn/text-base/jqui.css.svn-base" afterPath="$PROJECT_DIR$/public/themes/nostyle/modules/.svn/text-base/jqui.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/modules/.svn/text-base/menu.css.svn-base" afterPath="$PROJECT_DIR$/public/themes/nostyle/modules/.svn/text-base/menu.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/modules/.svn/text-base/node.css.svn-base" afterPath="$PROJECT_DIR$/public/themes/nostyle/modules/.svn/text-base/node.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/modules/.svn/text-base/port.css.svn-base" afterPath="$PROJECT_DIR$/public/themes/nostyle/modules/.svn/text-base/port.css.svn-base" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/modules/actionbar.css" afterPath="$PROJECT_DIR$/public/themes/nostyle/modules/actionbar.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/modules/edge.css" afterPath="$PROJECT_DIR$/public/themes/nostyle/modules/edge.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/modules/jqui.css" afterPath="$PROJECT_DIR$/public/themes/nostyle/modules/jqui.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/modules/menu.css" afterPath="$PROJECT_DIR$/public/themes/nostyle/modules/menu.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/modules/node.css" afterPath="$PROJECT_DIR$/public/themes/nostyle/modules/node.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/themes/nostyle/modules/port.css" afterPath="$PROJECT_DIR$/public/themes/nostyle/modules/port.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/default/dataflow.min.css" afterPath="$PROJECT_DIR$/build/default/dataflow.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/debug.html" afterPath="$PROJECT_DIR$/debug.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/debug2.html" afterPath="$PROJECT_DIR$/debug2.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.ejs" afterPath="$PROJECT_DIR$/views/index.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dataflow.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,10 +255,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="9" selection-start="149" selection-end="149" vertical-scroll-proportion="-0.2777778" vertical-offset="360" max-vertical-offset="1170">
+            <state line="64" column="40" selection-start="1560" selection-end="1560" vertical-scroll-proportion="0.0" vertical-offset="335" max-vertical-offset="1170">
               <folding />
             </state>
           </provider>
@@ -58,16 +276,16 @@
       <file leaf-file-name="debug.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/debug.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="18" selection-start="917" selection-end="917" vertical-scroll-proportion="-16.25" vertical-offset="0" max-vertical-offset="4965">
+            <state line="24" column="25" selection-start="831" selection-end="831" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="4965">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.ejs" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.ejs" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="29" selection-start="1211" selection-end="1211" vertical-scroll-proportion="-16.25" vertical-offset="0" max-vertical-offset="2190">
+            <state line="13" column="0" selection-start="573" selection-end="573" vertical-scroll-proportion="0.2404439" vertical-offset="0" max-vertical-offset="2175">
               <folding />
             </state>
           </provider>
@@ -94,7 +312,7 @@
       <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="34" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+            <state line="21" column="0" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
               <folding />
             </state>
           </provider>
@@ -144,10 +362,10 @@
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/views/debug.ejs" />
-        <option value="$PROJECT_DIR$/views/index.ejs" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/routes/debug.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/views/index.ejs" />
       </list>
     </option>
   </component>
@@ -225,7 +443,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -239,7 +457,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dataflow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dataflow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -264,6 +500,7 @@
       <recent name="$PROJECT_DIR$/src/nodes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -380,7 +617,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="22" width="960" height="994" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -388,7 +625,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.178125" sideWeight="0.67074525" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.178125" sideWeight="0.6006674" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933258" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933258" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -479,30 +716,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/createTemplate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="848">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/createDeStandaardTemplate.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="11" selection-start="0" selection-end="16" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="3150">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/debug.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="18" selection-start="917" selection-end="917" vertical-scroll-proportion="-16.25" vertical-offset="0" max-vertical-offset="4965">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="29" selection-start="1211" selection-end="1211" vertical-scroll-proportion="-16.25" vertical-offset="0" max-vertical-offset="2190">
           <folding />
         </state>
       </provider>
@@ -521,16 +737,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="34" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+        <state line="64" column="40" selection-start="1560" selection-end="1560" vertical-scroll-proportion="0.0" vertical-offset="335" max-vertical-offset="1170">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/routes/createTemplate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="9" selection-start="149" selection-end="149" vertical-scroll-proportion="-0.2777778" vertical-offset="360" max-vertical-offset="1170">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="848">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/debug.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="25" selection-start="831" selection-end="831" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="4965">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="573" selection-end="573" vertical-scroll-proportion="0.2404439" vertical-offset="0" max-vertical-offset="2175">
           <folding />
         </state>
       </provider>
