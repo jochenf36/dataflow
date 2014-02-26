@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+    <title>Ambient Document Editor</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- FontAwesome -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <script src="/javascripts/index.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/smoothscroll.js"></script>
+  </head>
+
+  <body onload="loadBody();">
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Ambient Document Editor</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+          </ul>
+
+          <p id="currentLogin" class="navbar-text navbar-right "> Nog ff </p>
+
+           <ul class="nav navbar-nav navbar-right nav createAccount">
+
+           <a href="#" class="login btn btn-primary btn-large" onclick="showlogin()"><i class="icon-white icon-user"></i>Login</a>
+
+               <a href="LoginForm" class="btn btn-warning btn-large"><i class="icon-white icon-pencil"></i> Create Account</a>
+
+<button  class="logout btn btn-danger btn-large" onClick="logoutUser();"style="display:none;" >Log out</button>
+           </ul>
+
+        </div><!--/.nav-collapse -->
+
+      </div>
+    </div>
+
+<div name="loginbox" class="loginbox loginDiv form-inline" style="display:none;"  >
+  <form id="loginform" action="loginform" method="post"class="form-inline" >
+    <div class="form-group">
+        <input type="text" class="form-control" id="login" placeholder="Login" name="login">
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
+           <button type="submit" onclick="storeAccountInfo();" class="btn btn-primary">Sign in</button>
+    </div>
+</form>
+
+</div>
+
+
+<!-- Start -->
+    <div class="container">
+
+
+
+
+<!-- Start Choose Task -->
+
+<div class="container">
+  <div class="starter-template">
+        <h1>Compose Document</h1>
+      </div>
+<div class="container topChoice">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 well">
+            <div class="row">
+              <div class="col-xs-4">
+              <p class="img-radio"><i class="fa fa-plus-circle fa-5x"></i> </p>
+              <a href="#createResource" class="smoothScroll btn btn-primary btn-large" onclick="choiceMade(0);"><i class="icon-white icon-heart"></i> Create Resource</a>
+
+
+              </div>
+              <div class= "col-xs-4">
+               <p class="img-radio"><i class="fa fa-cloud-download fa-5x"></i></p>
+                    <a href="#" class="btn btn-primary btn-large" onclick="choiceMade(1);"><i class="icon-white icon-heart"></i> Search Resource</a>
+              </div>
+              <div class= "col-xs-4">
+               <p class="img-radiopuzzle"><i class="fa fa-puzzle-piece fa-5x"></i></p>
+                    <a href="#" class="btn btn-primary btn-large" onclick="choiceMade(2);"><i class="icon-white icon-heart"></i> Mashup Resources</a>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- End Choose Task -->
+
+
+
+<!-- Start creating a Resource -->
+    <div class="container" name="createResource" id="createCompDiv" style="display: none;">
+
+      <div class="starter-template">
+        <h1>Create a Resource</h1>
+      </div>
+      <span id="step1">
+        <p class="lead">Select the type of resource you want to create</p>
+
+          <div class="list-group selectionbox">
+
+            <a href="#" class="list-group-item active">
+              Text Resource
+            </a>
+            <a href="#" onclick="test();" class="list-group-item">Database Resource</a>
+            <a href="#" class="list-group-item">Sensor Resource</a>
+            <a href="#" class="list-group-item">Service Resource</a>
+            <a href="#" class="list-group-item">Image Resource</a>
+          </div>
+          <span>
+     </div>
+<!-- End creating a Resource -->
+
+
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

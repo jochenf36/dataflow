@@ -7,7 +7,11 @@
   "author": {
     "name": "Forrest Oliphant",
     "email": "forrest@sembiki.com",
-    "url": "http://meemoo.org/"
+    "url": "http://meemoo.org/",
+      "version": "0.0.1",
+      "private": true,
+      "scripts": {
+      "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -37,7 +41,12 @@
     "grunt-contrib-jshint": "~0.4.3",
     "grunt-contrib-connect": "~0.3.0",
     "grunt-contrib-watch": "~0.3.1",
-    "grunt-contrib-cssmin": "~0.6.1"
+    "grunt-contrib-cssmin": "~0.6.1",
+      "express": "3.4.8",
+      "ejs": "*",
+      "stylus": "*",
+      "knex": "~0.5.6",
+      "bookshelf": "~0.6.4"
   },
   "scripts": {
     "test": "./node_modules/.bin/grunt test"

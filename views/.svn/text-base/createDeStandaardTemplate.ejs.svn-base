@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+    <title>Document Editor</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- FontAwesome -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <script src="/javascripts/index.js"></script>
+    <script src="/javascripts/createTemplate.js"></script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/smoothscroll.js"></script>
+  </head>
+
+<body onload="onPageLoad()">
+
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Document Editor</a>
+        </div>
+        <div class="collapse navbar-collapse">
+
+
+          <p id="currentLogin" class="navbar-text navbar-right "> </p>
+
+           <ul class="nav navbar-nav navbar-right nav createAccount">
+
+           <a href="#" class="login btn " onclick="showlogin()"></i>Login   |</a>
+
+               <a href="LoginForm" class="btn"></i>Create Account</a>
+
+<button  class="logout btn btn-danger btn-large" onClick="logoutUser();"style="display:none;" >Log out</button>
+           </ul>
+
+        </div><!--/.nav-collapse -->
+
+      </div>
+    </div>
+
+<!-- Login part -->
+<div name="loginbox" class="loginbox loginDiv form-inline" style="display:none;"  >
+  <form id="loginform" action="loginform" method="post"class="form-inline" >
+    <div class="form-group">
+        <input type="text" class="form-control" id="login" placeholder="Login" name="login">
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
+           <button type="submit" onclick="storeAccountInfo();" class="testButtonbtn btn-primary">Sign in</button>
+    </div>
+</form>
+
+</div>
+
+
+<!-- Start -->
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-7 verticalLine">
+
+     <form action="createDeStandaardTemplate " method="post">
+
+  <div class="starter-article">
+        <h3>Create Article</h3>
+      </div>
+
+        <div class=" article ">
+           <a  id="article" onClick="insertSection()" class="pull-right "><i class="fa fa-plus"></i> Section</a>
+            <h4>Title</h4>
+            <div class="bs-example titlebox">
+                  <textarea name="title" id="title" class="form-control contextMenu" rows="1"></textarea>
+              </div>
+                 <h4>Intro</h4>
+            <div class="bs-example titleIntro">
+                  <textarea name="intro" id="intro" class="form-control contextMenu" rows="2"></textarea>
+            </div>
+
+              <div id="section1">
+                  <h4>Section 1</h4>
+                  <div class="well inSection1">
+                 <a  id="inSection1"onClick="insertParagraph(this.id,1)" class="pull-right"><i class="fa fa-plus"></i> Paragraph</a>
+
+                    <div id="paragraph1_1" >
+                    <h4>Paragraph 1</h4>
+                          <textarea name="paragraph0" id="textarea1_1" class=" form-control contextMenu" rows="5"></textarea>
+                    </div>
+
+             </div>
+      </div>
+
+       </form>
+     </div>
+
+<button type="submit" onClick="submitForm();" class=" formSubmit-button btn btn-primary">Submit</button>
+
+            <!-- /sidebar -->
+  </div>
+
+
+
+
+ <!-- sidebar -->
+    <div class="col-md-5 ">
+         <div class="control-group extraBox database  sidebar " style="display: none;">
+     <form action="databaseForm" method="post">
+      <!-- Form Name -->
+        <legend><i class="fa fa-puzzle-piece"></i> Crosslet Info: Database</legend>
+        <div class="form-group">
+            <label for="inputLogin">Login</label>
+            <input type="text" style="width:auto" class="form-control" id="inputLogin" placeholder="login" name="login"required>
+        </div>
+          <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input type="password" style="width:auto" class="form-control" id="inputPassword" placeholder="password" name="password"required>
+        </div>
+
+          <div class="form-group">
+            <label for="inputUrl">Url</label>
+             <input type="url" style="width:auto" class="form-control" id="inputUrl" placeholder="host" name="url"required>
+        </div>
+
+
+        <div class="form-group">
+            <label for="inputDescription">Description</label>
+            <textarea rows="4" class="form-control" id="inputDescription" name="description"placeholder="Enter an optional description for this crosslet."></textarea>
+        </div>
+
+  <button type="submit" onClick="submitForm();" class="btn btn-primary pull-right">Submit</button>
+    </form>
+
+
+</div>
+
+    </div>
+
+
+     <div class="contextMenu" id="myMenu1">
+
+      <ul>
+
+        <li id="sensor"><i class="fa fa-eye"></i>  Sensor</li>
+
+        <li id="database"><i class="fa fa-tasks"></i>   Database</li>
+
+        <li id="webservice"><i class="fa fa-cloud"></i>  WebService</li>
+
+
+      </ul>
+
+    </div>
+
+
+          </div>
+</div>
+
+<!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="/dist/js/bootstrap.min.js"></script>
+
+       <script src="/javascripts/contextmenu.js"></script>
+       <script src="/javascripts/jquery.sticky.js"></script>
+      <script src="/socket.io/socket.io.js"></script>
+       <script src="/javascripts/crossletClientSide.js"></script>
+
+
+  </body>
+</html>

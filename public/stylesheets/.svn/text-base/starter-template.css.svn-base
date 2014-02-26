@@ -1,0 +1,101 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.createAccount {
+  padding: 10px;
+}
+
+.loginDiv {
+  float:right;
+  padding-right: 200px;
+    padding-top: 10px;
+
+}
+
+.btn-radio {
+  width: 100%;
+}
+.img-radio {
+    padding-left: 50px;
+}
+.img-radiopuzzle {
+    padding-left: 43px;
+}
+.grayBox {
+  margin-top:70px;
+}
+
+.selectionbox
+{
+  margin-bottom: 100px;
+}
+
+.well{
+padding-bottom: 30px;
+}
+
+.formSubmit-button
+{
+  float:right;
+  margin-bottom: 10px;
+}
+
+#contextMenu {
+  position: absolute;
+  display:none;
+}
+
+.icon-dynamic {
+    color: #FF0000;
+}
+
+.marginBox {
+  margin-right: 100px;
+  margin-left: 100px;
+    padding-right: 200px;
+    padding-left: 200px;
+
+}
+
+.titlebox{
+      padding-right: 200px;
+}
+
+.titleIntro{
+      padding-right: 200px;
+}
+
+textarea { resize:vertical; }
+
+.extraBox {
+    margin-top: 50px;
+        padding-bottom: 10px;
+
+}
+
+.verticalLine {
+    border-right: thin solid #EBEBEB;
+}
+
+.sidebar
+{
+  margin-top: 20px;
+  padding-left: 50px;
+}
+
+.starter-article {
+  padding: 20px 15px;
+  text-align: center;
+  text-decoration: underline;
+  color:#666666  ;
+}
+
+.description{
+      margin-right: 200px;
+}
+
