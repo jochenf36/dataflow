@@ -5,19 +5,20 @@
 
 exports.index = function(req, res){
 
-  console.log("Sesssion: "  + req.session.login);
 
- var currentLogin="";
-  var state="Login";
+    var templateLinks = new Array(); // will hold the links of all the available templates
 
+    // Templatelinks prototype
+    function Templatelink(name, link)
+    {
+        this.name = name;
+        this.link = link;
+    }
 
-  if(typeof req.session.login !== "undefined")
- {
-      currentLogin = "Logged in as: " + req.session.login;
-      state = "Log out";
-  }
-  res.render('index', { login: currentLogin,
-                                 state: state
-                               });
+    var tourguide = new Templatelink("Tour Guide", "/tourguideTemplate");
+
+    templateLinks.push(tourguide);
+
+  res.render('index', { templateLinks: templateLinks });
 
 };

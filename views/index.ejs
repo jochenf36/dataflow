@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
-    <title>Document Editor</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+    <title>Document Editor - Tour Guide Template -- View</title>
     <!-- Bootstrap core CSS -->
     <link href="/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- FontAwesome -->
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="/stylesheets/starter-template.css" rel="stylesheet">
 
@@ -22,118 +21,71 @@
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-  <script src="/javascripts/index.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="/javascripts/smoothscroll.js"></script>
-  </head>
-
-  <script>
-var x = document.getElementById("headid");
-function getLocation()
-  {
-  if (navigator.geolocation)
-    {
-    navigator.geolocation.getCurrentPosition(showPosition);
-    }
-  else{x.innerHTML = "Geolocation is not supported by this browser.";}
-  }
-function showPosition(position)
-  {
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
-  }
-</script>
-
-  <body onload="loadBody();">
-
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Document Editor</a>
-        </div>
-        <div class="collapse navbar-collapse">
+    <script src="/javascripts/index.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+</head>
 
 
-          <p id="currentLogin" class="navbar-text navbar-right "> Nog ff </p>
 
-           <ul class="nav navbar-nav navbar-right nav createAccount">
-  <a href="#" class="login btn " onclick="showlogin()"></i>Login   |</a>
+<body>
 
-               <a href="LoginForm" class="btn"></i>Create Account</a>
-
-<a  onClick="logoutUser();"style="display:none;" >| Log out</a>
-           </ul>
-
-        </div><!--/.nav-collapse -->
-
-      </div>
-    </div>
-
-<div name="loginbox" class="loginbox loginDiv form-inline" style="display:none;"  >
-  <form id="loginform" action="loginform" method="post"class="form-inline" >
-    <div class="form-group">
-        <input type="text" class="form-control" id="login" placeholder="Login" name="login">
-    </div>
-    <div class="form-group">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
-           <button type="submit" onclick="storeAccountInfo();" class="btn btn-primary">Sign in</button>
-    </div>
-</form>
-
-</div>
-
-
-<!-- Start -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Document Editor</a>
+        </div>
 
-
-
-
-<!-- Start Choose Task -->
-
-<div class="container">
-  <div class="starter-template">
-        <h1 id="headid">Choose A Document Template</h1>
-      </div>
-<div class=".container-fluid">
-
-
-
-
-<div class="list-group">
-<a href="/createDeStandaardTemplate" class=" list-group-item" onclick="choiceMade(0);"> De Standaard Article</a>
-  <a href="#createResource" class=" list-group-item " onclick="choiceMade(0);"><i class="icon-white icon-heart"></i> Scientific Paper</a>
+    </div>
 </div>
 
 
+</div>
+
+
+<!-- Start Container -->
+<div class="container">
+
+
+
+
+
+    <div class="starter-template">
+        <h1 id="headid">Choose A Document Template</h1>
+    </div>
+    <div class=".container-fluid">
+        <!-- Start List Templates -->
+
+        <div class="list-group">
+            <% templateLinks.forEach( function ( link ){ %>
+            <a href="<%= link.link %>" class=" list-group-item" onclick="choiceMade(0);"><%= link.name %></a>
+            <% }); %>
+        </div>
+        <!-- END List Templates -->
 
     </div>
 </div>
 </div>
 
 
-<!-- End Choose Task -->
+
+</div>
+<!-- /.container -->
 
 
-
-
-    </div><!-- /.container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
-    <script src="/dist/js/bootstrap.min.js"></script>
-  </body>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+</body>
 </html>

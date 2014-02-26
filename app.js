@@ -6,8 +6,8 @@
 var express = require('express');
 
 var routes = require('./routes');
-var user = require('./routes/user');
-var debug = require('./routes/debug');
+var editor = require('./routes/editor');
+var tourguideEditor = require('./routes/tourguideTemplate')
 
 
 var http = require('http');
@@ -46,7 +46,8 @@ if ('development' == app.get('env')) {
 
 // setup routing
 app.get('/', routes.index);
-app.get('/debug', debug.debug);
+app.get('/tourguideTemplate', tourguideEditor.tourguideEditor);
+
 
 
 // create HTTP server
@@ -54,6 +55,7 @@ var server  = http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
 });
 
+/*
 
 var yelp = require("yelp").createClient({
     consumer_key: "8jFI0Whqoyk_YDpZFs1KjQ",
@@ -67,6 +69,8 @@ yelp.search({term: "hotel", location: "Sint-Pieters-Leeuw, België", radius_filt
     console.log(error);
     console.log(data);
 });
+
+*/
 
 
 
