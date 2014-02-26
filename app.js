@@ -7,15 +7,6 @@ var express = require('express');
 
 var routes = require('./routes');
 var user = require('./routes/user');
-var loginform = require('./routes/loginForm');
-var createTemplate = require('./routes/createTemplate');
-
-
-// form handlers
-var createAccountHandler = require('./formHandlers/account_form');
-var accountValidator = require('./formHandlers/account_validation');
-var tamplateHandler = require('./formHandlers/template_handler');
-
 
 var http = require('http');
 var path = require('path');
@@ -49,35 +40,15 @@ if ('development' == app.get('env')) {
 }
 
 
-// setup post requests
-app.post('/acountForm',createAccountHandler.createAccount);
-app.post('/loginform', accountValidator.checkAccount);
-app.post('/closeSession', accountValidator.closeSessionForAccount);
-app.post('/createDeStandaardTemplate', tamplateHandler.createDeStandaardTemplate);
-
 
 
 // setup routing
 app.get('/', routes.index);
-app.get('/loginform', loginform.loginform);
-app.get('/createDeStandaardTemplate', createTemplate.createDeStandaardTemplate);
 
 
 // create HTTP server
 var server  = http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
-});
-
-
-// setup Socket.io
-
-var io = require('socket.io').listen(server);
-
-io.sockets.on('connection', function (socket) {
-    socket.emit('news', { hello: 'world' });
-    socket.on('my other event', function (data) {
-        console.log(data);
-    });
 });
 
 
