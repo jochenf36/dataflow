@@ -8,7 +8,7 @@
   var Input = Dataflow.prototype.module("input");
   var Output = Dataflow.prototype.module("output");
 
-  DataflowSubgraph.icon = 'sitemap';
+  DataflowSubgraph.icon = 'filter';
 
   DataflowSubgraph.Model = BaseResizable.Model.extend({
     defaults: function(){

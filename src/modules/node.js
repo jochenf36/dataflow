@@ -142,11 +142,12 @@
     toJSON: function(){
       return {
         id: this.get("id"),
-        label: this.get("label"),
+        label: this.get("type")+": " + this.get("label"),
         type: this.get("type"),
         x: this.get("x"),
         y: this.get("y"),
-        state: this.get("state")
+        state: this.get("state"),
+          nodeColor: this.get("nodeColor")
       };
     },
     inputs:[

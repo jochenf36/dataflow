@@ -2,14 +2,15 @@
 
     // Dependencies
     var BaseResizable = Dataflow.prototype.node("base-resizable");
-    var TextComponent = Dataflow.prototype.node("TextComponent");
+    var PlaceHolder = Dataflow.prototype.node("PlaceHolder");
 
-    TextComponent.Model = BaseResizable.Model.extend({
+    PlaceHolder.Model = BaseResizable.Model.extend({
         defaults: function () {
             var defaults = BaseResizable.Model.prototype.defaults.call(this);
-            defaults.type = "TextComponent";
-            defaults.w = 250;
-            defaults.h = 100;
+            defaults.type = "PlaceHolder";
+            defaults.w = 300;
+            defaults.h = 400;
+            defaults.nodeColor= "antiquewhite";
             return defaults;
         },
         inputinput: function (value) {
@@ -24,22 +25,15 @@
             {
                 id: "input",
                 type: "all"
-            },
-            {
-                id: "content",
-                type: "string"
             }
         ],
         outputs: [
-            {
-                id: "output",
-                type: "all"
-            }
+
         ]
     });
 
 
-    TextComponent.View = BaseResizable.View.extend({
+    PlaceHolder.View = BaseResizable.View.extend({
         initialize: function (options) {
             BaseResizable.View.prototype.initialize.call(this, options);
 

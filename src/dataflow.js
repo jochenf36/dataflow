@@ -73,7 +73,7 @@
       // Initialize state
       this.loadState();
     },
-    
+
     // Create the object to contain the modules
     modules: {},
     module: function(name) {
@@ -345,18 +345,22 @@
 }());
 
 // All code has been downloaded and evaluated and app is ready to be initialized.
-// jQuery(function($) {
+ jQuery(function($) {
 
-//   // Router
-//   var DataflowRouter = Backbone.Router.extend({
-//     routes: {
-//       "": "index"
-//     },
-//     index: function() {
+  // Router
+  var DataflowRouter = Backbone.Router.extend({
+      routes: {
+          "debug": "debug" // matches http://example.com/#anything-here niet waar;-)
+      }
+  });
 
-//     }
-//   });
-//   Dataflow.router = new DataflowRouter();
-//   Backbone.history.start();
+   Dataflow.router = new DataflowRouter();
 
-// });
+     Dataflow.router.on('route:debug',function(actions)
+     {
+        alert("Default route");
+     })
+
+  Backbone.history.start();
+
+});

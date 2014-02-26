@@ -47,11 +47,13 @@
   <script src="src/nodes/base-resizable.js"></script>
   <script src="src/nodes/test.js"></script>
     <script src="src/nodes/TextComponent.js"></script>
+    <script src="src/nodes/PlaceHolder.js"></script>
 
     <!-- Nodes (subgraph functionality) -->
     <script src="src/nodes/dataflow-input.js"></script>
   <script src="src/nodes/dataflow-output.js"></script>
   <script src="src/nodes/dataflow-subgraph.js"></script>
+    <script src="src/nodes/Filter.js"></script>
 
   <!-- Plugins -->
   <script src="src/plugins/menu.js"></script>
@@ -88,41 +90,215 @@
     $(function($){
       // Everything should be loaded now
 
-      // Test 2 graphs
+      // our graph
       var dataflow = new window.Dataflow({
         appendTo: "#graph1",
         debug: "true"
       });
 
-      // Load test graph
+
+        var nodes= new Array(); // collects all the nodes for our graph
+        var nodecounter=0; // keeps track of all the nodes, also used to assign id to a node
+        var edges= new Array() // collects all the edges of our graph
+
+        <!-- START Prototypes -->
+
+      // PlaceHolder prototype
+      function PlaceHolder(label)
+      {
+          this.label = label
+      }
+
+       // TextComponent prototype
+       function TextComponent(label, content, input)
+       {
+           this.label = label;
+           this.content = content;
+           this.input = input;
+       }
+
+        // Filter prototype
+       function Filter(label, nodes, edges)
+       {
+          this.label = label;
+          this.nodes = nodes;
+          this.edges = edges;
+       }
+
+        <!-- END Prototypes -->
+
+
+        <!-- START PLACEHOLDERS -->
+
+        // create array for placeholders
+      var placeHolderArray = new Array();
+
+        // create a placeholder for eacht item on the page
+      var placeHolder0 = new PlaceHolder("Title");
+      var placeHolder1 = new PlaceHolder("Information");
+      var placeHolder2 = new PlaceHolder("Local Temperature");
+      var placeHolder3 = new PlaceHolder("Nearest POI");
+
+        // add placeholders to placeholderarray
+
+      placeHolderArray[0]= placeHolder0;
+      placeHolderArray[1]= placeHolder1;
+      placeHolderArray[2]= placeHolder2;
+      placeHolderArray[3]= placeHolder3;
+
+
+        <!-- END PLACEHOLDERS -->
+
+
+        <!-- START TEXTCOMPONENTS -->
+
+        // create array for textcomponents
+        var textComponentsArray = new Array();
+
+        // create dummy textcomponents
+        var textComponent0 = new TextComponent("Title","Brussels",{Location:"Brussels"});
+        var textComponent1 = new TextComponent("Title","Gent",{Location:"Gent"});
+        var textComponent2 = new TextComponent("Information","Brussels is the capital of Belgium",{Location:"Brussels"});
+        var textComponent3 = new TextComponent("Information","Gent is a large city of Belgium",{Location:"Gent"});
+
+
+        textComponentsArray[0] = textComponent0;
+        textComponentsArray[1] = textComponent1;
+        textComponentsArray[2] = textComponent2;
+        textComponentsArray[3] = textComponent3;
+
+        <!-- END TEXTCOMPONENTS -->
+
+
+        <!-- START creation of Filters -->
+
+         var filterArray= new Array();
+
+            var filterNodes= [];
+         var locationFilter = new Filter("Location Filter",filterNodes);
+
+
+        filterArray[0]= locationFilter;
+
+        <!-- END creation of Filters -->
+
+        <!-- START creation of nodes -->
+
+
+
+        // add placeholders to nodes
+      function createPlaceholderNodes()
+      {
+          var x = 200;
+          var width = 200;
+          var height = 100;
+
+          for(var i=0; i< placeHolderArray.length; i++)
+          {
+            nodes[nodecounter]= {id:nodecounter, label:placeHolderArray[i].label, type:"PlaceHolder", x:x, y:90,w:width, h:height};
+              nodecounter++;
+              x = x+width+40;
+          }
+      }
+
+        // create nodes for textcomponents
+        function createTextComponentsNodes()
+        {
+            var x = 170;
+            var y = 200+ 90 + 130;
+            var width = 200;
+            var height = 100;
+
+            var j = nodes.length;
+            var up = true;
+            for(var i=0; i<textComponentsArray.length; i++)
+            {
+
+
+                nodes[nodecounter]= {id:nodecounter, label:textComponentsArray[i].label, type:"TextComponent",state:{content:textComponentsArray[i].content, input:JSON.stringify(textComponentsArray[i].input)}, x:x, y:y,w:width, h:height};
+                nodecounter++;
+
+                x = x+width+60;
+
+                j++;
+
+                if(up===true)
+                {
+                    y = y + 100;
+                    up=false;
+                }
+                else
+                {
+                    y = y - 100;
+                    up=true;
+                }
+
+
+            }
+        }
+
+
+        function createFilters()
+        {
+            for(var i=0; i< filterArray.length; i++)
+            {
+                var begin= {id:0, label:"in", type:"dataflow-input", x:180, y:120, 'input-type':"all"};
+                var end =  {id:1, label:"out", type:"dataflow-output", x:947, y:120, 'output-type':"all"};
+
+                filterNodes= new Array(begin,end);
+
+                nodes[nodecounter] = {id:nodecounter, label:filterArray[i].label,x:280, y:250, type:"Filter", graph:{nodes:filterNodes,edges:[]}};
+                nodecounter++;
+            }
+        }
+
+        function cdreateFilters()
+        {
+            for(var i=0; i< filterArray.length; i++)
+            {
+                var begin= {id:0, label:"in", type:"dataflow-input", x:180, y:15, 'input-type':"all"};
+                var end =  {id:1, label:"out", type:"dataflow-output", x:947, y:120, 'output-type':"all"};
+                filterNodes= new Array(begin,end);
+
+
+                console.log(filterNodes);
+                nodes[nodecounter] = {id:1,type:"Filter"};
+                //          nodes[nodecounter] = {id:nodecounter, label:filterArray[i].label,x:280, y:250, type:"Filter"};
+                nodecounter++;
+            }
+        }
+
+
+
+
+        function setupEdges()
+        {
+            edges[0]= {source:{node:4, port:"output"}, target:{node:8, port:"0"}, route:0};
+            edges[1]= {source:{node:8, port:"1"}, target:{node:0, port:"input"}, route:1};
+
+            edges[2]= {source:{node:5, port:"output"}, target:{node:8, port:"0"}, route:0};
+
+        }
+
+        createPlaceholderNodes();
+        createTextComponentsNodes();
+        createFilters();
+        setupEdges();
+
+        <!-- END creation of nodes -->
+
+
+        // Load test graph
       var g = dataflow.loadGraph(
-              {nodes: [
-                  {id: 1, label: "TextComponent", type: "TextComponent", x: 61, y: 90, state: {select: "April"}, w: 122, h: 248},
-                  {id: 2, label: "test", type: "test", x: 270, y: 83, state: {select: "April"}, w: 122, h: 254},
-                  {id: 3, label: "subgraph", type: "dataflow-subgraph", x: 453, y: 78, w: 134, h: 111, graph: {nodes: [
-                      {id: "1", label: "in", type: "dataflow-input", x: 180, y: 15, 'input-type': "all"},
-                      {id: 3, label: "in2", type: "dataflow-input", x: 196, y: 132, 'input-type': "all"},
-                      {id: 2, label: "test", type: "test", x: 566, y: 74, state: {select: "April"}, w: 200, h: 400},
-                      {id: "99", label: "out", type: "dataflow-output", x: 947, y: 120, 'output-type': "all"},
-                      {id: "96", label: "out", type: "dataflow-output", x: 947, y: 120, 'output-type': "all"},
-                      {id: "97", label: "out", type: "dataflow-output", x: 947, y: 120, 'output-type': "all"},
-                      {id: "98", label: "out", type: "dataflow-output", x: 947, y: 120, 'output-type': "all"}
-                  ], edges: [
-                      {source: {node: 2, port: "output"}, target: {node: "99", port: "data"}},
-                      {source: {node: "1", port: "data"}, target: {node: 2, port: "input"}},
-                      {source: {node: 3, port: "data"}, target: {node: 2, port: "string"}}
-                  ]}},
-                  {id: 4, label: "test", type: "test", x: 626, y: 74, state: {select: "April"}, w: 130, h: 251}
-              ], edges: [
-                  {source: {node: 1, port: "output"}, target: {node: 2, port: "input"}, route: 0},
-                  {source: {node: 2, port: "output"}, target: {node: 3, port: "1"}, route: 1},
-                  {source: {node: 3, port: "99"}, target: {node: 4, port: "input"}, route: 2},
-                  {source: {node: 2, port: "output"}, target: {node: 3, port: 3}, route: 3}
-              ]}
+              {nodes:nodes, edges:edges}
+
       );
       g.trigger("change");
 
+
+console.log(nodes);
       // Populate some fake log events
+        /*
       setInterval(function () {
         dataflow.graph.get('edges').at(1).get('log').push({
           type: 'begingroup',
@@ -140,6 +316,7 @@
       // Set one port to decline multiple connections
       dataflow.graph.get('nodes').at(2).inputs.at(1).set('multiple', false);
 
+*/
       window.d = $(".dataflow").data("dataflow");
   });
   </script>

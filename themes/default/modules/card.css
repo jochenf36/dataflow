@@ -24,9 +24,9 @@
 
 .dataflow-cards {
   z-index: 4;
-  position: absolute;
-  top: 70px;
-  left: 20px;
+  position: relative;
+  margin-right: 40px;
+    float: right;;
   width: 300px;
   /* HACK */
   max-height: 70%;
@@ -36,7 +36,7 @@
 
 .dataflow-card {
   position: relative;
-  
+
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;

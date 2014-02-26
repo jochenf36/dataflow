@@ -99,7 +99,8 @@
       // Initial position
       this.$el.css({
         left: this.model.get("x") + this.model.parentGraph.get("panX"),
-        top: this.model.get("y") + this.model.parentGraph.get("panY")
+        top: this.model.get("y") + this.model.parentGraph.get("panY"),
+        background: this.model.get("nodeColor")
       });
 
       this.$(".dataflow-node-ins").html(this.inputs.el);
@@ -107,7 +108,7 @@
 
       // Hide controls
       this.$(".dataflow-node-controls").hide();
-      this.$(".label-edit").hide();
+     this.$(".label-edit").hide();
 
       return this;
     },
