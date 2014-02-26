@@ -7,6 +7,8 @@ var express = require('express');
 
 var routes = require('./routes');
 var user = require('./routes/user');
+var debug = require('./routes/debug');
+
 
 var http = require('http');
 var path = require('path');
@@ -44,6 +46,7 @@ if ('development' == app.get('env')) {
 
 // setup routing
 app.get('/', routes.index);
+app.get('/debug', debug.debug);
 
 
 // create HTTP server

@@ -1,0 +1,45 @@
+{
+  "name": "dataflow",
+  "title": "dataflow.js",
+  "description": "jQueryUI-based data flow graph editor",
+  "version": "0.0.7",
+  "homepage": "https://github.com/meemoo/dataflow",
+  "author": {
+    "name": "Forrest Oliphant",
+    "email": "forrest@sembiki.com",
+    "url": "http://meemoo.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/meemoo/dataflow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/meemoo/dataflow/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/meemoo/dataflow/blob/master/LICENSE-MIT"
+    },
+    {
+      "type": "GPL",
+      "url": "https://github.com/meemoo/dataflow/blob/master/LICENSE-GPL"
+    }
+  ],
+  "dependencies": {
+  },
+  "keywords": [],
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.7",
+    "grunt-contrib-concat": "~0.2.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-jshint": "~0.4.3",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-watch": "~0.3.1",
+    "grunt-contrib-cssmin": "~0.6.1"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/grunt test"
+  }
+}
