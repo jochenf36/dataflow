@@ -11,14 +11,20 @@
     <!-- Bootstrap core CSS -->
     <link href="/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- FontAwesome -->
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="/stylesheets/starter-template.css" rel="stylesheet">
+
       <link href="/stylesheets/tourguideTemplate.css" rel="stylesheet">
       <link href="/stylesheets/weather-icons.css" rel="stylesheet">
+      <link href="/stylesheets/flat-ui.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
+
+    <script src="/dist/js/jquery.sticky.js"></script><!-- Support for Sticky for edit button-->
+
+
+      <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -27,7 +33,6 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-  <script src="/javascripts/index.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 
@@ -46,6 +51,8 @@
           };
           var map=new google.maps.Map(document.getElementById("googleMap")
                   ,mapProp);
+          map.setOptions({draggable: false, zoomControl: false, scrollwheel: false, disableDoubleClickZoom: true});
+
       }
 
       google.maps.event.addDomListener(window, 'load', initMap);
@@ -58,6 +65,10 @@
           }
           else{x.innerHTML = "Geolocation is not supported by this browser.";}
       }
+
+      $(document).ready(function(){
+          $("#sticker").sticky({topSpacing:0});
+      });
 
 
   </script>
@@ -82,94 +93,118 @@
     </div>
 
 
-
-
-
 <!-- Start Container -->
 <div class="container">
 
+    <div class="row toprow">
+        <div class="col-lg-12  col-xs-12">
+            <div class="row borderPaper">
+                <div class="col-md-8  col-xs-8 borderright">
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div  class="col-md-6">
+                                    <h5>Place</h5>
+                                </div>
+                                <div  class="col-md-6 spaceBetweenTitle">
+                                    <span class="label label-default">Placeholder 1</span>
+                                </div>
 
-    <div class="well well-sm document-well">
-        <div class="row">
-            <div class="col-md-4">
-                <h5>Place</h5>
-                <div class="well well-sm">
-                    <span class="label label-default">Placeholder 1</span>
-                </div>
-            </div>
-            <div class="col-md-5  ">
-            </div>
-            <div class="col-md-3 ">
-                <h4>Weather Forecast</h4>
-                    <h4><span class="label label-default">Placeholder 2</span></h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-7">
-                <h4>Information</h4>
-                <div class="well ">
-                    <span class="label label-default">Placeholder 4</span>
-                </div>
-            </div>
-            <div class="col-md-2"></div>
-            <div class=" col-md-3">
-                <div class="row">
-                    <div class="col-xs-8">
-                            <h4><span class="label label-default">Placeholder 3</span></h4>
-                    </div>
-                    <div class="col-xs-1">
-                        <i class="wi-celcius fa-3x"></i>
-                    </div>
-                    <div class="col-xs-3">
-                    </div>
-                </div>
-            </div>
-        </div>
+                            </div>
 
-        <div class="row">
-            <div class="col-md-7">
-                <h4>Point of Interests  </h4>
-                <div class="well well-sm">
-                    <span class="label label-default">Placeholder 5</span>
-                    <div class="list-group">
-                            <a class="list-group-item disabled">Cras justo odio</a>
-                            <a class="list-group-item disabled">Dapibus ac facilisis in</a>
-                            <a class="list-group-item disabled">Morbi leo risus</a>
-                            <a  class="list-group-item disabled">Porta ac consectetur ac</a>
-                            <a class="list-group-item disabled">Vestibulum at eros</a>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+
+                     </div>
+                    <div class="row spaceBetweenleft">
+                        <div class="col-md-10">
+                            <div>Information</div>
+                            <span class="label label-default">Placeholder 4</span>
+                            <div class="input">
+                                <textarea class="small"  style=" width: 100%;"name="textarea" id="textarea" rows="3" disabled="" placeholder="Lorem ipsum dolor sit amet, tation albucius eam at, ad solum ponderum definitiones mea, mea numquam pertinacia id. Molestie appetere dissentiet in sea, et dico lorem meliore vel, graecis constituto an pro. Ei doming appellantur conclusionemque sed. Soleat inermis prodesset ei mea, est viris bonorum electram no, mei quem ubique gubergren ad. Mea at soluta voluptua.
+
+Sit cetero omnesque reformidans ad, an rebum repudiare sit, has nostro feugait ut. Fierent invidunt maiestatis cum ut. Vel id errem facete, id eos nostro repudiandae. Eum ut dicit gubergren. Ad timeam lucilius per. Ad mel dolorum fuisset omnesque.
+"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-10  spaceBetweenleft">
+                           <div>Point of Interests</div>
+                            <span class="label label-default">Placeholder 5</span>
+                            <div class="list-group">
+                                <a class="list-group-item disabled"><small>Cras justo odio</small></a>
+                                <a class="list-group-item disabled"><small>Dapibus ac facilisis in</small></a>
+                                <a class="list-group-item disabled"><small>Morbi leo risus</small></a>
+                                <a  class="list-group-item disabled"><small>Porta ac consectetur ac</small></a>
+                                <a class="list-group-item disabled"><small>Vestibulum at eros</small></a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            </div>
-            <div class="col-md-2"></div>
-            <div class="col-md-3">
-                <h4>Holidays - Event</h4>
-                <div class="well well-sm">
-                    <span class="label label-default">Placeholder 6</span>
-                    <ul class="list-group">
-                        <li class="list-group-item disabled">Cras justo odio</li>
-                        <li class="list-group-item disabled">Dapibus ac facilisis in</li>
-                    </ul>
-                    <div id="googleMap" style="width:220px;height:240px;"></div>
+                <div class="col-md-4  col-xs-4 ">
+                    <div class="row">
+                        <div class="col-md-12 spaceBetweenTitle">
+                            <div>Weather Forecast</div>
+                            <span class="label label-default">Placeholder 2</span>
+                        </div>
+                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12 spaceBetweenright">
+
+                            <div class="row">
+                                <div  class="col-md-4 celciusSign">
+                                    <span class="label label-default">Placeholder 3</span>
+                                </div>
+                                <div  class="col-md-8">
+                                   <i class="wi-celcius fa-2x "></i>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row spaceBetweenright">
+                        <div class="col-md-12">
+                            <div>Holidays - Event</div>
+                            <span class="label label-default">Placeholder 6</span>
+                            <ul class="list-group">
+                                <li class="list-group-item disabled"><small>Cras justo odio</small></li>
+                                <li class="list-group-item disabled"><small>Dapibus ac facilisis in</small></li>
+                            </ul>
+                            <span class="label label-default ">Placeholder 7</span>
+
+                            <div id="googleMap" style="height:240px; margin-bottom: 5%"></div>
+
+                        </div>
+                    </div>
 
                 </div>
+
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-9"></div>
-            <div class="col-md-2">
-            </div>
-        </div>
+         </div>
 
     </div>
 
 </div>
     <!-- /.container -->
 
+        <a href="/editor"   class="btn btn-block btn-lg btn-success">Edit Document</a>
+        <div class="progress" style="margin-top: 10px;">
+            <div class="progress-bar" style="width: 45%;"></div>
+        </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
-    <script src="/dist/js/bootstrap.min.js"></script>
+
+
   </body>
 </html>

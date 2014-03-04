@@ -27,3 +27,48 @@
 
 #map-canvas { height: 100% }
 
+.demo-content {
+    float: left;
+    margin-left: 20px;
+    width: 580px;
+}
+
+.borderleft{
+  border-left: thin solid skyblue;
+
+}
+.borderright{
+    border-right: thin solid skyblue;
+
+}
+
+.spaceBetweenleft{
+    margin-top: 5%;
+}
+
+
+.spaceBetweenright{
+    margin-top:10%;
+}
+
+
+.celciusSign{
+    margin-top: 12px;
+}
+
+.borderPaper{
+    border: thin solid #3e8bc5;
+    border-radius:25px;
+    height: 100%;
+
+}
+
+.toprow{
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+.spaceBetweenTitle{
+    margin-top: 12px;
+}
+

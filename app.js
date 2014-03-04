@@ -47,6 +47,7 @@ if ('development' == app.get('env')) {
 // setup routing
 app.get('/', routes.index);
 app.get('/tourguideTemplate', tourguideEditor.tourguideEditor);
+app.get('/editor', editor.editor);
 
 
 
