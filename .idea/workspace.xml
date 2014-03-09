@@ -8,7 +8,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/.svn/text-base/account_form.js.svn-base" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/.svn/text-base/account_validation.js.svn-base" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/.svn/text-base/template_handler.js.svn-base" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
     </list>
     <ignored path="dataflow.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,19 +48,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editor.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="editor.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/editor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="248" column="101" selection-start="6183" selection-end="6186" vertical-scroll-proportion="-10.807693" vertical-offset="3439" max-vertical-offset="5805">
+            <state line="320" column="39" selection-start="8518" selection-end="8525" vertical-scroll-proportion="5.6804733" vertical-offset="0" max-vertical-offset="5805">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="38" selection-start="893" selection-end="893" vertical-scroll-proportion="0.61997706" vertical-offset="0" max-vertical-offset="1125">
+            <state line="37" column="36" selection-start="930" selection-end="930" vertical-scroll-proportion="-20.346153" vertical-offset="26" max-vertical-offset="1125">
               <folding />
             </state>
           </provider>
@@ -627,13 +626,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/themes/default/modules/card.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="41" selection-start="4400" selection-end="4400" vertical-scroll-proportion="0.27095294" vertical-offset="2674" max-vertical-offset="5850">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/src/nodes/TextComp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="13" selection-start="902" selection-end="902" vertical-scroll-proportion="0.6754967" vertical-offset="0" max-vertical-offset="840">
@@ -725,16 +717,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/editor.js">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="248" column="101" selection-start="6183" selection-end="6186" vertical-scroll-proportion="-10.807693" vertical-offset="3439" max-vertical-offset="5805">
+        <state line="37" column="36" selection-start="930" selection-end="930" vertical-scroll-proportion="-20.346153" vertical-offset="26" max-vertical-offset="1125">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/node_modules/uglify-js/tmp/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="38" selection-start="893" selection-end="893" vertical-scroll-proportion="0.61997706" vertical-offset="0" max-vertical-offset="1125">
+        <state line="34" column="31" selection-start="3686" selection-end="3686" vertical-scroll-proportion="-6.2062936" vertical-offset="5805" max-vertical-offset="334785">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/editor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="320" column="39" selection-start="8518" selection-end="8525" vertical-scroll-proportion="5.6804733" vertical-offset="0" max-vertical-offset="5805">
           <folding />
         </state>
       </provider>
