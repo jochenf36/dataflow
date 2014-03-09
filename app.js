@@ -6,7 +6,6 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-steamer = require( 'steamer' ); // need for my thick client
 
 var app = module.exports = express();
 

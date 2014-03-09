@@ -5,30 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c20b362-3511-4b9e-8fd2-b50bb71954f7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/FormHandler.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/editorClient.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iServer/iServerAPI.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/newTourguideDetails.ejs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/newTourguideDetails.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/saveGraph.js" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/.svn/text-base/account_form.js.svn-base" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/.svn/text-base/account_validation.js.svn-base" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/.svn/text-base/template_handler.js.svn-base" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/src/nodes/Placeholder.js" afterPath="$PROJECT_DIR$/public/src/nodes/Placeholder.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/src/nodes/TextComponent.js" afterPath="$PROJECT_DIR$/public/src/nodes/TextComp.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/debug.html" afterPath="$PROJECT_DIR$/debug.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/editor.ejs" afterPath="$PROJECT_DIR$/views/editor.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/editor.js" afterPath="$PROJECT_DIR$/routes/editor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/flat-ui.css" afterPath="$PROJECT_DIR$/public/stylesheets/flat-ui.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.ejs" afterPath="$PROJECT_DIR$/views/index.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/modules/input-view.js" afterPath="$PROJECT_DIR$/public/src/modules/input-view.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/themes/default/modules/search.css" afterPath="$PROJECT_DIR$/public/themes/default/modules/search.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/plugins/search.js" afterPath="$PROJECT_DIR$/public/src/plugins/search.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tourguideTemplate.ejs" afterPath="$PROJECT_DIR$/views/tourguideTemplate.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/tourguideTemplate.js" afterPath="$PROJECT_DIR$/routes/tourguideTemplate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dataflow.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,10 +49,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editor.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="editor.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/editor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="185" column="107" selection-start="4479" selection-end="4479" vertical-scroll-proportion="0.84023666" vertical-offset="2065" max-vertical-offset="5805">
+            <state line="248" column="101" selection-start="6183" selection-end="6186" vertical-scroll-proportion="-10.807693" vertical-offset="3439" max-vertical-offset="5805">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="38" selection-start="893" selection-end="893" vertical-scroll-proportion="0.61997706" vertical-offset="0" max-vertical-offset="1125">
               <folding />
             </state>
           </provider>
@@ -137,7 +126,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/stylesheets/starter-template.css" />
         <option value="$PROJECT_DIR$/public/themes/default/modules/search.css" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/public/src/nodes/Placeholder.js" />
@@ -153,6 +141,7 @@
         <option value="$PROJECT_DIR$/public/javascripts/saveGraph.js" />
         <option value="$PROJECT_DIR$/iServer/iServerAPI.js" />
         <option value="$PROJECT_DIR$/routes/editor.js" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -638,13 +627,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/src/modules/input-view.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="187" column="23" selection-start="6163" selection-end="6163" vertical-scroll-proportion="0.52781063" vertical-offset="2359" max-vertical-offset="7785">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/themes/default/modules/card.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="194" column="41" selection-start="4400" selection-end="4400" vertical-scroll-proportion="0.27095294" vertical-offset="2674" max-vertical-offset="5850">
@@ -745,7 +727,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/editor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="107" selection-start="4479" selection-end="4479" vertical-scroll-proportion="0.84023666" vertical-offset="2065" max-vertical-offset="5805">
+        <state line="248" column="101" selection-start="6183" selection-end="6186" vertical-scroll-proportion="-10.807693" vertical-offset="3439" max-vertical-offset="5805">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="38" selection-start="893" selection-end="893" vertical-scroll-proportion="0.61997706" vertical-offset="0" max-vertical-offset="1125">
           <folding />
         </state>
       </provider>
