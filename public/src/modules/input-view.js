@@ -188,7 +188,7 @@
           return input;
         case 'object':
           input = $('<textarea class="input input-object"></textarea>');
-          input.on('change, keyup', this.inputObject.bind(this));
+            input.change(this.inputString.bind(this));
           return input;
         case 'bang':
           input = $('<button class="input input-bang">!</button>');

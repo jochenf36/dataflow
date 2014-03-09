@@ -4,16 +4,12 @@
  */
 
 var express = require('express');
-
-var routes = require('./routes');
-var editor = require('./routes/editor');
-var tourguideEditor = require('./routes/tourguideTemplate')
-
-
 var http = require('http');
 var path = require('path');
+steamer = require( 'steamer' ); // need for my thick client
 
-var app = express();
+var app = module.exports = express();
+
 
 // sessions & coockies
 app.use(express.cookieParser());
@@ -36,19 +32,16 @@ app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.bodyParser());
 
+
+
 // development only
 if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
 
 
-
-
 // setup routing
-app.get('/', routes.index);
-app.get('/tourguideTemplate', tourguideEditor.tourguideEditor);
-app.get('/editor', editor.editor);
-
+var routes = require('./routes');
 
 
 // create HTTP server

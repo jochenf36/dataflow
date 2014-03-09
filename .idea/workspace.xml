@@ -1,22 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/routes/editor.js" line="36" mnemonic="5" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8c20b362-3511-4b9e-8fd2-b50bb71954f7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/flat-ui-icons-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/flat-ui-icons-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/flat-ui-icons-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/flat-ui-icons-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/flat-ui.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/dist/js/jquery.sticky.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/FormHandler.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/editorClient.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/iServer/iServerAPI.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/newTourguideDetails.ejs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/newTourguideDetails.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/saveGraph.js" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/.svn/text-base/account_form.js.svn-base" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/.svn/text-base/account_validation.js.svn-base" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/formHandlers/.svn/text-base/template_handler.js.svn-base" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/src/nodes/Placeholder.js" afterPath="$PROJECT_DIR$/public/src/nodes/Placeholder.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/src/nodes/TextComponent.js" afterPath="$PROJECT_DIR$/public/src/nodes/TextComp.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/themes/default/dataflow.css" afterPath="$PROJECT_DIR$/public/themes/default/dataflow.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/debug.html" afterPath="$PROJECT_DIR$/debug.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/editor.ejs" afterPath="$PROJECT_DIR$/views/editor.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/editor.js" afterPath="$PROJECT_DIR$/routes/editor.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/flat-ui.css" afterPath="$PROJECT_DIR$/public/stylesheets/flat-ui.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.ejs" afterPath="$PROJECT_DIR$/views/index.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/tourguideTemplate.css" afterPath="$PROJECT_DIR$/public/stylesheets/tourguideTemplate.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/modules/input-view.js" afterPath="$PROJECT_DIR$/public/src/modules/input-view.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/themes/default/modules/search.css" afterPath="$PROJECT_DIR$/public/themes/default/modules/search.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/plugins/search.js" afterPath="$PROJECT_DIR$/public/src/plugins/search.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tourguideTemplate.ejs" afterPath="$PROJECT_DIR$/views/tourguideTemplate.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/tourguideTemplate.js" afterPath="$PROJECT_DIR$/routes/tourguideTemplate.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dataflow.iws" />
@@ -39,103 +50,71 @@
     <favorites_list name="dataflow" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="tourguideTemplate.ejs" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/tourguideTemplate.ejs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="20" column="49" selection-start="918" selection-end="980" vertical-scroll-proportion="43.183674" vertical-offset="2416" max-vertical-offset="3240">
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#textarea#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="49" column="32" selection-start="1196" selection-end="1196" vertical-scroll-proportion="-14.6" vertical-offset="370" max-vertical-offset="1245">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="editor.js" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/routes/editor.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="11" column="0" selection-start="101" selection-end="101" vertical-scroll-proportion="0.18943743" vertical-offset="0" max-vertical-offset="871">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="tourguideTemplate.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/routes/tourguideTemplate.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="10" column="0" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="240">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="weather-icons.css" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/stylesheets/weather-icons.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="40" column="27" selection-start="1768" selection-end="1768" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="4995">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="tourguideTemplate.css" pinned="true" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/stylesheets/tourguideTemplate.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="48" column="0" selection-start="649" selection-end="660" vertical-scroll-proportion="0.0" vertical-offset="164" max-vertical-offset="1200">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="dataflow.css" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/themes/default/dataflow.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="6" column="79" selection-start="184" selection-end="186" vertical-scroll-proportion="-3.6" vertical-offset="0" max-vertical-offset="1620">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="search.css" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/public/themes/default/modules/search.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="23" column="42" selection-start="640" selection-end="662" vertical-scroll-proportion="0.017482517" vertical-offset="330" max-vertical-offset="1395">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.ejs" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/index.ejs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="64" column="54" selection-start="2226" selection-end="2226" vertical-scroll-proportion="-12.875" vertical-offset="651" max-vertical-offset="1485">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="0" selection-start="1464" selection-end="1464" vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="1275">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FormHandler.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/FormHandler.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="81" column="26" selection-start="2408" selection-end="2408" vertical-scroll-proportion="-38.5" vertical-offset="214" max-vertical-offset="1785">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editor.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/editor.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="185" column="107" selection-start="4479" selection-end="4479" vertical-scroll-proportion="0.84023666" vertical-offset="2065" max-vertical-offset="5805">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="iServerAPI.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/iServer/iServerAPI.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="287" column="12" selection-start="7404" selection-end="7404" vertical-scroll-proportion="-18.884615" vertical-offset="3814" max-vertical-offset="5940">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/src/plugins/search.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="99" column="27" selection-start="3137" selection-end="3137" vertical-scroll-proportion="-16.0" vertical-offset="1069" max-vertical-offset="3705">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="saveGraph.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/saveGraph.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="194" column="31" selection-start="5533" selection-end="5544" vertical-scroll-proportion="-10.807693" vertical-offset="2629" max-vertical-offset="4980">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editorClient.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/editorClient.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="47" selection-start="1026" selection-end="1026" vertical-scroll-proportion="77.61539" vertical-offset="2678" max-vertical-offset="3510">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -158,28 +137,27 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/routes/debug.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/index.js" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/routes/tourguideTemplate.html" />
-        <option value="$PROJECT_DIR$/routes/tourguideTemplate.js" />
-        <option value="$PROJECT_DIR$/public/stylesheets/weather-icons.css" />
-        <option value="$PROJECT_DIR$/public/stylesheets/demo.css" />
-        <option value="$PROJECT_DIR$/public/stylesheets/flat-ui.css" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/routes/editor.js" />
-        <option value="$PROJECT_DIR$/public/stylesheets/tourguideTemplate.css" />
-        <option value="$PROJECT_DIR$/views/editor.ejs" />
-        <option value="$PROJECT_DIR$/views/tourguideTemplate.ejs" />
-        <option value="$PROJECT_DIR$/views/index.ejs" />
-        <option value="$PROJECT_DIR$/public/themes/default/dataflow.css" />
+        <option value="$PROJECT_DIR$/public/stylesheets/starter-template.css" />
         <option value="$PROJECT_DIR$/public/themes/default/modules/search.css" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/public/src/nodes/Placeholder.js" />
+        <option value="$PROJECT_DIR$/views/editor.ejs" />
+        <option value="$PROJECT_DIR$/public/themes/default/modules/card.css" />
+        <option value="$PROJECT_DIR$/public/src/nodes/TextComp.js" />
+        <option value="$PROJECT_DIR$/routes/tourguideTemplate.js" />
+        <option value="$PROJECT_DIR$/views/tourguideTemplate.ejs" />
+        <option value="$PROJECT_DIR$/public/src/modules/input-view.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/editorClient.js" />
+        <option value="$PROJECT_DIR$/public/src/plugins/search.js" />
+        <option value="$PROJECT_DIR$/routes/FormHandler.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/saveGraph.js" />
+        <option value="$PROJECT_DIR$/iServer/iServerAPI.js" />
+        <option value="$PROJECT_DIR$/routes/editor.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="50" />
-    <option name="y" value="31" />
+    <option name="y" value="22" />
     <option name="width" value="1920" />
     <option name="height" value="994" />
   </component>
@@ -334,10 +312,6 @@
               <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -436,6 +410,14 @@
               <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elements" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -465,73 +447,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fonts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataflow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataflow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataflow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataflow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fonts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataflow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataflow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dist" />
+              <option name="myItemId" value="iServer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -543,27 +459,27 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="settings.github" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public/libs" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/routes" />
       <recent name="$PROJECT_DIR$/public/stylesheets" />
       <recent name="$PROJECT_DIR$/views" />
-      <recent name="$PROJECT_DIR$/routes" />
       <recent name="$PROJECT_DIR$/src/nodes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/public/dist/js" />
       <recent name="$PROJECT_DIR$/public/fonts" />
       <recent name="$PROJECT_DIR$/public/stylesheets" />
       <recent name="$PROJECT_DIR$/public/libs" />
-      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.debug.html">
@@ -571,14 +487,6 @@
       <browser start="false" url="" with-js-debugger="false" />
       <RunnerSettings RunnerId="NodeJS.run" />
       <ConfigurationWrapper RunnerId="NodeJS.run" />
-      <method />
-    </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -591,15 +499,23 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -678,24 +594,24 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="50" y="31" width="1920" height="994" extended-state="0" />
+    <frame x="0" y="22" width="1920" height="994" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.178125" sideWeight="0.67074525" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933258" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933258" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933258" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -722,122 +638,114 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/routes/tourguideTemplate.js">
+    <entry file="file://$PROJECT_DIR$/public/src/modules/input-view.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+        <state line="187" column="23" selection-start="6163" selection-end="6163" vertical-scroll-proportion="0.52781063" vertical-offset="2359" max-vertical-offset="7785">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/weather-icons.css">
+    <entry file="file://$PROJECT_DIR$/public/themes/default/modules/card.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="27" selection-start="1768" selection-end="1768" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="4995">
+        <state line="194" column="41" selection-start="4400" selection-end="4400" vertical-scroll-proportion="0.27095294" vertical-offset="2674" max-vertical-offset="5850">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/public/src/nodes/TextComp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="32" selection-start="1196" selection-end="1196" vertical-scroll-proportion="-14.6" vertical-offset="370" max-vertical-offset="1245">
+        <state line="34" column="13" selection-start="902" selection-end="902" vertical-scroll-proportion="0.6754967" vertical-offset="0" max-vertical-offset="840">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/dist/js/jquery.sticky.js">
+    <entry file="file://$PROJECT_DIR$/views/newTourguideDetails.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/tourguideTemplate.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="0" selection-start="649" selection-end="660" vertical-scroll-proportion="0.0" vertical-offset="164" max-vertical-offset="1200">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/plugins/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="15" selection-start="2080" selection-end="2080" vertical-scroll-proportion="0.7185629" vertical-offset="435" max-vertical-offset="3135">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/modules/menucard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="848">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/modules/menucard-view.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="10" selection-start="865" selection-end="865" vertical-scroll-proportion="0.502994" vertical-offset="0" max-vertical-offset="835">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/modules/card-view.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="39" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.5660377" vertical-offset="0" max-vertical-offset="1470">
+        <state line="77" column="46" selection-start="2537" selection-end="2561" vertical-scroll-proportion="0.31737345" vertical-offset="923" max-vertical-offset="1770">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/editor.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="1040" selection-end="1040" vertical-scroll-proportion="-4.4316545" vertical-offset="4131" max-vertical-offset="4965">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="119" column="19" selection-start="4469" selection-end="4469" vertical-scroll-proportion="0.83036935" vertical-offset="1178" max-vertical-offset="2310">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/tourguideTemplate.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="49" selection-start="918" selection-end="980" vertical-scroll-proportion="43.183674" vertical-offset="2416" max-vertical-offset="3240">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="197" column="45" selection-start="8355" selection-end="8355" vertical-scroll-proportion="0.76462394" vertical-offset="2406" max-vertical-offset="3240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/themes/default/modules/edge.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="463" selection-end="463" vertical-scroll-proportion="0.41331804" vertical-offset="0" max-vertical-offset="871">
+        <state line="69" column="0" selection-start="1464" selection-end="1464" vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="1275">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs">
+    <entry file="file://$PROJECT_DIR$/routes/tourguideTemplate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="54" selection-start="2226" selection-end="2226" vertical-scroll-proportion="-12.875" vertical-offset="651" max-vertical-offset="1485">
+        <state line="12" column="38" selection-start="208" selection-end="208" vertical-scroll-proportion="0.20665902" vertical-offset="0" max-vertical-offset="871">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/themes/default/dataflow.css">
+    <entry file="file://$PROJECT_DIR$/routes/newTourguideDetails.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="79" selection-start="184" selection-end="186" vertical-scroll-proportion="-3.6" vertical-offset="0" max-vertical-offset="1620">
+        <state line="16" column="0" selection-start="198" selection-end="198" vertical-scroll-proportion="0.27554536" vertical-offset="0" max-vertical-offset="871">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/themes/default/modules/search.css">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/editorClient.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="42" selection-start="640" selection-end="662" vertical-scroll-proportion="0.017482517" vertical-offset="330" max-vertical-offset="1395">
+        <state line="44" column="47" selection-start="1026" selection-end="1026" vertical-scroll-proportion="77.61539" vertical-offset="2678" max-vertical-offset="3510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/FormHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="26" selection-start="2408" selection-end="2408" vertical-scroll-proportion="-38.5" vertical-offset="214" max-vertical-offset="1785">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/plugins/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="27" selection-start="3137" selection-end="3137" vertical-scroll-proportion="-16.0" vertical-offset="1069" max-vertical-offset="3705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/saveGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="194" column="31" selection-start="5533" selection-end="5544" vertical-scroll-proportion="-10.807693" vertical-offset="2629" max-vertical-offset="4980">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iServer/iServerAPI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="287" column="12" selection-start="7404" selection-end="7404" vertical-scroll-proportion="-18.884615" vertical-offset="3814" max-vertical-offset="5940">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/editor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="101" selection-end="101" vertical-scroll-proportion="0.18943743" vertical-offset="0" max-vertical-offset="871">
+        <state line="185" column="107" selection-start="4479" selection-end="4479" vertical-scroll-proportion="0.84023666" vertical-offset="2065" max-vertical-offset="5805">
           <folding />
         </state>
       </provider>

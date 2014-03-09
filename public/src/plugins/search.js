@@ -39,10 +39,18 @@
   });
 
   Search.initialize = function (dataflow) {
-    var $search = $('<div class="dataflow-plugin-search"><input type="search" placeholder="Search" results="5" x-webkit-speech /><button><i class="icon-reorder"></i></button></div>');
+    var $search = $('<div class="dataflow-plugin-search">' +
+        '<input type="search" placeholder="Search" results="5" x-webkit-speech />' +
+        '<button id="actions"><i class="icon-reorder"></i></button>' + '<span class="spacebetweenIcons"/>'+
+        '<button id="save"><i class="fa fa-floppy-o"></i></button>' + '<span class="spacebetweenIcons"/>'+
+        '<button id="view"><i class="fa fa-eye"></i></button>' +
+        '</div>');
     var $input = $search.find('input');
-    var $button = $search.find('button');
-    dataflow.$el.prepend($search);
+    var $buttonAction = $search.find("#actions");
+    var $buttonSave = $search.find("#save");
+    var $buttonView = $search.find("#view");
+
+      dataflow.$el.prepend($search);
 
     $input.on('keydown', function (event) {
       // Ctrl-s again to get out of the search field
@@ -72,9 +80,39 @@
       Search.search($input.val(), dataflow);
     });
 
-    $button.on('click', function () {
+    $buttonAction.on('click', function () {
       dataflow.showPlugin('menu');
     });
+
+    $buttonSave.on('click', function () {
+
+        // to do save option for document
+
+        var nodesModels = dataflow.currentGraph.nodes.models; // get all the nodes in the graph
+        var edgesModels = dataflow.currentGraph.edges.models; // get all the nodes in the graph
+
+        // clean the unncessary info;
+        parseNodes(nodesModels, function(cleanNodes){
+
+            parseEdges(edgesModels, cleanNodes, function(cleanEdges){
+                 checkNewNodes($,cleanNodes, function()
+                 {
+                     checkNewEdges($, cleanEdges);
+                 });
+             });
+        });
+
+
+
+
+    });
+
+    $buttonView.on('click', function () {
+
+        // to do save and VIEW option for document
+
+          dataflow.showPlugin('menu');
+      });
 
     Search.focus = function () {
       $input.val('');

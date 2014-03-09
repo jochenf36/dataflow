@@ -2,9 +2,9 @@
 
     // Dependencies
     var BaseResizable = Dataflow.prototype.node("base-resizable");
-    var PlaceHolder = Dataflow.prototype.node("PlaceHolder");
+    var Placeholder = Dataflow.prototype.node("Placeholder");
 
-    PlaceHolder.Model = BaseResizable.Model.extend({
+    Placeholder.Model = BaseResizable.Model.extend({
         defaults: function () {
             var defaults = BaseResizable.Model.prototype.defaults.call(this);
             defaults.type = "PlaceHolder";
@@ -33,7 +33,7 @@
     });
 
 
-    PlaceHolder.View = BaseResizable.View.extend({
+    Placeholder.View = BaseResizable.View.extend({
         initialize: function (options) {
             BaseResizable.View.prototype.initialize.call(this, options);
 

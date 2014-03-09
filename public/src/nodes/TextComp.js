@@ -2,12 +2,12 @@
 
     // Dependencies
     var BaseResizable = Dataflow.prototype.node("base-resizable");
-    var TextComponent = Dataflow.prototype.node("TextComponent");
+    var TextComp = Dataflow.prototype.node("TextComp");
 
-    TextComponent.Model = BaseResizable.Model.extend({
+    TextComp.Model = BaseResizable.Model.extend({
         defaults: function () {
             var defaults = BaseResizable.Model.prototype.defaults.call(this);
-            defaults.type = "TextComponent";
+            defaults.type = "TextComp";
             defaults.w = 250;
             defaults.h = 100;
             return defaults;
@@ -24,10 +24,11 @@
             {
                 id: "input",
                 type: "all"
+
             },
             {
                 id: "content",
-                type: "string"
+                type: "object"
             }
         ],
         outputs: [
@@ -39,7 +40,7 @@
     });
 
 
-    TextComponent.View = BaseResizable.View.extend({
+    TextComp.View = BaseResizable.View.extend({
         initialize: function (options) {
             BaseResizable.View.prototype.initialize.call(this, options);
 
