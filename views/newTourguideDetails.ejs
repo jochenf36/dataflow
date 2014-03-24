@@ -28,7 +28,7 @@
     <link href="/stylesheets/flat-ui.css" rel="stylesheet">
 
     <script src="/javascripts/index.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 </head>
 
 
@@ -70,12 +70,14 @@
 
         <div class="login-screen">
 
-            <div class="login-icon" style="margin-top:7%; margin-left: 8%">
-                <img src="images/icons/svg/clipboard.svg" alt="Clipboard">
-             Tour Guide Details
+
+            <div class="login-icon" style="margin-top:7%; margin-left: 13%">
+                <img src="/images/icons/svg/clipboard.svg" alt="Clipboard">
+                Tour Guide Details
             </div>
 
             <form id="tourguidedescriptionForm" name="tourguidedescriptionForm" method="POST" action="tourguideDetailsForm" class="login-form">
+
                 <div class="form-group">
                     <input type="text" name="login" required="yes" class="form-control login-field" value="" placeholder="Enter your name" id="login-name">
                     <label class="login-field-icon fui-user" for="login-name"></label>

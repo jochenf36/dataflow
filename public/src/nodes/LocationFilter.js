@@ -2,28 +2,27 @@
 
     // Dependencies
     var BaseResizable = Dataflow.prototype.node("base-resizable");
-    var  Filter = Dataflow.prototype.node("Filter");
+    var  LocationFilter = Dataflow.prototype.node("Location_Filter");
 
     var Graph = Dataflow.prototype.module("graph");
     var Input = Dataflow.prototype.module("input");
     var Output = Dataflow.prototype.module("output");
 
-    Filter.icon = 'filter';
+    LocationFilter.icon = 'filter';
 
-    Filter.Model = BaseResizable.Model.extend({
+    LocationFilter.Model = BaseResizable.Model.extend({
         defaults: function(){
             var defaults = BaseResizable.Model.prototype.defaults.call(this);
             defaults.label = " ";
-            defaults.icon = Filter.icon;
-            defaults.type = "Filter";
+            defaults.icon = LocationFilter.icon;
+            defaults.type = "Location_Filter";
             defaults.w = 220;
             defaults.h = 90;
-            defaults.nodeColor= "#D1FFE3";
+            defaults.nodeColor= "skyblue";
             defaults.graph = {
-                name:"Filter",
                 nodes:[
-                    {id: "10", label: "in", type:"dataflow-input",  x:180, y: 100},
-                    {id:"11", label:"out", type:"dataflow-output", x:975, y:100}
+                    {id: "1", label: "in", type:"dataflow-input",  x:180, y: 100},
+                    {id:"99", label:"out", type:"dataflow-output", x:975, y:100}
                 ]
             };
             return defaults;
@@ -117,9 +116,9 @@
         ]
     });
 
-    var innerTemplate = '<button class="show-subgraph">edit Filter</button>';
+    var innerTemplate = '<button class="show-subgraph">edit LocationFilter</button>';
 
-    Filter.View = BaseResizable.View.extend({
+    LocationFilter.View = BaseResizable.View.extend({
         events: function(){
             var events = BaseResizable.View.prototype.events.call(this);
             events["click .show-subgraph"] = "showSubgraph";
@@ -155,7 +154,6 @@
             }, this);
         },
         showSubgraph: function(){
-           // saveGraph(this.model.graph.dataflow,$);
             this.model.graph.dataflow.showGraph(this.model.graph);
         }
     });

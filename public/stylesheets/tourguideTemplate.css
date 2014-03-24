@@ -52,9 +52,6 @@
 }
 
 
-.celciusSign{
-    margin-top: 12px;
-}
 
 .borderPaper{
     border: thin solid #3e8bc5;
@@ -69,6 +66,21 @@
 }
 
 .spaceBetweenTitle{
-    margin-top: 12px;
+    margin-top: 14px;
+
 }
+
+
+.yellow{
+    background-color: #ffcc66;
+}
+
+.red{
+    background-color: darkred;
+}
+
+.green{
+    background-color: #27ae60;
+}
+
 

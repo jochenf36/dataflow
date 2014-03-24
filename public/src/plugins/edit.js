@@ -240,7 +240,7 @@
         }
         results.push({
           source: 'edit',
-          icon: 'sign-blank',
+          icon: node.icon ? node.icon : 'sign-blank',
           label: node.get('label'),
           description: node.type,
           action: function () {

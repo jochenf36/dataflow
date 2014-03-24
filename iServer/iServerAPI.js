@@ -35,7 +35,7 @@ exports.createUser = function createUser(login_name, callback){
                     console.log('User has been created');
 
                 } else {
-                    console.log('error: '+ response.statusCode)
+                    console.log('error: '+ response.statusCode, "User was not created: ", login_name);
                     console.log('body'+ body)
                 }
                 callback();
@@ -76,14 +76,14 @@ exports.getUser = function getUser(login_name,callback)
 
 
         } else {
-            console.log('error: '+ response.statusCode)
+            console.log('error: '+ response.statusCode, "User not found: ", login_name);
             console.log('body'+ body)
         }
     });
 }
 
 
-// checks whether or not the user already exists.
+// get the document
 exports.getDocument = function getDocument(document_name,callback)
 {
     //define URI
@@ -105,7 +105,7 @@ exports.getDocument = function getDocument(document_name,callback)
                 }
                 else
                 {
-                    console.log('Docmuent not found');
+                    console.log('Document not found: ', document_name);
                     callback(undefined);
                 }
 
@@ -114,18 +114,32 @@ exports.getDocument = function getDocument(document_name,callback)
 }
 
 
-// checks whether or not the user already exists.
-exports.getNode = function getDocument(nodeName, type,callback)
+
+// get a node from the iServer (any type of resource actually)
+ exports.getNode = function getNode(nodeName, type,callback,counter)
 {
     // needs to be converted
     if(type==="textComp")
     {
         type = "text";
     }
+    // needs to be converted
+    if(type==="WebService")
+    {
+        type = "Webservice";
+    }
 
     //define URI
     var uri =getURI() + 'resources/' + type + "/" + nodeName;
-    console.log("Send GET : " + uri);
+
+    if((type==="Placeholder" ||type==="placeholder"  )){
+        uri = getURI() + 'placeholders/' + nodeName;
+
+    }
+
+
+  //  console.log("Send GET : " + uri);
+
 
 
     // get document from iServer
@@ -135,13 +149,22 @@ exports.getNode = function getDocument(nodeName, type,callback)
         }
         , function(error, response, body) {
             if(response.statusCode == 200){
-
                 var jsonObject=  body;
-                callback(jsonObject); // return the retrieved user
+
+                if(counter!==undefined)
+                {
+                    callback(jsonObject, counter); // return the retrieved user
+
+                }else
+                {
+
+                   callback(jsonObject); // return the retrieved user
+                }
             }
             else
             {
-                console.log('jsonObject not found');
+
+                console.log('Node not found:', nodeName);
                 callback(undefined);
             }
 
@@ -149,6 +172,72 @@ exports.getNode = function getDocument(nodeName, type,callback)
 
 }
 
+
+// get a node from the iServer (any type of resource actually)
+exports.deleteNode = function deleteNode(nodeName, type,callback)
+{
+    // needs to be converted
+    if(type==="textComp"|| type==="TextComp")
+    {
+        type = "text";
+    }
+
+    //define URI
+    var uri =getURI() + 'resources/' + type + "/" + nodeName;
+    console.log("Send Delete : " + uri);
+
+
+    // delete node from iServer
+    request(
+        { method: 'DELETE'
+            , uri: uri
+        }
+        , function(error, response, body) {
+            if(response.statusCode == 200){
+
+                var jsonObject=  body;
+                callback(response.statusCode); // return the retrieved user
+            }
+            else
+            {
+                console.log('Node not found:', nodeName);
+                callback(response.statusCode);
+            }
+
+    });
+}
+
+exports.deleteNodeFromFilterElements = function deleteNodeFromFilterElements(name, type, filtername)
+{
+    // needs to be converted
+    if(type==="textComp"|| type==="TextComp")
+    {
+        type = "text";
+    }
+
+    var jsonData ={elementName: name};
+
+    //define URI
+    var uri = getURI() + "Filter/deleteelement/"+ filtername;
+    console.log("Send PUT : " + uri, jsonData);
+
+    request(
+        { method: 'PUT'
+            , uri: uri
+            , json:jsonData
+        }
+        , function (error, response, body) {
+            if(response.statusCode == 200){ // should be 201 but not good implemented at IServer (200 = OK , 201 = ADDED)
+                console.log('Element is removed from filter');
+            } else {
+                console.log('error: '+ response.statusCode, " For: ", " removing element to filter:", elementName)
+               // console.log('body'+ body)
+            }
+        }
+    )
+
+
+}
 
 
 // get placeholder by name
@@ -211,7 +300,7 @@ exports.createDocumentTemplate = function createDocumentTemplate(document_name,d
                 console.log('Document Template has been created');
 
             } else {
-                console.log('error: '+ response.statusCode)
+                console.log('error: '+ response.statusCode, " For: ", "creating DocumentTemplate", document_name)
                 console.log('body'+ body)
             }
             callback();
@@ -223,8 +312,10 @@ exports.createDocumentTemplate = function createDocumentTemplate(document_name,d
 
 
 // create resource object
-exports.createResource  = function createResource(resoureName,type ,jsonData)
+exports.createResource  = function createResource(resoureName,type ,jsonData,callback)
 {
+    resoureName = resoureName.replace(/\s+/g, '_');
+
     //define URI
     var uri = getURI() + "resources/" + type +'/' + resoureName
     console.log("Send POST : " + uri, jsonData);
@@ -236,10 +327,14 @@ exports.createResource  = function createResource(resoureName,type ,jsonData)
         }
         , function (error, response, body) {
             if(response.statusCode == 200){ // should be 201 but not good implemented at IServer (200 = OK , 201 = ADDED)
-                console.log('Resource has been created');
-
+                console.log('Resource has been created:', resoureName);
+                if(callback!==undefined)
+                {
+                    console.log("Now call callback for", resoureName)
+                    callback(resoureName);
+                }
             } else {
-                console.log('error: '+ response.statusCode)
+                console.log('error: '+ response.statusCode, " For: ", "creating resource:", resoureName)
                 console.log('body'+ body)
             }
         }
@@ -261,7 +356,7 @@ exports.deleteResource  = function createResource(resourceName,type)
                 console.log('Resource has been deleted: ', resourceName);
 
             } else {
-                console.log('error: '+ response.statusCode)
+                console.log('error: '+ response.statusCode, " For: ", "deleting resource: ", resourceName)
                 console.log('body'+ body)
             }
         }
@@ -295,7 +390,7 @@ exports.createPlaceholder = function createPlaceholder(placeholder_name, placeho
                 console.log('Placeholder has been created: ', placeholder_name);
 
             } else {
-                console.log('error: '+ response.statusCode)
+                console.log('error: '+ response.statusCode, " For: ", "Adding ", placeholder_name)
                 console.log('body'+ body)
             }
         }
@@ -320,7 +415,7 @@ exports.addPlaceholdersToTemplate = function addPlaceholdersToTemplate(placehold
                 console.log('Placeholders added to document');
 
             } else {
-                console.log('error: '+ response.statusCode)
+                console.log('error: '+ response.statusCode, " For: ", "Adding placeholders to template")
                 console.log('body'+ body)
             }
         }
@@ -333,7 +428,7 @@ exports.getDocuments = function getDocuments(callback)
 
     //define URI
     var uri = getURI() + 'documenttemplates'
-    console.log("Send GET : " + uri);
+  //  console.log("Send GET : " + uri);
 
 
     // get documents from iServer
@@ -349,6 +444,7 @@ exports.getDocuments = function getDocuments(callback)
             }
             else
             {
+                console.log('error: '+ response.statusCode, " For: ", "Adding placeholders to template")
                 console.log('Documents not found');
                 callback(undefined);
             }
@@ -365,7 +461,7 @@ exports.getTubes = function getTubes(callback)
 
     //define URI
     var uri = getURI() + 'collectionTubes'
-    console.log("Send GET : " + uri);
+ //   console.log("Send GET : " + uri);
 
 
     // get collectionTubes from iServer
@@ -387,4 +483,31 @@ exports.getTubes = function getTubes(callback)
 
         });
 
+}
+
+
+// add element to filter
+exports.addElementToFilter  = function addElementToFilter(elementName,filtername)
+{
+
+    var jsonData ={elementName: elementName};
+
+    //define URI
+    var uri = getURI() + "Filter/addelement/"+ filtername;
+    console.log("Send PUT : " + uri, jsonData);
+
+    request(
+        { method: 'PUT'
+            , uri: uri
+            , json:jsonData
+        }
+        , function (error, response, body) {
+            if(response.statusCode == 200){ // should be 201 but not good implemented at IServer (200 = OK , 201 = ADDED)
+                console.log('Element is added to filter');
+            } else {
+                console.log('error: '+ response.statusCode, " For: ", " adding element to filter:", elementName)
+                console.log('body'+ body)
+            }
+        }
+    )
 }

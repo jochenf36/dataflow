@@ -2,16 +2,16 @@
 
     // Dependencies
     var BaseResizable = Dataflow.prototype.node("base-resizable");
-    var TextComp = Dataflow.prototype.node("TextComp");
+    var CurrentDeviceLocation = Dataflow.prototype.node("Current Location");
 
-    TextComp.Model = BaseResizable.Model.extend({
+    CurrentDeviceLocation.Model = BaseResizable.Model.extend({
         defaults: function () {
             var defaults = BaseResizable.Model.prototype.defaults.call(this);
             defaults.label = " ";
-            defaults.type = "TextComp";
-            defaults.w = 200;
-            defaults.h = 100;
-            defaults.icon = "pencil";
+            defaults.type = "Current Location";
+            defaults.w = 300;
+            defaults.h = 70;
+            defaults.icon = "location-arrow";
             return defaults;
         },
         inputinput: function (value) {
@@ -21,17 +21,13 @@
         inputcontent: function (value) {
             this.view.$inner.text(value);
         }
-       ,
+        ,
         inputs: [
             {
-                id: "input",
-                type: "all"
-
-            },
-            {
-                id: "content",
-                type: "object"
+                id: "Update Frequency (milliseconds)",
+                type: "int"
             }
+
         ],
         outputs: [
             {
@@ -42,7 +38,7 @@
     });
 
 
-    TextComp.View = BaseResizable.View.extend({
+    CurrentDeviceLocation.View = BaseResizable.View.extend({
         initialize: function (options) {
             BaseResizable.View.prototype.initialize.call(this, options);
 

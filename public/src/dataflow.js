@@ -273,6 +273,7 @@
     log: function(message) {
       this.trigger("log", message, arguments);
       if (this.debug) {
+          console.log(this);
         console.log("Dataflow: ", arguments);
       }
     },

@@ -57,12 +57,18 @@
   <script src="../../src/nodes/test.js"></script>
     <script src="../../src/nodes/TextComp.js"></script>
     <script src="../../src/nodes/PlaceHolder.js"></script>
+    <script src="../../src/nodes/CurrentLocation.js"></script>
+    <script src="../../src/nodes/Location.js"></script>
+    <script src="../../src/nodes/RangeFilter.js"></script>
+    <script src="../../src/nodes/WebService.js"></script>
+
 
     <!-- Nodes (subgraph functionality) -->
     <script src="../../src/nodes/dataflow-input.js"></script>
   <script src="../../src/nodes/dataflow-output.js"></script>
   <script src="../../src/nodes/dataflow-subgraph.js"></script>
     <script src="../../src/nodes/Filter.js"></script>
+    <script src="../../src/nodes/LocationFilter.js"></script>
 
   <!-- Plugins -->
   <script src="../../src/plugins/menu.js"></script>
@@ -114,8 +120,6 @@
         // necessary variables for creating the graph
         var nodes= new Array(); // collects all the nodes for our graph
         var edges= new Array() // collects all the edges of our graph
-
-
 
         getDocumentGraph($,nodes,edges, function()
         {

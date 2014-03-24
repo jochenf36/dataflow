@@ -111,7 +111,7 @@ CircularBuffer.IndexError= {};
       // Initialize state
       this.loadState();
     },
-    
+
     // Create the object to contain the modules
     modules: {},
     module: function(name) {
@@ -422,7 +422,7 @@ CircularBuffer.IndexError= {};
 }(Dataflow));
 
 (function(Dataflow) {
- 
+
   var Graph = Dataflow.prototype.module("graph");
 
   // Dependencies
@@ -442,7 +442,7 @@ CircularBuffer.IndexError= {};
 
       var i;
 
-      // Set up nodes 
+      // Set up nodes
       var nodes = this.nodes = new Node.Collection();
       nodes.parentGraph = this;
       // Node events
@@ -544,7 +544,7 @@ CircularBuffer.IndexError= {};
 ( function(Dataflow) {
 
   var Node = Dataflow.prototype.module("node");
- 
+
   // Dependencies
   var Input = Dataflow.prototype.module("input");
   var Output = Dataflow.prototype.module("output");
@@ -715,7 +715,7 @@ CircularBuffer.IndexError= {};
 ( function(Dataflow) {
 
   var Input = Dataflow.prototype.module("input");
- 
+
   Input.Model = Backbone.Model.extend({
     defaults: {
       id: "input",
@@ -773,7 +773,7 @@ CircularBuffer.IndexError= {};
 
   var Input = Dataflow.prototype.module("input");
   var Output = Dataflow.prototype.module("output");
- 
+
   // Output extends input
   Output.Model = Input.Model.extend({
     defaults: {
@@ -919,7 +919,7 @@ CircularBuffer.IndexError= {};
 
   var cssZoomSupported = document.createElement("div").style.hasOwnProperty("zoom");
 
-  var template = 
+  var template =
     '<div class="dataflow-graph-panzoom">'+
       '<div class="dataflow-graph zoom-normal">'+
         '<div class="dataflow-edges">'+
@@ -1121,7 +1121,7 @@ CircularBuffer.IndexError= {};
     zoomIn: function () {
       var currentZoom = this.model.get('zoom');
       var zoom = currentZoom * 0.9;
-      zoom = Math.max(minZoom, zoom); 
+      zoom = Math.max(minZoom, zoom);
       if (zoom !== currentZoom) {
         this.model.set('zoom', zoom);
       }
@@ -1129,7 +1129,7 @@ CircularBuffer.IndexError= {};
     zoomOut: function () {
       var currentZoom = this.model.get('zoom');
       var zoom = currentZoom * 1.1;
-      zoom = Math.min(maxZoom, zoom); 
+      zoom = Math.min(maxZoom, zoom);
       if (zoom !== currentZoom) {
         this.model.set('zoom', zoom);
       }
@@ -1301,7 +1301,7 @@ CircularBuffer.IndexError= {};
     '<% if (icon) { %><i class="icon-<%- icon %>"></i> <% } %>'+
     '<%- label %></h1>';
 
-  var template = 
+  var template =
     '<div class="outer" />'+
     '<div class="dataflow-node-header">'+
       headerTemplate +
@@ -1316,7 +1316,7 @@ CircularBuffer.IndexError= {};
   var innerTemplate = "";
 
   var zoom;
- 
+
   Node.View = Backbone.View.extend({
     template: _.template(template),
     innerTemplate: _.template(innerTemplate),
@@ -1603,15 +1603,15 @@ CircularBuffer.IndexError= {};
   // Dependencies
   var Edge = Dataflow.prototype.module("edge");
 
-  var template = 
+  var template =
     '<span class="dataflow-port-plug in" title="drag to edit wire"></span>'+ //i18n
     '<span class="dataflow-port-hole in" title="drag to make new wire"></span>'+ //i18n
     '<label class="dataflow-port-label in" title="<%= description %>">'+
       '<%= label %>'+
-    '</label>';  
+    '</label>';
 
   var zoom = 1;
- 
+
   Input.View = Backbone.View.extend({
     template: _.template(template),
     tagName: "li",
@@ -1756,7 +1756,7 @@ CircularBuffer.IndexError= {};
         input.change(this.inputSelect.bind(this));
         return input;
       }
-      
+
       switch (type) {
         case 'int':
         case 'float':
@@ -1853,7 +1853,7 @@ CircularBuffer.IndexError= {};
       if (!ui) { return; }
       // Don't drag node
       event.stopPropagation();
-      
+
       ui.helper.data({
         route: this.topRoute
       });
@@ -1954,7 +1954,7 @@ CircularBuffer.IndexError= {};
           });
           var graphSVGElement = this.model.parentNode.parentGraph.view.$('.dataflow-svg-edges')[0];
           graphSVGElement.appendChild(this.previewEdgeChangeView.el);
-          
+
           zoom = this.model.parentNode.parentGraph.get('zoom');
         }
       }
@@ -1963,7 +1963,7 @@ CircularBuffer.IndexError= {};
       if (!ui) { return; }
       // Don't drag node
       event.stopPropagation();
-      
+
       if (this.previewEdgeChange) {
         this.previewEdgeChangeView.render(ui.offset);
         this.model.parentNode.parentGraph.view.sizeSVG();
@@ -2106,7 +2106,7 @@ CircularBuffer.IndexError= {};
   Input.CollectionView = Backbone.CollectionView.extend({
     tagName: "ul",
     itemView: Input.View
-  }); 
+  });
 
 }(Dataflow) );
 
@@ -2116,8 +2116,8 @@ CircularBuffer.IndexError= {};
 
   // Dependencies
   var Edge = Dataflow.prototype.module("edge");
- 
-  var template = 
+
+  var template =
     '<span class="dataflow-port-label out" title="<%= description %>"><%= label %></span>'+
     '<span class="dataflow-port-hole out" title="drag to make new wire"></span>'+
     '<span class="dataflow-port-plug out" title="drag to edit wire"></span>';
@@ -2445,7 +2445,7 @@ CircularBuffer.IndexError= {};
   Output.CollectionView = Backbone.CollectionView.extend({
     tagName: "ul",
     itemView: Output.View
-  }); 
+  });
 
 }(Dataflow) );
 
@@ -2479,17 +2479,17 @@ CircularBuffer.IndexError= {};
     if (el.classList) {
       el.classList.remove(name);
     } else {
-      el.className = "dataflow-edge"; 
+      el.className = "dataflow-edge";
     }
   };
-  
+
   Edge.View = Backbone.View.extend({
     tagName: "div",
     className: "dataflow-edge",
     positions: null,
     initialize: function() {
       this.positions = {
-        from: null, 
+        from: null,
         to: null
       };
       // Render on source/target view move
@@ -2556,7 +2556,7 @@ CircularBuffer.IndexError= {};
         this.positions.from = source.view.holePosition();
       }
       else {
-        // Preview 
+        // Preview
         // TODO: match zoom
         dataflowParent = this.model.parentGraph.dataflow.$el.parent().position();
         graph = this.model.parentGraph.view.$el;
@@ -2581,7 +2581,7 @@ CircularBuffer.IndexError= {};
       // this.positions.from.top = Math.floor(this.positions.from.top);
       // this.positions.to.left = Math.floor(this.positions.to.left);
       // this.positions.to.top = Math.floor(this.positions.to.top);
- 
+
       // Make and apply the path
       var pathD = this.edgePath(this.positions);
       this.elEdge.setAttribute("d", pathD);
@@ -2647,7 +2647,7 @@ CircularBuffer.IndexError= {};
           } else if (x < 0) {
             control1 = " L " + (positions.from.left+extend+halfX) + " " + (positions.from.top+halfX);
             control2 = " L " + (positions.to.left-extend-halfX2) + " " + (positions.to.top-halfX2);
-          }          
+          }
         }
       } else if (Math.abs(y) < Math.abs(x)) {
         // More horizontal travel
@@ -2666,11 +2666,11 @@ CircularBuffer.IndexError= {};
           } else if (y < 0) {
             control1 = " L " + (positions.from.left+extend+halfY) + " " + (positions.from.top+halfY);
             control2 = " L " + (positions.to.left-extend-halfY2) + " " + (positions.to.top-halfY2);
-          }          
+          }
         }
-      } 
+      }
 
-      return "M " + positions.from.left + " " + positions.from.top + 
+      return "M " + positions.from.left + " " + positions.from.top +
         " L " + (positions.from.left+extend) + " " + positions.from.top +
         control1 + control2 +
         " L " + (positions.to.left-extend) + " " + positions.to.top +
@@ -2781,7 +2781,7 @@ CircularBuffer.IndexError= {};
 
   var Card = Dataflow.prototype.module("card");
 
-  var template = 
+  var template =
     '<div class="dataflow-card-control">'+
       '<button title="pin" class="dataflow-card-pin icon-pushpin"></button>'+
       '<button title="close" class="dataflow-card-close icon-remove"></button>'+
@@ -2931,7 +2931,7 @@ CircularBuffer.IndexError= {};
 
   var Node = Dataflow.prototype.module("node");
 
-  var template = 
+  var template =
     '<div class="dataflow-plugin-inspector-title">'+
       '<h1 class="dataflow-node-inspector-label" title="click to edit"><%- label %></h1>'+
       '<h2 class="dataflow-node-inspector-type"><%- type %></h2>'+
@@ -3000,7 +3000,7 @@ CircularBuffer.IndexError= {};
 
   var Edge = Dataflow.prototype.module("edge");
 
-  var template = 
+  var template =
     '<div class="dataflow-plugin-inspector-title">'+
       '<h1>Edge</h1>'+
       '<h2 class="dataflow-edge-inspector-id"><%= id %></h2>'+
@@ -3027,7 +3027,7 @@ CircularBuffer.IndexError= {};
         var route = $(event.target).data("route");
         this.model.set("route", route);
       }.bind(this);
-      
+
       // Make buttons
       for (var i=0; i<12; i++) {
         var button = $("<button>")
@@ -3144,12 +3144,12 @@ CircularBuffer.IndexError= {};
     );
 
     // dataflow.addPlugin({
-    //   id: "edit", 
-    //   name: "edit", 
-    //   menu: buttons, 
+    //   id: "edit",
+    //   name: "edit",
+    //   menu: buttons,
     //   icon: "edit"
     // });
-    
+
     //
     // A
     //
@@ -3163,9 +3163,9 @@ CircularBuffer.IndexError= {};
     //
     // X
     //
-    
+
     Edit.removeSelected = function () {
-      var toRemove = dataflow.currentGraph.nodes.where({selected:true});      
+      var toRemove = dataflow.currentGraph.nodes.where({selected:true});
       _.each(toRemove, function(node){
         node.remove();
       });
@@ -3188,8 +3188,8 @@ CircularBuffer.IndexError= {};
     }
     buttons.children(".cut").click(cut);
     Edit.cut = cut;
-    
-    
+
+
 
     function removeEdge(){
       var selected = dataflow.currentGraph.edges.where({selected:true});
@@ -3486,10 +3486,10 @@ CircularBuffer.IndexError= {};
     update();
 
     dataflow.addPlugin({
-      id: "library", 
+      id: "library",
       label: "library",
-      name: "", 
-      menu: $container, 
+      name: "",
+      menu: $container,
       icon: "plus",
       pinned: false
     });
@@ -3555,7 +3555,7 @@ CircularBuffer.IndexError= {};
   Source.updateAllowed = true;
 
   Source.initialize = function(dataflow){
-    var $form = $( 
+    var $form = $(
       '<form class="dataflow-plugin-view-source">'+
         '<div style="">'+
           '<textarea class="code" style="width:99%; height:400px;; margin:0; padding: 0;"></textarea><br/>'+
@@ -3566,10 +3566,10 @@ CircularBuffer.IndexError= {};
     var $code = $form.find(".code");
 
     dataflow.addPlugin({
-      id: "source", 
+      id: "source",
       label: "view source",
-      name: "", 
-      menu: $form, 
+      name: "",
+      menu: $form,
       icon: "code",
       pinned: true
     });
@@ -3618,7 +3618,7 @@ CircularBuffer.IndexError= {};
       Source.updateGraph($code, dataflow);
       return false;
     });
-    
+
   };
 
   // Method for updating the graph from the form. Override
@@ -3644,7 +3644,7 @@ CircularBuffer.IndexError= {};
 }(Dataflow) );
 
 ( function(Dataflow) {
- 
+
   var Log = Dataflow.prototype.plugin("log");
 
   Log.initialize = function(dataflow){
@@ -3656,10 +3656,10 @@ CircularBuffer.IndexError= {};
     );
 
     dataflow.addPlugin({
-      id: "log", 
+      id: "log",
       label: "log",
-      name: "", 
-      menu: $log, 
+      name: "",
+      menu: $log,
       icon: "th-list",
       pinned: true
     });
@@ -3717,7 +3717,7 @@ CircularBuffer.IndexError= {};
 }(Dataflow) );
 
 ( function(Dataflow) {
- 
+
   var Inspector = Dataflow.prototype.plugin("inspector");
 
   Inspector.initialize = function(dataflow){
@@ -3753,7 +3753,7 @@ CircularBuffer.IndexError= {};
 
   // Load after other plugins
   // TODO: track which widget has focus if multiple in page
- 
+
   var KeyBinding = Dataflow.prototype.plugin("keybinding");
   var Edit = Dataflow.prototype.plugin("edit");
   var Search = Dataflow.prototype.plugin("search");
@@ -3780,8 +3780,8 @@ CircularBuffer.IndexError= {};
     function keyDown(event) {
 
       // Don't keybind graph actions when could be editing text #10
-      if (event.target.tagName==="TEXTAREA" || 
-          event.target.tagName==="INPUT" || 
+      if (event.target.tagName==="TEXTAREA" ||
+          event.target.tagName==="INPUT" ||
           event.target.contentEditable==="true" ){ return; }
 
       if (event.ctrlKey || event.metaKey) {
@@ -4099,7 +4099,7 @@ CircularBuffer.IndexError= {};
 }(Dataflow));
 
 ( function(Dataflow) {
- 
+
   // Dependencies
   var Node = Dataflow.prototype.module("node");
   var Base = Dataflow.prototype.node("base");
@@ -4126,7 +4126,7 @@ CircularBuffer.IndexError= {};
 }(Dataflow) );
 
 ( function(Dataflow) {
- 
+
   // Dependencies
   var Base = Dataflow.prototype.node("base");
   var BaseResizable = Dataflow.prototype.node("base-resizable");
@@ -4189,7 +4189,7 @@ CircularBuffer.IndexError= {};
 }(Dataflow) );
 
 ( function(Dataflow) {
- 
+
   // Dependencies
   var BaseResizable = Dataflow.prototype.node("base-resizable");
   var DataflowSubgraph = Dataflow.prototype.node("dataflow-subgraph");

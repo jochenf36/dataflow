@@ -8,9 +8,9 @@
         defaults: function () {
             var defaults = BaseResizable.Model.prototype.defaults.call(this);
             defaults.type = "PlaceHolder";
-            defaults.w = 300;
-            defaults.h = 400;
-            defaults.nodeColor= "antiquewhite";
+            defaults.w = 200;
+            defaults.h = 100;
+            defaults.nodeColor= "beige";
             return defaults;
         },
         inputinput: function (value) {

@@ -7,10 +7,12 @@
 
 app = require('../app');
 var iServer = require('../iServer/iServerAPI');
+var tourguideTemplate = require('../routes/tourguideTemplate');
 
 
 app.get('/',function(req, res){
 
+    tourguideTemplate.deactivatePage();
 
     var templateLinks = new Array(); // will hold the links of all the available templates
     // Templatelinks prototype
@@ -30,8 +32,6 @@ app.get('/',function(req, res){
         res.render('index', { templateLinks: templateLinks,
                               documentLinks: documentLinks
                              });
-
-
 
     })
 
@@ -62,7 +62,7 @@ function loadExistingDocuments(callback)
            var name = resultJSON[key][0].name;
             var description = resultJSON[key][0].description;
 
-            documentLinks.push(new DocumentLink(name,description, "/editor/:name="+name));
+            documentLinks.push(new DocumentLink(name,description, "/tourguideTemplate/:name="+name));
 
         }
 

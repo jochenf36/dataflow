@@ -2,16 +2,18 @@
 
     // Dependencies
     var BaseResizable = Dataflow.prototype.node("base-resizable");
-    var TextComp = Dataflow.prototype.node("TextComp");
+    var RangeFilter = Dataflow.prototype.node("Range Filter");
 
-    TextComp.Model = BaseResizable.Model.extend({
+    RangeFilter.Model = BaseResizable.Model.extend({
         defaults: function () {
             var defaults = BaseResizable.Model.prototype.defaults.call(this);
             defaults.label = " ";
-            defaults.type = "TextComp";
+            defaults.type = "Range Filter";
             defaults.w = 200;
             defaults.h = 100;
-            defaults.icon = "pencil";
+            defaults.icon = "filter";
+            defaults.nodeColor= "#D1FFE3";
+
             return defaults;
         },
         inputinput: function (value) {
@@ -29,8 +31,12 @@
 
             },
             {
-                id: "content",
-                type: "object"
+                id: "Min",
+                type: "int"
+            },
+            {
+                id: "Max",
+                type: "int"
             }
         ],
         outputs: [
@@ -42,7 +48,7 @@
     });
 
 
-    TextComp.View = BaseResizable.View.extend({
+    RangeFilter.View = BaseResizable.View.extend({
         initialize: function (options) {
             BaseResizable.View.prototype.initialize.call(this, options);
 

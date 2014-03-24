@@ -4,10 +4,35 @@ function testExecution()
 }
 
 
+function saveGraph(dataflow,$)
+{
+    // to do save option for document
+
+    var nodesModels = dataflow.currentGraph.nodes.models; // get all the nodes in the graph
+    var edgesModels = dataflow.currentGraph.edges.models; // get all the nodes in the graph
+
+
+
+    // clean the unncessary info;
+    parseNodes(nodesModels, function(cleanNodes,filters){
+        parseEdges(edgesModels, cleanNodes, function(cleanEdges){
+            checkNewNodes($,cleanNodes,undefined, function()
+            {
+                checkNewEdges($,undefined, cleanEdges);
+                if(filters.length>0)
+                    parseFilters(filters)
+            });
+        });
+    });
+
+
+}
+
 function parseNodes(rawNodesArray, callback)
 {
 
     var cleanNodes= new Array();
+    var filters = new Array();
 
     for (var i=0;i<rawNodesArray.length;i++)
     {
@@ -19,27 +44,43 @@ function parseNodes(rawNodesArray, callback)
         cleanNode.name = currentNode.attributes.label;
         cleanNode.state = currentNode.attributes.state;
 
+        if(cleanNode.type=="Filter")
+        {
+            filters.push(currentNode);
+        }
+
+
         cleanNodes.push(cleanNode);
     }
 
 
-    callback(cleanNodes);
+    callback(cleanNodes, filters);
 
 }
 
-function checkNewNodes($, currentNodes, callback)
+function checkNewNodes($, currentNodes,filtername, callback)
 {
+    var uri = "../../getDocumentGraph";
+
     $.get(
-        "../../getDocumentGraph",
+        uri,
         function(data) {
-            console.log("currentNodes: ", currentNodes);
 
             var nodesIserver = data.nodes;
-            console.log("Nodes in iServer: ", nodesIserver);
+
+            if(filtername===undefined)
+            {
+                nodesIserver = data.nodes;
+            }else
+            {
+                nodesIserver = data.filters[filtername];
+                console.log("Nodes in server for filter :", filtername, " Nodes: ", nodesIserver);
+            }
+
+            console.log("data from iServer: ", data);
 
             var listToDelete = new Array();
             var listToAdd = new Array();
-            var listToModify = new Array();
             var listToCheck = new Array();
 
             var nodesStillThere = new Array();
@@ -52,7 +93,8 @@ function checkNewNodes($, currentNodes, callback)
                 if(currentNodeName===undefined)
                 {
                     // its a new node because its id in iServer is undefined
-                    listToAdd.push(currentNode);
+                    if(currentNode.type!= "dataflow-input" && currentNode.type!="dataflow-output")  // don't add the input and output ports of a subgraph
+                        listToAdd.push(currentNode);
                 }
                 else{
                     // the node was already in the iServer so we have to check if it has changed
@@ -92,21 +134,66 @@ function checkNewNodes($, currentNodes, callback)
             console.log("List to add Nodes:", listToAdd);
             console.log("List to check Nodes:", listToCheck);
             console.log("List to Delete Nodes:", listToDelete);
-            sendNewNodes(listToAdd,$, callback);
-         }
+            sendNewNodes(listToAdd,$,filtername, callback);
+            sendDeleteNodes(listToDelete,listToAdd,$,filtername, callback);
+
+        }
     );
 
 }
 
-
-
-
-
-function checkNewEdges($, currentEdges)
+function sendDeleteNodes(listToDelete,listToAdd,$, filtername, callback)
 {
 
-        $.get(
-            "../../getDocumentGraph",
+    for(var q=0; q<listToDelete.length; q++)
+    {
+        var item = listToDelete[q];
+
+        var itemToDelete={};
+        if(item.class!==undefined)
+        {
+            itemToDelete.type = item.class.substring(item.class.indexOf(".rsl")+5);
+            itemToDelete.name = item.name;
+            itemToDelete.filtername = filtername;
+
+            console.log("Check if you may delete a node :", listToAdd, listToDelete)
+            var add=true;
+            for(i in listToAdd)
+            {
+                if(listToAdd[i].name==itemToDelete.description)
+                {
+                    add=false;
+                }
+            }
+            if(add)
+            {
+                $.ajax({
+                    url: '../../DeleteResource',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(itemToDelete)});
+            }
+        }
+   }
+
+
+
+}
+
+
+function checkNewEdges($,filtername, currentEdges)
+{
+    var uri;
+    if(filtername===undefined)
+    {
+        uri = "../../getDocumentGraph";
+    }else
+    {
+        uri = "../../filter/:name="+filtername;
+    }
+
+            $.get(
+            uri,
             function(data) {
                 console.log("currentEdges: ", currentEdges);
 
@@ -145,9 +232,18 @@ function checkNewEdges($, currentEdges)
 
                     if(newEdge)
                     {
-                        listToAdd.push(currentEdge);
+                        if(filtername!==undefined)
+                        {
+                            currentEdge.filtername = filtername;
+                        }
+                        else{
+                            currentEdge.filtername = undefined;
+                        }
+                        if(currentEdgeOutput!="in" || currentEdgeInput!="out")  // we don't want to store the edges to the of the filter
+                        {
+                            listToAdd.push(currentEdge);
+                        }
                     }
-
                 }
 
                 // check which nodes were deleted
@@ -198,6 +294,7 @@ function deleteEdges(toDelete, $)
         data: JSON.stringify(deleteEdges)});
 
 
+
 }
 
 function sendNewEdges(newEdgesList,$)
@@ -215,10 +312,13 @@ function sendNewEdges(newEdgesList,$)
 
         edge.name = edge.source + "TO" + edge.target;
 
-        newEdges[edge.name] = edge;
+        edge.filtername = edgeItem.filtername;
+
+        if(edge.target!="out"&& edge.source!="in") // we don't want the artificial nodes of a filter
+           newEdges[edge.name] = edge;
     }
 
-    console.log("Send to server:", newEdges);
+    console.log("Send new Edges to server:", newEdges);
 
 
     $.ajax({
@@ -227,32 +327,59 @@ function sendNewEdges(newEdgesList,$)
             contentType: 'application/json',
             data: JSON.stringify(newEdges)});
 
+
 }
 
 
 // send new nodes of document to the iServer
-function sendNewNodes(newNodesList,$,callback)
+function sendNewNodes(newNodesList,$, filtername,callback)
 {
-    var newNodes={};
-    for(i in newNodesList)
+    if(newNodesList.length>0)
     {
-        var nodeItem = newNodesList[i];
+          var result= {};
+        result.filtername= filtername;
 
-        var node={};
-        node.name = nodeItem.name;
-        node.type = nodeItem.type;
-        node.state = nodeItem.state;
-        newNodes[node.name] =node;
+
+        var newNodes={};
+        for(i in newNodesList)
+        {
+            console.log("New node check", i);
+            var nodeItem = newNodesList[i];
+
+            var node={};
+            if(nodeItem.name == " ")
+            {
+                node.name = nodeItem.type;
+            }
+            else{
+                node.name = nodeItem.name;
+
+            }
+
+            // if its a node of a filter add the title of the filter;
+            if(filtername!==undefined)
+            {
+               node.filtername=filtername;
+            }
+
+            node.type = nodeItem.type;
+            node.state = nodeItem.state;
+            newNodes[node.name] =node;
+        }
+
+        result.nodes= newNodes
+
+        console.log("Send New Nodes to server:", result);
+
+        $.ajax({
+                url: '../../createNewNodes',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(newNodes)}
+            );
+
     }
 
-    console.log("Send to server:", newNodes);
-
-    $.ajax({
-            url: '../../createNewNodes',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(newNodes)}
-        );
 
     callback();
 
@@ -303,6 +430,11 @@ function parseEdges(rawEdgesArray,cleanNodes, callback)
                 {
                     cleanEdge.output = currentNode.name;
                 }
+                if(cleanEdge.output==" " || cleanEdge.output=="")
+                {
+                    cleanEdge.output = currentNode.type;
+                    console.log("Output jochen: ", cleanEdge);
+                }
             }
 
             if(currentNode.id==input)
@@ -323,5 +455,51 @@ function parseEdges(rawEdgesArray,cleanNodes, callback)
     console.log("clean edges: " , cleanEdges);
 
     callback(cleanEdges);
+
+}
+
+function parseFilters(filters)
+{
+
+    for(i in filters)
+    {
+        var filter={};
+        var filterItem = filters[i];
+
+        if(filterItem.attributes.state.name===undefined){
+            filter.name = filterItem.attributes.label;
+        }
+        else
+        {
+           // get the iServer name
+            filter.name = filterItem.attributes.state.name
+        }
+      //  console.log("Filteritem: ", filter);
+
+        var filterNodes = filterItem.graph.nodes.models; // get all the nodes in the graph
+        var filterEdges = filterItem.graph.edges.models; // get all the nodes in the graph
+
+
+        // clean the unncessary info;
+        parseNodes(filterNodes, function(cleanNodes,newfilters){
+
+            if(newfilters.length>0)
+            {
+                parseFilters(newfilters)
+             //   console.log("Filter in a Filter!");
+
+            }
+
+            parseEdges(filterEdges, cleanNodes, function(cleanEdges){
+                checkNewNodes($,cleanNodes,filter.name, function()
+                {
+                    checkNewEdges($,filter.name, cleanEdges);
+                });
+            });
+        });
+
+    };
+
+
 
 }

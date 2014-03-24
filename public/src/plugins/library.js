@@ -49,6 +49,8 @@
     var itemTemplate = '<li><a class="button add"><i class="icon-<%- icon %>"></i></a><span class="name"><%- name %></span><span class="description"><%-description %></span></li>';
 
     var addLibraryItem = function(name, node) {
+        name =  name.replace('_'," ");
+       // console.log("Jochen changed name: " ,name);
       var $item = $(_.template(itemTemplate, {
         name: name,
         description: node.description,
@@ -58,6 +60,7 @@
         .attr("title", "click or drag")
         .draggable({
           helper: function(){
+
             var helper = $('<div class="dataflow-node helper"><div class="dataflow-node-title">'+name+'</div></div>');
             dataflow.$el.append(helper);
             return helper;

@@ -13,4 +13,3 @@ app.get('/newTourguideDetails',function(req, res){
 
 });
 
-

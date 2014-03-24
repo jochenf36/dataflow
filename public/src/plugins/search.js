@@ -86,24 +86,8 @@
 
     $buttonSave.on('click', function () {
 
-        // to do save option for document
 
-        var nodesModels = dataflow.currentGraph.nodes.models; // get all the nodes in the graph
-        var edgesModels = dataflow.currentGraph.edges.models; // get all the nodes in the graph
-
-        // clean the unncessary info;
-        parseNodes(nodesModels, function(cleanNodes){
-
-            parseEdges(edgesModels, cleanNodes, function(cleanEdges){
-                 checkNewNodes($,cleanNodes, function()
-                 {
-                     checkNewEdges($, cleanEdges);
-                 });
-             });
-        });
-
-
-
+        saveGraph(dataflow,$);
 
     });
 

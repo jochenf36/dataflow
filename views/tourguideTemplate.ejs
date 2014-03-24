@@ -20,8 +20,13 @@
       <link href="/stylesheets/weather-icons.css" rel="stylesheet">
       <link href="/stylesheets/flat-ui.css" rel="stylesheet">
 
+      <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 
-    <script src="/dist/js/jquery.sticky.js"></script><!-- Support for Sticky for edit button-->
+
+      <script type="text/javascript"
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuKc9mQmTkmImXmq6XhTybz3dqPFmONfg&sensor=false">
+      </script>
+      <script src="../../javascripts/tourguideTemplateClient.js"></script>
 
 
       <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -33,42 +38,13 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 
-  <script type="text/javascript"
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuKc9mQmTkmImXmq6XhTybz3dqPFmONfg&sensor=false">
-  </script>
 
 
   <script type="text/javascript">
-      function setGoogleMap(position)
-      {
-          var mapProp = {
-              center:new google.maps.LatLng( position.coords.latitude, position.coords.longitude),
-              zoom:15,
-              mapTypeId:google.maps.MapTypeId.ROADMAP
-          };
-          var map=new google.maps.Map(document.getElementById("googleMap")
-                  ,mapProp);
-          map.setOptions({draggable: false, zoomControl: false, scrollwheel: false, disableDoubleClickZoom: true});
 
-      }
 
-      google.maps.event.addDomListener(window, 'load', initMap);
-
-      function initMap()
-      {
-          if (navigator.geolocation)
-          {
-              navigator.geolocation.getCurrentPosition(setGoogleMap);
-          }
-          else{x.innerHTML = "Geolocation is not supported by this browser.";}
-      }
-
-      $(document).ready(function(){
-          $("#sticker").sticky({topSpacing:0});
-      });
 
 
   </script>
@@ -99,17 +75,17 @@
     <div class="row toprow">
         <div class="col-lg-12  col-xs-12">
             <div class="row borderPaper">
-                <div class="col-md-8  col-xs-8 borderright">
+                <div class="col-md-8  col-xs-8 ">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                         </div>
                         <div class="col-md-4">
                             <div class="row">
                                 <div  class="col-md-6">
-                                    <h5>Place</h5>
+                                    <h5 id="Placeholder0Title">Place</h5>
                                 </div>
-                                <div  class="col-md-6 spaceBetweenTitle">
-                                    <span class="label label-default">Placeholder 1</span>
+                                <div id="Placeholder0" class=" spaceBetweenTitle">
+                                    <span class="label label-default">Placeholder 0</span>
                                 </div>
 
                             </div>
@@ -122,9 +98,9 @@
                     <div class="row spaceBetweenleft">
                         <div class="col-md-10">
                             <div>Information</div>
-                            <span class="label label-default">Placeholder 4</span>
+                            <span id="Placeholder3Title" class="label label-default">Placeholder 3</span>
                             <div class="input">
-                                <textarea class="small"  style=" width: 100%;"name="textarea" id="textarea" rows="3" disabled="" placeholder="Lorem ipsum dolor sit amet, tation albucius eam at, ad solum ponderum definitiones mea, mea numquam pertinacia id. Molestie appetere dissentiet in sea, et dico lorem meliore vel, graecis constituto an pro. Ei doming appellantur conclusionemque sed. Soleat inermis prodesset ei mea, est viris bonorum electram no, mei quem ubique gubergren ad. Mea at soluta voluptua.
+                                <textarea class="small"  style="width: 100%;font-style: italic; border:none"name="textarea" id="Placeholder3" rows="3" disabled="" placeholder="Lorem ipsum dolor sit amet, tation albucius eam at, ad solum ponderum definitiones mea, mea numquam pertinacia id. Molestie appetere dissentiet in sea, et dico lorem meliore vel, graecis constituto an pro. Ei doming appellantur conclusionemque sed. Soleat inermis prodesset ei mea, est viris bonorum electram no, mei quem ubique gubergren ad. Mea at soluta voluptua.
 
 Sit cetero omnesque reformidans ad, an rebum repudiare sit, has nostro feugait ut. Fierent invidunt maiestatis cum ut. Vel id errem facete, id eos nostro repudiandae. Eum ut dicit gubergren. Ad timeam lucilius per. Ad mel dolorum fuisset omnesque.
 "></textarea>
@@ -135,8 +111,8 @@ Sit cetero omnesque reformidans ad, an rebum repudiare sit, has nostro feugait u
                     <div class="row">
                         <div class="col-md-10  spaceBetweenleft">
                            <div>Point of Interests</div>
-                            <span class="label label-default">Placeholder 5</span>
-                            <div class="list-group">
+                            <span id="Placeholder4Title" class="label label-default">Placeholder 4</span>
+                            <div id="POIList" class="list-group">
                                 <a class="list-group-item disabled"><small>Cras justo odio</small></a>
                                 <a class="list-group-item disabled"><small>Dapibus ac facilisis in</small></a>
                                 <a class="list-group-item disabled"><small>Morbi leo risus</small></a>
@@ -147,22 +123,22 @@ Sit cetero omnesque reformidans ad, an rebum repudiare sit, has nostro feugait u
 
                     </div>
                 </div>
-                <div class="col-md-4  col-xs-4 ">
+                <div class="col-md-4  col-xs-4 borderleft">
                     <div class="row">
                         <div class="col-md-12 spaceBetweenTitle">
                             <div>Weather Forecast</div>
-                            <span class="label label-default">Placeholder 2</span>
+                            <span id="Placeholder1" class="label label-default">Placeholder 1</span>
                         </div>
                      </div>
 
                     <div class="row">
-                        <div class="col-md-12 spaceBetweenright">
+                        <div class="col-md-12">
 
                             <div class="row">
-                                <div  class="col-md-4 celciusSign">
-                                    <span class="label label-default">Placeholder 3</span>
+                                <div  class="col-md-3 celciusSign">
+                                    <span id="Placeholder2" class="label label-default">Placeholder 2</span>
                                 </div>
-                                <div  class="col-md-8">
+                                <div  class="col-md-4">
                                    <i class="wi-celcius fa-2x "></i>
                                 </div>
 
@@ -173,12 +149,12 @@ Sit cetero omnesque reformidans ad, an rebum repudiare sit, has nostro feugait u
                     <div class="row spaceBetweenright">
                         <div class="col-md-12">
                             <div>Holidays - Event</div>
-                            <span class="label label-default">Placeholder 6</span>
+                            <span class="label label-default">Placeholder 5</span>
                             <ul class="list-group">
                                 <li class="list-group-item disabled"><small>Cras justo odio</small></li>
                                 <li class="list-group-item disabled"><small>Dapibus ac facilisis in</small></li>
                             </ul>
-                            <span class="label label-default ">Placeholder 7</span>
+                            <span  id="Placeholder6Title" class="label label-default ">Placeholder 6</span>
 
                             <div id="googleMap" style="height:240px; margin-bottom: 5%"></div>
 
@@ -205,6 +181,13 @@ Sit cetero omnesque reformidans ad, an rebum repudiare sit, has nostro feugait u
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
 
+    <script type="text/javascript">
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+    </script>
 
   </body>
 </html>
