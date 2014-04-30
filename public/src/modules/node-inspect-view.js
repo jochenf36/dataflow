@@ -51,7 +51,8 @@
       var $inputs = this.$el.children(".dataflow-node-inspector-inputs");
       this.model.inputs.each(function(input){
         if (input.view && input.view.$input) {
-          $inputs.append( input.view.$input );
+           if(input.id!="input")
+            $inputs.append( input.view.$input );
         }
       }, this);
 

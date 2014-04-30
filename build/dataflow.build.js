@@ -3547,6 +3547,7 @@ CircularBuffer.IndexError= {};
 
 }(Dataflow) );
 
+/*
 ( function(Dataflow) {
 
   var Source = Dataflow.prototype.plugin("source");
@@ -3642,11 +3643,13 @@ CircularBuffer.IndexError= {};
   };
 
 }(Dataflow) );
-
+*/
+/*
 ( function(Dataflow) {
 
   var Log = Dataflow.prototype.plugin("log");
 
+  disable logging -- Jochen
   Log.initialize = function(dataflow){
 
     var $log = $(
@@ -3654,6 +3657,7 @@ CircularBuffer.IndexError= {};
         '<ol class="loglist"></ol>'+
       '</div>'
     );
+
 
     dataflow.addPlugin({
       id: "log",
@@ -3663,6 +3667,7 @@ CircularBuffer.IndexError= {};
       icon: "th-list",
       pinned: true
     });
+
 
     // Log message and scroll
     function log(message){
@@ -3715,6 +3720,7 @@ CircularBuffer.IndexError= {};
   };
 
 }(Dataflow) );
+*/
 
 ( function(Dataflow) {
 

@@ -2,18 +2,18 @@
 
     // Dependencies
     var BaseResizable = Dataflow.prototype.node("base-resizable");
-    var TextComp = Dataflow.prototype.node("TextComp");
+    var CurrentLight= Dataflow.prototype.node("Current Light");
 
-    TextComp.description = 'A simple text component to present static text';
+    CurrentLight.description = 'Self updating light component, retrieves the current flux value of the device';
 
-    TextComp.Model = BaseResizable.Model.extend({
+    CurrentLight.Model = BaseResizable.Model.extend({
         defaults: function () {
             var defaults = BaseResizable.Model.prototype.defaults.call(this);
             defaults.label = " ";
-            defaults.type = "TextComp";
-            defaults.w = 200;
-            defaults.h = 100;
-            defaults.icon = "pencil";
+            defaults.type = "Current Light";
+            defaults.w = 300;
+            defaults.h = 70;
+            defaults.icon = "lightbulb";
             return defaults;
         },
         inputinput: function (value) {
@@ -23,17 +23,13 @@
         inputcontent: function (value) {
             this.view.$inner.text(value);
         }
-       ,
+        ,
         inputs: [
             {
-                id: "input",
-                type: "all"
-
-            },
-            {
-                id: "content",
-                type: "object"
+                id: "Update Frequency (milliseconds)",
+                type: "int"
             }
+
         ],
         outputs: [
             {
@@ -44,7 +40,7 @@
     });
 
 
-    TextComp.View = BaseResizable.View.extend({
+    CurrentLight.View = BaseResizable.View.extend({
         initialize: function (options) {
             BaseResizable.View.prototype.initialize.call(this, options);
 

@@ -4,6 +4,8 @@
     var BaseResizable = Dataflow.prototype.node("base-resizable");
     var CurrentDeviceLocation = Dataflow.prototype.node("Current Location");
 
+    CurrentDeviceLocation.description = 'Self updating location component, provides the current location of the device';
+
     CurrentDeviceLocation.Model = BaseResizable.Model.extend({
         defaults: function () {
             var defaults = BaseResizable.Model.prototype.defaults.call(this);

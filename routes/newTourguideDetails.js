@@ -9,7 +9,11 @@ app = require('../app');
 
 app.get('/newTourguideDetails',function(req, res){
 
-    res.render('newTourguideDetails', {});
+
+    var currentUser = req.session.currentUser;
+
+
+    res.render('newTourguideDetails', {currentUser:currentUser});
 
 });
 

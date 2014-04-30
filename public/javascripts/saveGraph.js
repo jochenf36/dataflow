@@ -8,6 +8,7 @@ function saveGraph(dataflow,$)
 {
     // to do save option for document
 
+    console.log("Graph is being saved")
     var nodesModels = dataflow.currentGraph.nodes.models; // get all the nodes in the graph
     var edgesModels = dataflow.currentGraph.edges.models; // get all the nodes in the graph
 
@@ -21,6 +22,8 @@ function saveGraph(dataflow,$)
                 checkNewEdges($,undefined, cleanEdges);
                 if(filters.length>0)
                     parseFilters(filters)
+
+
             });
         });
     });
@@ -314,6 +317,8 @@ function sendNewEdges(newEdgesList,$)
 
         edge.filtername = edgeItem.filtername;
 
+        edge.visibileTo = edgeItem.visibleTo;
+
         if(edge.target!="out"&& edge.source!="in") // we don't want the artificial nodes of a filter
            newEdges[edge.name] = edge;
     }
@@ -433,7 +438,6 @@ function parseEdges(rawEdgesArray,cleanNodes, callback)
                 if(cleanEdge.output==" " || cleanEdge.output=="")
                 {
                     cleanEdge.output = currentNode.type;
-                    console.log("Output jochen: ", cleanEdge);
                 }
             }
 
@@ -449,6 +453,8 @@ function parseEdges(rawEdgesArray,cleanNodes, callback)
 
 
         cleanEdge.name = "output:" + cleanEdge.output  + " AND input: "+ cleanEdge.input;
+
+        cleanEdge.visibleTo = currentEdge.attributes.visibleTo; // get the visibility information from the edges
 
         cleanEdges.push(cleanEdge);
     }

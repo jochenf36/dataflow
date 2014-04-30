@@ -2,38 +2,30 @@
 
     // Dependencies
     var BaseResizable = Dataflow.prototype.node("base-resizable");
-    var TextComp = Dataflow.prototype.node("TextComp");
+    var Date = Dataflow.prototype.node("Date");
 
-    TextComp.description = 'A simple text component to present static text';
+    Date.description = 'Simple Date/time component';
 
-    TextComp.Model = BaseResizable.Model.extend({
+    Date.Model = BaseResizable.Model.extend({
         defaults: function () {
             var defaults = BaseResizable.Model.prototype.defaults.call(this);
             defaults.label = " ";
-            defaults.type = "TextComp";
+            defaults.type = "Date";
             defaults.w = 200;
             defaults.h = 100;
-            defaults.icon = "pencil";
+            defaults.icon = "calendar";
+            defaults.nodeColor= "peachpuff";
             return defaults;
         },
-        inputinput: function (value) {
-            this.view.$inner.text(value);
 
-        },
-        inputcontent: function (value) {
-            this.view.$inner.text(value);
-        }
-       ,
         inputs: [
-            {
-                id: "input",
-                type: "all"
 
-            },
             {
-                id: "content",
-                type: "object"
+                id: "Date",
+                type: "String",
+                value:"dd-mm-yy -- hh:mm:ss"
             }
+
         ],
         outputs: [
             {
@@ -44,7 +36,7 @@
     });
 
 
-    TextComp.View = BaseResizable.View.extend({
+    Date.View = BaseResizable.View.extend({
         initialize: function (options) {
             BaseResizable.View.prototype.initialize.call(this, options);
 

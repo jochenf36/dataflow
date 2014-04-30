@@ -103,14 +103,40 @@ app.post('/createNewNodes',function(req, res){
                 resourceData.content = node.state.content;
             }
 
+        if(node.type=="Audio")
+        {
+            resourceType = "Audio";
+            resourceData.content = node.state.content;
+        }
+
         if(node.type=="Current Location")
          {
              resourceType = "CurrentLocation";
            //  delete resourceData.description;
              node.name = node.name.replace("_","");
              resourceData.updateFrequency = node.state["Update Frequency (milliseconds)"];
-
          }
+
+        if(node.type=="Current Date")
+        {
+            resourceType = "CurrentDate";
+            node.name = node.name.replace("_","");
+            resourceData.updateFrequency = node.state["Update Frequency (milliseconds)"];
+        }
+
+        if(node.type=="Current Light")
+        {
+            resourceType = "CurrentLight";
+            node.name = node.name.replace("_","");
+            resourceData.updateFrequency = node.state["Update Frequency (milliseconds)"];
+        }
+
+        if(node.type=="Date")
+        {
+            resourceType = "Date";
+            node.name = node.name.replace("_","");
+            resourceData.date = node.state.Date;
+        }
 
         if(node.type=="Location")
         {
@@ -118,6 +144,13 @@ app.post('/createNewNodes',function(req, res){
             node.name = node.name.replace("_","");
             resourceData.latitude = node.state.latitude;
             resourceData.longitude = node.state.longitude;
+        }
+
+        if(node.type=="Light")
+        {
+            resourceType = "Light";
+            node.name = node.name.replace("_","");
+            resourceData.fluxValue = node.state.flux;
         }
 
         if(node.type=="Range Filter")
@@ -188,11 +221,14 @@ app.post('/createNewNodes',function(req, res){
         {
             if(node.filtername.indexOf(req.session.currentDocumentName)==-1)
             {
+                node.filtername = node.filtername.replace(" ","_");
+
                 node.filtername= req.session.currentDocumentName + "_"+ node.filtername;
             }
 
             iServer.createResource(resourceName,resourceType ,resourceData, function(name){
                 // it its an element belong to a filter add it to the elements of the filter
+
                 iServer.addElementToFilter(name,node.filtername); // filtername toevoegen ?
             });
         }
@@ -228,6 +264,7 @@ app.post('/createNewTubes',function(req, res){
     for (var key in tubes) {
         var tube=  tubes[key];
 
+        console.log("Edges incomming:", tube);
 
         var resourceType = "tubes";
         var resourceData ={};
@@ -248,7 +285,6 @@ app.post('/createNewTubes',function(req, res){
         else
         {
             resourceData.source =  tube.source;
-
         }
 
         if(tube.target.indexOf(req.session.currentDocumentName + "_" )==-1)
@@ -260,6 +296,8 @@ app.post('/createNewTubes',function(req, res){
             resourceData.target =  tube.target;
         }
 
+        resourceData.visibleTo = tube.visibileTo; // determine the visibility of the tube
+
         resourceData.target =  resourceData.target.replace(/\s+/g, '_');
         resourceData.source =  resourceData.source.replace(/\s+/g, '_');
 
@@ -269,6 +307,8 @@ app.post('/createNewTubes',function(req, res){
         iServer.createResource(resourceName,resourceType ,resourceData);
 
     };
+
+
     res.send(200);
 
 });
@@ -319,6 +359,13 @@ app.post('/DeleteResource',function(req, res){
 
     if(filtername!==undefined)
      var filtername = req.param('filtername').substring(req.param('filtername').indexOf("=")+1);
+
+
+
+    if(name.indexOf(req.session.currentDocumentName + "_" )==-1)
+    {
+        name =  req.session.currentDocumentName + "_"   + name;
+    }
 
 
     iServer.deleteNode(name, type,function(statusCode){
@@ -608,6 +655,9 @@ function setConnectedNodes(nodeName, nextFunction, edges, nodes)
                 edge.output = connectedTubes[counter].output;
                 edge.outputType = connectedTubes[counter].typeOutput;
 
+                edge.visibileTo = connectedTubes[counter].visibileTo
+
+                console.log("Content edge: ",edge);
 
                 edges.push(edge);
 
@@ -615,6 +665,7 @@ function setConnectedNodes(nodeName, nextFunction, edges, nodes)
 
                 var name=  connectedTubes[counter].input;
                 var type=  connectedTubes[counter].typeInput;
+
                 getNode(name,type, function(node){
 
                 if(node.class!==undefined)
@@ -637,19 +688,20 @@ function setConnectedNodes(nodeName, nextFunction, edges, nodes)
 
 
                 }
-                    else{
+                else{
                     alreadyInCollection=true;
+                    counter++; // mss hier
+
                 }
 
-                    if(!alreadyInCollection){
+                if(!alreadyInCollection){
                         nodes.push(node);
                         setConnectedNodes(node.name,function(){
                             next();
                         }, edges,nodes);
-
                      //   console.log("Node name:" ,node.name);
-                    }
-                    else
+                 }
+                 else
                     {
                         next();
                     }
@@ -707,10 +759,27 @@ function getOutgoingTubes(nodeID, callback)
                 filteredTube.typeInput = full_input.substring(1,full_input.indexOf(":"));
                 filteredTube.input= input;
 
+                var rawAuthorizedUsers = tubeJSON[tube][0].authorisedUsers;
+
+                var names ="";
+                for(var i=0; i< rawAuthorizedUsers.length; i++)  // create a nice result from the authorised users
+                {
+                    var stringUser = rawAuthorizedUsers[i];
+
+                    if(i>0)
+                        names += ", ";
+
+                    names += stringUser.substr(stringUser.indexOf(':')+1,stringUser.indexOf(']')-1-stringUser.indexOf(':'));
+
+                    console.log("name:", stringUser);
+                }
+
+                filteredTube.visibileTo = names;
 
                 if(filteredTube.output===nodeID)
                 {
                    // console.log("Filtered Tube Added: " , filteredTube);
+
 
                     tubeArray.push(filteredTube);
 

@@ -13,6 +13,8 @@ function makePretty(string)
 // the full document graph from the server
  function getDocumentGraph(anom, resultNodes, resultEdges, callback)
 {
+
+
     anom.get(
         "../../getDocumentGraph",
         function(data) {
@@ -57,6 +59,9 @@ function createEdges(edges,nodes, resultEdges,callback)
         var outputNodeName = edge.output;
         var inputNodeName = edge.input;
 
+
+        var visibleTo =  edge.visibileTo;
+
         linkNodes(nodes);
 
 
@@ -85,7 +90,7 @@ function createEdges(edges,nodes, resultEdges,callback)
                                 inputPort=targetnode.graph.nodes[0].id;
                             }
 
-                            resultEdges[edgecounter]= {source:{node:sourceNode.id, port:outputPort}, target:{node:targetnode.id, port:inputPort}, route:0};
+                            resultEdges[edgecounter]= {source:{node:sourceNode.id, port:outputPort}, target:{node:targetnode.id, port:inputPort}, route:1, visibleTo:visibleTo};
                             edgecounter++;
                         }
                     }
@@ -111,19 +116,24 @@ function typeConverter(type)
     if(type == "CurrentLocation")
         return "Current Location";
 
+    if(type == "CurrentDate")
+        return "Current Date";
+
+    if(type == "CurrentLight")
+        return "Current Light";
+
         return type;
 }
 
 function createNodes(nodes,filters,edges, resultNodes,callbackWithNodesDone,$)
 {
 
-    var maxItemsOnRow=4;
-    var x = 200;
+    var x = 490;
     var y = 90;
     var width = 250;
     var height = 180;
 
-    var maxItemsOnRow=4;
+    var maxItemsOnRow=3;
 
     for(i in nodes)
     {
@@ -136,7 +146,7 @@ function createNodes(nodes,filters,edges, resultNodes,callbackWithNodesDone,$)
         // determine max amount of items on one row
         var res=i%maxItemsOnRow;
         if(res==0&& i!=0){
-            x = 50;
+            x = 490;
             y = y +  height + 50;
         }
 
@@ -160,8 +170,8 @@ function createNodes(nodes,filters,edges, resultNodes,callbackWithNodesDone,$)
             filterNodes.push({id: dataflowInputID, label: "in", type:"dataflow-input",  x:120, y: 150});
             filterNodes.push({id:dataflowOutputID, label:"out", type:"dataflow-output", x:1080, y:150});
 
-            var xFilter =320;
-            var yFilter= 100 * filterElements.length;
+            var xFilter =420;
+            var yFilter= 200 * filterElements.length;
 
             for(i in filterElements)
             {
@@ -176,7 +186,7 @@ function createNodes(nodes,filters,edges, resultNodes,callbackWithNodesDone,$)
 
                     var idFilterNOde = temp+i+i;
                     console.log("Filternode type:", filterElement.type);
-                    if(filterElement.type == "Current Location")
+                    if(filterElement.type == "Current Location" || filterElement.type=="Current Date" || filterElement.type=="Current Light")
                         currentLocationID= idFilterNOde;
 
                     var filterNode = {id:idFilterNOde, label:filterElement.description, type:filterElement.type,state:{
@@ -186,6 +196,8 @@ function createNodes(nodes,filters,edges, resultNodes,callbackWithNodesDone,$)
                         name:filterElement.name,
                         Max: filterElement.max,
                         Min: filterElement.min,
+                        flux: currentNode.fluxValue,
+                        Date: currentNode.date,
                         "Consumer Key (optional)":filterElement.consumerKey,
                         "Consumer Secret (optional)":filterElement.consumerSecret,
                         "Token Key (optional)":filterElement.tokenKey,
@@ -207,7 +219,7 @@ function createNodes(nodes,filters,edges, resultNodes,callbackWithNodesDone,$)
                             }
                             */
 
-                    xFilter = xFilter+width+30;
+                    xFilter = xFilter+width+100;
                 }
 
 
@@ -320,6 +332,8 @@ function createNodes(nodes,filters,edges, resultNodes,callbackWithNodesDone,$)
                 name:currentNode.name,
                 Max: currentNode.max,
                 Min: currentNode.min,
+                Date: currentNode.date,
+                flux: currentNode.fluxValue,
                 "Consumer Key (optional)":currentNode.consumerKey,
                 "Consumer Secret (optional)":currentNode.consumerSecret,
                 "Token Key (optional)":currentNode.tokenKey,
@@ -344,6 +358,8 @@ function createNodes(nodes,filters,edges, resultNodes,callbackWithNodesDone,$)
                 name:currentNode.name,
                 Max: currentNode.max,
                 Min: currentNode.min,
+                flux: currentNode.fluxValue,
+                Date: currentNode.date,
                 "Consumer Key (optional)":currentNode.consumerKey,
                 "Consumer Secret (optional)":currentNode.consumerSecret,
                 "Token Key (optional)":currentNode.tokenKey,
@@ -371,20 +387,3 @@ function createNodes(nodes,filters,edges, resultNodes,callbackWithNodesDone,$)
 }
 
 
-
-
-/*
- function createFilters(filterArray)
- {
-     for(var i=0; i< filterArray.length; i++)
-     {
-         var begin= {id:0, label:"in", type:"dataflow-input", x:180, y:120, 'input-type':"all"};
-         var end =  {id:1, label:"out", type:"dataflow-output", x:947, y:120, 'output-type':"all"};
-
-         filterNodes= new Array(begin,end);
-
-         nodes[nodecounter] = {id:nodecounter, label:filterArray[i].label,x:280, y:250, type:"Filter", graph:{nodes:filterNodes,edges:[]}};
-         nodecounter++;
-     }
- }
-*/

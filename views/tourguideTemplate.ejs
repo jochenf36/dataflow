@@ -20,7 +20,7 @@
       <link href="/stylesheets/weather-icons.css" rel="stylesheet">
       <link href="/stylesheets/flat-ui.css" rel="stylesheet">
 
-      <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+      <script src="http://192.168.0.121:3000/socket.io/socket.io.js"></script>
 
 
       <script type="text/javascript"
@@ -28,6 +28,7 @@
       </script>
       <script src="../../javascripts/tourguideTemplateClient.js"></script>
 
+      <script src="/javascripts/index.js"></script>  <!-- reuse functionality of the index files -->
 
       <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -52,25 +53,86 @@
   </head>
 
 
+
   <body>
 
-    <div class="navbar navbar-default navbar-fixed-top" style="display: hidden" role="navigation">
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Document Editor</a>
-        </div>
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">Document Editor</a>
+          </div>
+          <div class="navbar-collapse collapse">
+
+
+              <!-- The drop down menu -->
+              <ul class="nav navbar-nav navbar-right">
+
+                  <%            <!--Show current user if he is available -->
+                          if(typeof currentUser == 'string')
+                  {
+                  %>
+                  <li  class="currentUser" id="currentUser">Welcome, <%= currentUser %> </li>
+                  <li> <button style="margin-top: 10%" class="btn btn-warning" onclick="logOut()"> Sign out </button></li>
+                  <%}else{%>
+                  <li style="display:none;" class="currentUser" id="currentUser">Welcome,  id </li>
+                  <li class="divider-vertical"><a href="/createUser">Create User</a></li>
+                  <li class="drop down">
+                      <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+                      <div class="dropdown-menu" style="padding: 15px; padding-bottom: 10px;">
+                          <!-- Login form here -->
+                        <span id="loginForm" method="post" accept-charset="UTF-8" style="padding: 2%; padding-bottom:5%">
+                            <input id="login-name" style="margin-bottom: 15px;" type="text" placeholder="Name" name="login" size="30" />
+                             <button id="submitLoginFormButton" class="btn btn-primary"  type="button" onclick="submitLoginForm()" style="clear: left; width: 100%; height: 32px; font-size: 13px;" name="commit" value="Sign In">Sign In</button>
+
+                        </span>
+                      </div>
+                      <%}%>
+
+
+
+
+                  </li>
+              </ul>
+
+          </div>
+
       </div>
-    </div>
+  </div>
 
 
-<!-- Start Container -->
-<div class="container">
+  </div>
+
+
+
+  <!-- Start Container -->
+  <div class="container">
+
+      <div>
+          <!-- Show some nice info if a user was created-->
+          <% if(typeof existingUser == 'boolean' && existingUser==true)
+          {%>
+          <div class="alert alert-warning">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <strong>Warning!</strong> The user is already registered.
+          </div>
+          <% }else if(typeof existingUser == 'boolean' && existingUser==false){%>
+          <div class="alert alert-success">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <strong>Well done!</strong> The user is created with success.
+          </div>
+          <%} %>
+          <div id="alertUserNonExisting" style="display:none;"  class="alert alert-danger">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <strong>Error!</strong> The user does not exists, register first.
+          </div>
+
+      </div>
 
     <div class="row toprow">
         <div class="col-lg-12  col-xs-12">
@@ -148,12 +210,9 @@ Sit cetero omnesque reformidans ad, an rebum repudiare sit, has nostro feugait u
                     </div>
                     <div class="row spaceBetweenright">
                         <div class="col-md-12">
-                            <div>Holidays - Event</div>
-                            <span class="label label-default">Placeholder 5</span>
-                            <ul class="list-group">
-                                <li class="list-group-item disabled"><small>Cras justo odio</small></li>
-                                <li class="list-group-item disabled"><small>Dapibus ac facilisis in</small></li>
-                            </ul>
+                            <div>Event</div>
+                            <span id="Placeholder5Title" class="label label-default">Placeholder 5</span>
+                            <div class="alert alert-info" id="Events"></div>
                             <span  id="Placeholder6Title" class="label label-default ">Placeholder 6</span>
 
                             <div id="googleMap" style="height:240px; margin-bottom: 5%"></div>
@@ -184,8 +243,11 @@ Sit cetero omnesque reformidans ad, an rebum repudiare sit, has nostro feugait u
     <script type="text/javascript">
 
         google.maps.event.addDomListener(window, 'load', initialize);
-
-
+        window.addEventListener("devicelight", function (event) {
+            var luminosity = event.value;
+         //   alert("I am an alert box!:"+luminosity);
+            updateLightValue(event.value);
+        });
 
     </script>
 

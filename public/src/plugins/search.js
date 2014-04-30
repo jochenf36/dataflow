@@ -41,7 +41,7 @@
   Search.initialize = function (dataflow) {
     var $search = $('<div class="dataflow-plugin-search">' +
         '<input type="search" placeholder="Search" results="5" x-webkit-speech />' +
-        '<button id="actions"><i class="icon-reorder"></i></button>' + '<span class="spacebetweenIcons"/>'+
+        '<button id="actions"><i class="icon-plus"></i></button>' + '<span class="spacebetweenIcons"/>'+
         '<button id="save"><i class="fa fa-floppy-o"></i></button>' + '<span class="spacebetweenIcons"/>'+
         '<button id="view"><i class="fa fa-eye"></i></button>' +
         '</div>');
@@ -80,23 +80,32 @@
       Search.search($input.val(), dataflow);
     });
 
-    $buttonAction.on('click', function () {
+      dataflow.showPlugin('menu'); // show menu on start
+
+      $buttonAction.on('click', function () {
       dataflow.showPlugin('menu');
     });
 
     $buttonSave.on('click', function () {
 
-
         saveGraph(dataflow,$);
+
+      //    need to be reloaded in order to create the filters
+        setTimeout(function(){         location.reload();
+        },200);
 
     });
 
     $buttonView.on('click', function () {
 
         // to do save and VIEW option for document
+        saveGraph(dataflow,$)
 
-          dataflow.showPlugin('menu');
-      });
+        setTimeout(function(){        location.href = '/tourguideTemplate';
+        },200);
+
+
+    });
 
     Search.focus = function () {
       $input.val('');

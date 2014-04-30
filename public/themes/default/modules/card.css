@@ -25,11 +25,11 @@
 .dataflow-cards {
   z-index: 4;
   position: relative;
-  margin-right: 40px;
-    float: right;;
-  width: 300px;
+  margin-left: 18px;
+    float: left;
+  width: 410px;
   /* HACK */
-  max-height: 70%;
+  max-height: 100%;
   overflow: visible;
 }
 

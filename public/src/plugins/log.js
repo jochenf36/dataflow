@@ -1,4 +1,4 @@
-( function(Dataflow) {
+/*( function(Dataflow) {
  
   var Log = Dataflow.prototype.plugin("log");
 
@@ -70,3 +70,4 @@
   };
 
 }(Dataflow) );
+*/

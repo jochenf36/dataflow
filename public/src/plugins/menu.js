@@ -16,7 +16,6 @@
         id: info.id,
         icon: info.icon,
         label: info.label,
-        showLabel: false,
         action: function () {
           Menu.card.hide();
           dataflow.showPlugin(info.id);

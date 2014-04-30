@@ -18,6 +18,8 @@ app.use(express.session({secret: '1234567890QWERTY'}));
 
 // all environments
 app.set('port', process.env.PORT || 3000);
+app.set('host', process.env.HOST || '192.168.0.121');
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.favicon());
@@ -43,14 +45,13 @@ if ('development' == app.get('env')) {
 // setup routing
 var routes = require('./routes');
 
-
-
 // create HTTP server
-var server  = http.createServer(app).listen(app.get('port'), function(){
-    console.log('Express server listening on port ' + app.get('port'));
+var server = http.createServer(app).listen(app.get('port'), app.get('host'), function(){
+    console.log("Express server listening on port " +app.get('host')+ app.get('port'));
 });
 
 var io = require('socket.io').listen(server);
+io.set('browser client minification', true);  // send minified client
 
 var RealtimeNotificationServer = require('.././dataflow/Crosslets/RealTimeNotificationServer');
 

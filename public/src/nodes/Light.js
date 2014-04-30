@@ -2,37 +2,34 @@
 
     // Dependencies
     var BaseResizable = Dataflow.prototype.node("base-resizable");
-    var TextComp = Dataflow.prototype.node("TextComp");
+    var Light = Dataflow.prototype.node("Light");
 
-    TextComp.description = 'A simple text component to present static text';
+    Light.description = 'Simple Light component';
 
-    TextComp.Model = BaseResizable.Model.extend({
+
+    Light.Model = BaseResizable.Model.extend({
         defaults: function () {
             var defaults = BaseResizable.Model.prototype.defaults.call(this);
             defaults.label = " ";
-            defaults.type = "TextComp";
+            defaults.type = "Light";
             defaults.w = 200;
             defaults.h = 100;
-            defaults.icon = "pencil";
+            defaults.icon = "lightbulb";
+            defaults.nodeColor= "gold";
             return defaults;
         },
-        inputinput: function (value) {
-            this.view.$inner.text(value);
-
-        },
-        inputcontent: function (value) {
-            this.view.$inner.text(value);
+        inputflux: function (value) {
+            var flux = this.attributes.state.flux;
+            if(flux===undefined)
+                flux ="";
+            this.view.$inner.text("flux: " +value );
         }
        ,
         inputs: [
-            {
-                id: "input",
-                type: "all"
 
-            },
             {
-                id: "content",
-                type: "object"
+                id: "flux",
+                type: "float"
             }
         ],
         outputs: [
@@ -44,7 +41,7 @@
     });
 
 
-    TextComp.View = BaseResizable.View.extend({
+    Light.View = BaseResizable.View.extend({
         initialize: function (options) {
             BaseResizable.View.prototype.initialize.call(this, options);
 

@@ -2,18 +2,19 @@
 
     // Dependencies
     var BaseResizable = Dataflow.prototype.node("base-resizable");
-    var TextComp = Dataflow.prototype.node("TextComp");
+    var Audio = Dataflow.prototype.node("Audio");
 
-    TextComp.description = 'A simple text component to present static text';
+    Audio.description = 'Simple Text-to-Speech component';
 
-    TextComp.Model = BaseResizable.Model.extend({
+    Audio.Model = BaseResizable.Model.extend({
         defaults: function () {
             var defaults = BaseResizable.Model.prototype.defaults.call(this);
             defaults.label = " ";
-            defaults.type = "TextComp";
+            defaults.type = "Audio";
             defaults.w = 200;
             defaults.h = 100;
-            defaults.icon = "pencil";
+            defaults.icon = "microphone";
+            defaults.nodeColor="lavender";
             return defaults;
         },
         inputinput: function (value) {
@@ -21,7 +22,7 @@
 
         },
         inputcontent: function (value) {
-            this.view.$inner.text(value);
+           // this.view.$inner.text(value);
         }
        ,
         inputs: [
@@ -44,7 +45,7 @@
     });
 
 
-    TextComp.View = BaseResizable.View.extend({
+    Audio.View = BaseResizable.View.extend({
         initialize: function (options) {
             BaseResizable.View.prototype.initialize.call(this, options);
 

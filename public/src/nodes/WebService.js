@@ -4,6 +4,9 @@
     var BaseResizable = Dataflow.prototype.node("base-resizable");
     var WebService = Dataflow.prototype.node("Web Service");
 
+    WebService.description = "A simple webservice component, that provide a webservice for RESTfull API's";
+
+
     WebService.Model = BaseResizable.Model.extend({
         defaults: function () {
             var defaults = BaseResizable.Model.prototype.defaults.call(this);

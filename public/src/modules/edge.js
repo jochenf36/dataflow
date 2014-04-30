@@ -7,7 +7,8 @@
       "z": 0,
       "route": 0,
       "selected": false,
-      "log": null
+      "log": null,
+      "visibleTo":""
     },
     initialize: function() {
       var nodes, sourceNode, targetNode;
@@ -73,7 +74,8 @@
       return {
         source: this.get("source"),
         target: this.get("target"),
-        route: this.get("route")
+        route: this.get("route"),
+        visibleTo : this.get("visibleTo")
       };
     },
     bringToTop: function(){

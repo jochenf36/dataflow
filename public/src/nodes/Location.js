@@ -4,6 +4,8 @@
     var BaseResizable = Dataflow.prototype.node("base-resizable");
     var Location = Dataflow.prototype.node("Location");
 
+    Location.description = 'Simple Location component with longitude and latitude';
+
     Location.Model = BaseResizable.Model.extend({
         defaults: function () {
             var defaults = BaseResizable.Model.prototype.defaults.call(this);

@@ -4,6 +4,9 @@
     var BaseResizable = Dataflow.prototype.node("base-resizable");
     var Placeholder = Dataflow.prototype.node("Placeholder");
 
+    Placeholder.description = 'Presents the placeholder of the template';
+
+
     Placeholder.Model = BaseResizable.Model.extend({
         defaults: function () {
             var defaults = BaseResizable.Model.prototype.defaults.call(this);

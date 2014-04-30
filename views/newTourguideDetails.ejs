@@ -28,9 +28,29 @@
     <link href="/stylesheets/flat-ui.css" rel="stylesheet">
 
     <script src="/javascripts/index.js"></script>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            //Handles menu drop down
+            $('.dropdown-menu').find('span').click(function (e) {
+                e.stopPropagation();
+            });
+            // handles enter button for inputform
+            $("#login-name").keyup(function(event){
+                if(event.keyCode == 13){
+                    $("#submitLoginFormButton").click();
+                }
+            });
+        });
+    </script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 </head>
 
+
+
+<body>
 
 
 <body>
@@ -46,6 +66,40 @@
             </button>
             <a class="navbar-brand" href="/">Document Editor</a>
         </div>
+        <div class="navbar-collapse collapse">
+
+
+            <!-- The drop down menu -->
+            <ul class="nav navbar-nav navbar-right">
+
+                <%            <!--Show current user if he is available -->
+                        if(typeof currentUser == 'string')
+                {
+                %>
+                <li  class="currentUser" id="currentUser">Welcome, <%= currentUser %> </li>
+                <li> <button style="margin-top: 10%" class="btn btn-warning" onclick="logOut()"> Sign out </button></li>
+                <%}else{%>
+                <li style="display:none;" class="currentUser" id="currentUser">Welcome,  id </li>
+                <li class="divider-vertical"><a href="/createUser">Create User</a></li>
+                <li class="drop down">
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+                    <div class="dropdown-menu" style="padding: 15px; padding-bottom: 10px;">
+                        <!-- Login form here -->
+                        <span id="loginForm" method="post" accept-charset="UTF-8" style="padding: 2%; padding-bottom:5%">
+                            <input id="login-name" style="margin-bottom: 15px;" type="text" placeholder="Name" name="login" size="30" />
+                             <button id="submitLoginFormButton" class="btn btn-primary"  type="button" onclick="submitLoginForm()" style="clear: left; width: 100%; height: 32px; font-size: 13px;" name="commit" value="Sign In">Sign In</button>
+
+                        </span>
+                    </div>
+                    <%}%>
+
+
+
+
+                </li>
+            </ul>
+
+        </div>
 
     </div>
 </div>
@@ -54,34 +108,40 @@
 </div>
 
 
+
 <!-- Start Container -->
 <div class="container">
 
+    <div>
+        <!-- Show some nice info if a user was created-->
+        <% if(typeof existingUser == 'boolean' && existingUser==true)
+        {%>
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>Warning!</strong> The user is already registered.
+        </div>
+        <% }else if(typeof existingUser == 'boolean' && existingUser==false){%>
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>Well done!</strong> The user is created with success.
+        </div>
+        <%} %>
+        <div id="alertUserNonExisting" style="display:none;"  class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>Error!</strong> The user does not exists, register first.
+        </div>
 
+    </div>
 
 
 
     <div class="starter-template">
-        <h4 id="headid">Tour Guide - Enter Document Details</h4>
+        <h4 id="headid">Tour Guide Information</h4>
+        <i class="fa fa-book fa-5x"></i>
 
 
-    <div class=".container-fluid">
-
-
-        <div class="login-screen">
-
-
-            <div class="login-icon" style="margin-top:7%; margin-left: 13%">
-                <img src="/images/icons/svg/clipboard.svg" alt="Clipboard">
-                Tour Guide Details
-            </div>
 
             <form id="tourguidedescriptionForm" name="tourguidedescriptionForm" method="POST" action="tourguideDetailsForm" class="login-form">
-
-                <div class="form-group">
-                    <input type="text" name="login" required="yes" class="form-control login-field" value="" placeholder="Enter your name" id="login-name">
-                    <label class="login-field-icon fui-user" for="login-name"></label>
-                </div>
 
                 <div class="form-group">
                     <input type="text" name="documentname" required="yes" class="form-control login-field" value="" placeholder="Enter the name of the document" id="documentname">
@@ -93,9 +153,7 @@
 
                 <input class="btn btn-primary btn-lg btn-block" type="submit" name="submit" id="submit" value="Submit" />
             </form>
-        </div>
 
-    </div>
 </div>
 </div>
 

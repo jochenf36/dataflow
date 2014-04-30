@@ -50,7 +50,6 @@
 
     var addLibraryItem = function(name, node) {
         name =  name.replace('_'," ");
-       // console.log("Jochen changed name: " ,name);
       var $item = $(_.template(itemTemplate, {
         name: name,
         description: node.description,
@@ -93,10 +92,10 @@
     dataflow.addPlugin({
       id: "library", 
       label: "library",
-      name: "", 
+      name: "test",
       menu: $container, 
       icon: "plus",
-      pinned: false
+      pinned: true
     });
 
     Library.update = update;

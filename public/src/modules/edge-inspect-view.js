@@ -8,7 +8,8 @@
       '<h2 class="dataflow-edge-inspector-id"><%= id %></h2>'+
     '</div>'+
     '<div class="dataflow-edge-inspector-route-choose"></div>'+
-    '<ul class="dataflow-edge-inspector-events"></ul>';
+    '<ul class="dataflow-edge-inspector-events"></ul>'+
+    '<div class="dataflow-node-inspector-inputs"></div>';
 
   Edge.InspectView = Backbone.View.extend({
     tagName: "div",
@@ -24,6 +25,11 @@
 
       var $choose = this.$el.children(".dataflow-edge-inspector-route-choose");
       this.$log = this.$el.children('.dataflow-edge-inspector-events');
+
+      var $inputs = this.$el.children(".dataflow-node-inspector-inputs");  // get element for adding inputs -- Jochne
+
+
+
 
       var changeRoute = function(event){
         var route = $(event.target).data("route");
@@ -41,6 +47,24 @@
         }
         $choose.append(button);
       }
+
+        var changeVisibleTo = function(event){
+            console.log("Current value:", $(event.target)[0].value)
+            var edgeVisibility = $(event.target)[0].value;
+            this.model.set("visibleTo", edgeVisibility);
+
+        }.bind(this);
+
+
+        // create Props for edges
+        var visibleTo = $('<label class="input-type-object"><span>Visible to:</span> <textarea class="input input-object">'+ this.model.attributes.visibleTo+'</textarea></label>')
+                .keyup(changeVisibleTo);
+
+        $inputs.append(visibleTo); // add them to input div
+
+
+
+
 
       this.listenTo(this.model, "change:route", this.render);
       this.listenTo(this.model, "remove", this.remove);

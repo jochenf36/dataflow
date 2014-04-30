@@ -14,7 +14,7 @@ app = require('../app');
 app.post('/tourguideDetailsForm',function(req, res){
 
     // get variables from form
-    var login_name=  req.body.login;
+    var login_name= req.session.currentUser;
     var document_name=  req.body.documentname;
     document_name = document_name.split(' ').join('');
 
@@ -108,6 +108,69 @@ app.post('/tourguideDetailsForm',function(req, res){
 
 });
 
+app.post('/createUserForm',function(req, res){
+
+
+    // get variables from form
+    var login_name=  req.body.login;
+
+    var existingUser = true;
+    // set the current user in a session ( a new user is created if he/she does not exists in the iServer)
+    function storeCurrentUserAndCreateTourguide(newUser){
+
+        if(newUser === undefined)
+        {
+            iServer.createUser(login_name, function()// create new user if he does not exist
+            {
+                existingUser=false;
+                iServer.getUser(login_name,storeCurrentUserAndCreateTourguide);
+            });
+        }
+        else
+        {
+            req.session.existingUser = existingUser;
+
+            res.redirect('/');
+
+        }
+    };
+
+
+    iServer.getUser(login_name,storeCurrentUserAndCreateTourguide);
+
+});
+
+app.post('/loginUser',function(req, res){
+
+
+    // get variables from form
+    var login_name=  req.body.user;
+
+
+    console.log("Loginnam :",login_name);
+    iServer.getUser(login_name,function(returnValue)
+    {
+          if(returnValue===undefined)
+          {
+              res.send("errors");
+          }
+          else
+          {
+              req.session.currentUser = login_name; // save current user in session
+
+              res.send("no_errors");
+          }
+    });
+
+});
 
 
 
+
+app.get('/logout',function(req, res){
+
+
+    delete req.session.currentUser // delete current user from session
+    res.send("no_errors")
+
+});

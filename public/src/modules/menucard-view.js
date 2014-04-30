@@ -4,10 +4,11 @@
 
   var MenuItemView = Backbone.View.extend({
     tagName: 'li',
-    template: '<button title="<%- label %>"><i class="icon-<%- icon %>"></i><span class="name"><%- label %></span></button>',
+    template: '<button title="<%- label %> " id="<%- id %> "><i class="icon-<%- icon %>"></i><span class="name"><%- label %></span> </button>',
     events: {
       'click': 'clicked'
     },
+    visible:true,
     render: function () {
       this.$el.html(_.template(this.template, this.model.toJSON()));
     },

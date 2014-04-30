@@ -3,9 +3,13 @@
 
 var request = require('request');
 
+app = require('../app');
+
 function getURI()
 {
-    return "http://localhost:9998/iserver/";  // default URI PART
+    return "http://"+app.get("host")+":9998/iserver/";  // default URI PART
+
+    //return "http://localhost:9998/iserver/";  // default URI PART
 }
 
 
@@ -118,6 +122,8 @@ exports.getDocument = function getDocument(document_name,callback)
 // get a node from the iServer (any type of resource actually)
  exports.getNode = function getNode(nodeName, type,callback,counter)
 {
+
+    console.log("Get node:", nodeName, " of type:", type);
     // needs to be converted
     if(type==="textComp")
     {
@@ -136,11 +142,6 @@ exports.getDocument = function getDocument(document_name,callback)
         uri = getURI() + 'placeholders/' + nodeName;
 
     }
-
-
-  //  console.log("Send GET : " + uri);
-
-
 
     // get document from iServer
     request(
@@ -164,7 +165,7 @@ exports.getDocument = function getDocument(document_name,callback)
             else
             {
 
-                console.log('Node not found:', nodeName);
+                console.log('Node not found:', nodeName, error);
                 callback(undefined);
             }
 
@@ -340,7 +341,7 @@ exports.createResource  = function createResource(resoureName,type ,jsonData,cal
         }
     )
 }
-// create resource object
+// delete resource object
 exports.deleteResource  = function createResource(resourceName,type)
 {
     //define URI

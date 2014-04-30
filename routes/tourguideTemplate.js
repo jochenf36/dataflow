@@ -21,12 +21,23 @@ var geolib = require("geolib"); // A small library to provide some basic geo fun
 
 
 var currentLocationClient={lat:50.77861,long:4.24278};
+var currentLightClient={fluxValue:0};
 
 
 exports.SetClientLocation = function(value){
     console.log("update location:",  value);
     currentLocationClient = value;
 }
+
+exports.SetClientLight = function(value){
+    if(value.fluxValue!==undefined)
+    {
+   //     console.log("update Light:",  value);
+        currentLightClient = value;
+    }
+
+}
+
 
 var pageActive; // if page is deactivated (when its on onother page -> stop all current repeaters
 
@@ -38,16 +49,16 @@ exports.deactivatePage = function(){
 function setupIndividualPair(pair,socket)
 {
 
+
+
     var start =pair.start;
     var end = pair.end;
 
 
 
+
     if(end.iServerInfo !==undefined)
     {
-
-
-
         var updateFrequency = end.iServerInfo.updateFrequency;
 
         if(updateFrequency=== undefined)
@@ -56,15 +67,29 @@ function setupIndividualPair(pair,socket)
         }
 
 
-        Repeat(function(){
+        if( updateFrequency!=-1)
+        {
+            Repeat(function(){
 
-            console.log("Send:",start.id , "Next in:", updateFrequency);
+                end.updateFunction(); // first init
+                console.log("Send:",start.id , "Next in:", updateFrequency);
+
+                start.value.Id= 101;
+
+                socket.emit("push", start.value)
+
+            }).every(updateFrequency, 'ms').while(function(){return pageActive;}).start.in(1, 'sec');
+        }
+        else{ // for all the non dynamic components
+            end.updateFunction(); // first init
+
+            console.log("Send: static: ", start);
 
             start.value.Id= 101;
 
             socket.emit("push", start.value)
 
-        }).every(updateFrequency, 'ms').while(function(){return pageActive;}).start.in(1, 'sec');
+        }
     }
 
 }
@@ -76,12 +101,12 @@ function setupPushingPairs(pairs) // link the latest updater to the placeholder 
 {
 
     var io = require('socket.io/node_modules/socket.io-client');
-    var socket = io.connect('http://localhost:8080/notify');
+    var socket = io.connect(app.get("host")+":3001/notify");
 
 
+    console.log("Setup pairs", pairs);
 
      socket.once("connect", function() {
-            console.log("connected");
 
          onceIn=true
 
@@ -113,7 +138,12 @@ function setupPushingPairs(pairs) // link the latest updater to the placeholder 
 app.get('/tourguideTemplate',function(req, res){
     var documentName = req.session.currentDocumentName;
 
-    res.render('tourguideTemplate', { link: "/editor/:name="+documentName});
+    var currentUser = req.session.currentUser;
+
+
+    res.render('tourguideTemplate', { link: "/editor/:name="+documentName, currentUser:currentUser
+    });
+    initTourguideTemplate(req,res)
 
 
 });
@@ -123,17 +153,24 @@ var globalReq;
 
 app.get('/tourguideTemplate/:name',function(req, res){
 
-    console.log("_________________________________________________________________")
     var name = req.param('name').substring(req.param('name').indexOf("=")+1);
+
 
     req.session.currentDocumentName=  name;
 
-    var documentName = req.session.currentDocumentName;
+    initTourguideTemplate(req,res)
+
+
+});
+
+function initTourguideTemplate(req, res)
+{  var documentName = req.session.currentDocumentName;
 
     console.log("Current document name in Cookies: "+documentName);
 
+    var currentUser = req.session.currentUser;
 
-    res.render('tourguideTemplate', { link: "/editor/:name="+documentName});
+    res.render('tourguideTemplate', { link: "/editor/:name="+documentName,  currentUser:currentUser});
 
     globalReq= req;
 
@@ -146,9 +183,7 @@ app.get('/tourguideTemplate/:name',function(req, res){
     filters = {};
 
     getDocumentGraph(documentName, req);
-
-
-});
+}
 
 var users = {}; // keep track of users to send update info to a specific user
 
@@ -156,7 +191,7 @@ var users = {}; // keep track of users to send update info to a specific user
 
 var componentPool;
 
-function getDocumentGraph(documentName)
+function getDocumentGraph(documentName, req)
 {
 
     // first get all the placeholders (everything starts from these nodes)
@@ -198,6 +233,17 @@ function getDocumentGraph(documentName)
                         filteredTube.typeInput = full_input.substring(1,full_input.indexOf(":"));
                         filteredTube.input= input;
 
+                        var rawAuthorizedUsers = tubeJSON[tube][0].authorisedUsers;
+
+                        var names =[];
+                        for(var i=0; i< rawAuthorizedUsers.length; i++)  // create a nice result from the authorised users
+                        {
+                            var stringUser = rawAuthorizedUsers[i];
+                            names.push(stringUser.substr(stringUser.indexOf(':')+1,stringUser.indexOf(']')-1-stringUser.indexOf(':')));
+                        }
+
+                        filteredTube.visibileTo = names;
+
                         filteredTubes.push(filteredTube);
                        // console.log("Tube: ", filteredTube);
 
@@ -220,7 +266,7 @@ function getDocumentGraph(documentName)
 
                         }
 
-                    });
+                    },req);
                 }
 
                 setTimeout(function() {
@@ -266,10 +312,18 @@ function connectLogic(value,start, subject, item)
                        item.end = component;
                    }
 
-                   if(item.start.id=="testMe_Placeholder1")
+
+                   if(start==value.length-1)
                    {
-                       console.log("Componente: ",component);
+                       if(item.end=="") // not an active component
+                       {
+                           component.updateFrequency=-1;
+                           item.end = component;
+
+                       }
                    }
+
+
 
                    if(start==0)
                    {
@@ -316,7 +370,8 @@ function Component(id, iServerInfo)
         this.updateFunction = function(data)
         {
            console.log(this.id + "received updata:", data);
-            this.value = {"id":this.id, "data":data}; // update the data of this element;
+            if(data!==undefined)
+                this.value = {"id":this.id, "data":data}; // update the data of this element;
         }
 
     }else if(this.type=="WebService"){
@@ -359,10 +414,14 @@ function Component(id, iServerInfo)
                     }
                 });
 
-                forecast.get([data.lat,data.long], function(err, weather) {
-                    if(err) console.dir(err);
-                    else callback(weather);
-                });
+                if(data!==undefined)
+                {
+                    forecast.get([data.lat,data.long], function(err, weather) {
+                        if(err) console.dir(err);
+                        else callback(weather);
+                    });
+                }
+
             }
             else if(webserviceID=="Yelp"||"YELP")
             {
@@ -371,24 +430,27 @@ function Component(id, iServerInfo)
                 if(searchTerm!== undefined)
                 {
 
+                    if(data!==undefined)
+                    {
+                        var jsonSearchTerm = JSON.parse(searchTerm);
+                        jsonSearchTerm.ll = data.lat +"," + data.long;
 
-                    var jsonSearchTerm = JSON.parse(searchTerm);
-                    jsonSearchTerm.ll = data.lat +"," + data.long;
 
 
+                        var yelp = require("yelp").createClient({
+                            consumer_key: consumerKey,
+                            consumer_secret: consumerSecret,
+                            token: tokenKey,
+                            token_secret: tokenSecret
+                        });
 
-                    var yelp = require("yelp").createClient({
-                        consumer_key: consumerKey,
-                        consumer_secret: consumerSecret,
-                        token: tokenKey,
-                        token_secret: tokenSecret
-                    });
+                        yelp.search(jsonSearchTerm, function(error, data) {
 
-                    yelp.search(jsonSearchTerm, function(error, data) {
+                            console.log(error);
+                            callback(data);
+                        });
+                    }
 
-                        console.log(error);
-                        callback(data);
-                    });
 
                 }
 
@@ -427,6 +489,24 @@ function Component(id, iServerInfo)
         Repeat(function(){
 
             console.log("Update current location", currentLocationClient);
+            that.updateFunction(currentLocationClient);
+
+        }).every(this.iServerInfo.updateFrequency, 'ms').during(function(){return pageActive;}).start.in(0, 'sec');
+    }
+    else if(this.type=="CurrentLight"){
+        this.updateFunction = function(data)
+        {
+
+            for(i in this.listeners)
+            {
+                this.listeners[i].updateFunction(data);
+            }
+        }
+
+
+        Repeat(function(){
+
+            console.log("Update current Light", currentLocationClient);
             that.updateFunction(currentLocationClient);
 
         }).every(this.iServerInfo.updateFrequency, 'ms').during(function(){return pageActive;}).start.in(0, 'sec');
@@ -492,42 +572,102 @@ function Component(id, iServerInfo)
             {
                 var item = this.filterElements[i];
 
-                var type  = item.class.substring(item.class.indexOf(".rsl")+5);
-
-                if(type == "RangeFilter") // procedure for RangeFilter
+                if(item.class!==undefined)
                 {
-                    var min  = item.min;
-                    var max  = item.max;
 
-                    for(i2 in this.filterElements)
+                    var type  = item.class.substring(item.class.indexOf(".rsl")+5);
+
+                    if(type == "RangeFilter") // procedure for RangeFilter
                     {
-                        var item2 = this.filterElements[i2];
+                        var min  = item.min;
+                        var max  = item.max;
 
-                        var type2  = item2.class.substring(item2.class.indexOf(".rsl")+5);
-                        if(type2=="CurrentLocation") // procedure when there is a currenlocation in the filter
+                        for(i2 in this.filterElements)
                         {
+                            var item2 = this.filterElements[i2];
 
-                            // checks if 51.525, 7.4575 is within a radius of 5km from 51.5175, 7.4678
-
-                            console.log("storageData :", that.storageData);
-
-                            for(j in this.storageData)
+                            if(item2.class!==undefined)
                             {
-                                var item3 = this.storageData[j];
-                                var long = item3.longitude;
-                                var lat = item3.latitude;
 
 
-                                if(isInCurrentLocation(lat,long,max))
+                                var type2  = item2.class.substring(item2.class.indexOf(".rsl")+5);
+                                if(type2=="CurrentLocation") // procedure when there is a currenlocation in the filter
                                 {
-                                    console.log("Should uoutpt");
 
-                                    filterOutput.content= item3.content;
+                                    // checks if 51.525, 7.4575 is within a radius of 5km from 51.5175, 7.4678
 
+                                    console.log("storageData :", that.storageData);
+
+                                    for(j in this.storageData)
+                                    {
+                                        var item3 = this.storageData[j];
+                                        var long = item3.longitude;
+                                        var lat = item3.latitude;
+
+
+                                        if(isInCurrentLocation(lat,long,max))
+                                        {
+                                            console.log("Should uoutpt");
+
+                                            filterOutput.content= item3.content;
+
+                                        }
+
+                                    }
                                 }
+                                else if (type2=="CurrentDate") // procedure when there is a currenDate in the filter
+                                {
 
+                                    var content = new Array();
+
+                                    for(j in this.storageData)
+                                    {
+                                        var item3 = this.storageData[j];
+                                        var day = item3.day;
+                                        var month = item3.month;
+                                        var year = item3.year;
+                                        var hours = item3.hours;
+                                        var minutes = item3.minutes;
+                                        var seconds = item3.seconds;
+
+                                        console.log("CurrentDate");
+
+                                        if(isWithinPeriod(day,month,year,hours,minutes,seconds,max, min))
+                                        {
+
+                                            content.push(item3.content);
+
+                                        }
+
+                                    }
+                                    filterOutput.content=content;
+                                }
+                                else if (type2=="CurrentLight") // procedure when there is a CurrentLight in the filter
+                                {
+
+                                    var content = new Array();
+
+                                    for(j in this.storageData)
+                                    {
+                                        var item3 = this.storageData[j];
+                                        var flux = item3.fluxValue;
+
+
+                                        console.log("CurrentLight", item3);
+
+                                        if(isInCurrentRangeOfLight(flux,max, min))
+                                        {
+                                            console.log("isInCurrentRangeOfLight", item3);
+
+
+                                            content.push(item3.content);
+
+                                        }
+
+                                    }
+                                    filterOutput.content=content;
+                                }
                             }
-
                         }
                     }
 
@@ -558,10 +698,10 @@ function Component(id, iServerInfo)
                 textCompData.name = this.iServerInfo.name
                 textCompData.content = this.iServerInfo.content;
 
-                if(data.latitude!==undefined && data.longitude!==undefined) // if there is a location component conncected to the text comp added it to it
+                if(data!==undefined) // static text comp
                 {
-                    textCompData.latitude = data.latitude;
-                    textCompData.longitude = data.longitude;
+
+                    textCompData=  setDataElement(textCompData, data);
                 }
 
                 for(i in this.listeners)
@@ -571,6 +711,32 @@ function Component(id, iServerInfo)
             }
 
      }
+    else if(this.type == "Audio"){
+
+
+        this.updateFunction = function(data)
+        {
+            console.log("Audio: "+this.id +" recieved :",data);
+
+            var audioData = {};
+
+            audioData.name = this.iServerInfo.name
+            audioData.content = "AUDIO:"+ this.iServerInfo.content;
+
+
+            if(data!==undefined) // static text comp
+            {
+
+                audioData=  setDataElement(audioData, data);
+            }
+
+            for(i in this.listeners)
+            {
+                this.listeners[i].updateFunction(audioData); // update all the listeners
+            }
+        }
+
+    }
      else if(this.type == "Location"){
 
         this.updateFunction = function()
@@ -588,10 +754,61 @@ function Component(id, iServerInfo)
         }
         var that = this;
 
-        setTimeout(function(){that.updateFunction();} , 500);
+        //setTimeout(function(){that.updateFunction();} , 5000);
+        setTimeout(function(){that.updateFunction();} , 1000);
+    }
+    else if(this.type == "Date"){
+
+        this.updateFunction = function()
+        {
+            var dateData = {};
+
+           var rawDate = this.iServerInfo.date;
+
+           dateData.day = rawDate.substring(0,2);
+            dateData.month = rawDate.substring(3,5);
+            dateData.year = rawDate.substring(6,8);
+
+            var startTIME = rawDate.indexOf("--")+3;
+            dateData.hours = rawDate.substring(startTIME,startTIME+2);
+            dateData.minutes = rawDate.substring(startTIME+3,startTIME+5);
+            dateData.seconds = rawDate.substring(startTIME+6,startTIME+8);
+
+            console.log("Datetime info:" , dateData);
+            for(i in this.listeners)
+            {
+                this.listeners[i].updateFunction(dateData);
+            }
+        }
+        var that = this;
+
+        //setTimeout(function(){that.updateFunction();} , 5000);
+        setTimeout(function(){that.updateFunction();} , 1000);
+
+    }
+    else if(this.type == "Light"){
+
+        this.updateFunction = function()
+        {
+            var dataLight = {};
+
+            dataLight.fluxValue = this.iServerInfo.fluxValue;
+
+
+            console.log("Light info:" , dataLight);
+            for(i in this.listeners)
+            {
+                this.listeners[i].updateFunction(dataLight);
+            }
+        }
+        var that = this;
+
+        //setTimeout(function(){that.updateFunction();} , 5000);
+        setTimeout(function(){that.updateFunction();} , 1000);
 
 
     }
+
 
 }
 
@@ -599,6 +816,11 @@ function Component(id, iServerInfo)
 // funciton to check wether a point is wihtin a circle with a certain radious
 function isInCurrentLocation(latitude, longitude, radius)
 {
+    console.log("Check loc", geolib.isPointInCircle(
+    {latitude: currentLocationClient.lat, longitude:currentLocationClient.long},
+    {latitude: latitude, longitude: longitude},
+    radius
+))
     return geolib.isPointInCircle(
         {latitude: currentLocationClient.lat, longitude:currentLocationClient.long},
         {latitude: latitude, longitude: longitude},
@@ -606,9 +828,119 @@ function isInCurrentLocation(latitude, longitude, radius)
     );
 }
 
+// funciton to check wether a flux value is within a certain range of the current FluxValue
+function isInCurrentRangeOfLight(fluxValue, min, max)
+{
+    return currentLightClient.fluxValue-min<fluxValue && fluxValue<currentLightClient.fluxValue+max;
+
+}
+
+function isWithinPeriod(day,month,year,hours,minutes,seconds,max, min)
+{
 
 
-function link(nodeName,nodeType,tubes, callback)
+    var returnVal = true;
+
+    if(max==min)
+    {
+        if(year!="yy")
+        {
+            year = "20"+year; // prefix century
+        }
+        var date = new Date(); // get current date
+
+        if(day!="dd")
+        {
+            if(day!=date.getDate())
+            {
+                console.log("dd");
+                returnVal=false;
+            }
+        }
+
+        if(month!="mm")
+        {
+            if(month-1!=date.getMonth())
+            {
+                console.log("mm", month, date.getMonth());
+                returnVal=false;
+            }
+        }
+
+        if(year!="yy")
+        {
+            if(year!=date.getFullYear()) // possible mistake here ...
+            {
+                console.log("yy",year, date.getFullYear());
+                returnVal=false;
+            }
+        }
+
+        if(hours!="hh")
+        {
+            if(hours!=date.getHours()) // possible mistake here ...
+            {
+                console.log("hh");
+                returnVal=false;
+            }
+        }
+
+
+        if(minutes!="mm")
+        {
+            if(minutes!=date.getMinutes()) // possible mistake here ...
+            {
+                console.log("mm");
+                returnVal=false;
+            }
+        }
+
+        if(seconds!="ss")
+        {
+            if(seconds!=date.getSeconds()) // possible mistake here ...
+            {
+                console.log("ss");
+
+                returnVal=false;
+            }
+        }
+
+    }
+
+    console.log("isWithinPeriod",returnVal, date);
+
+    return returnVal;
+}
+
+
+function setDataElement(dateElement,data)
+{
+    if(data.latitude!==undefined && data.longitude!==undefined) // if there is a location component conncected to the text comp added it to it
+    {
+        dateElement.latitude = data.latitude;
+        dateElement.longitude = data.longitude;
+    }
+    else if(data.hours!==undefined) // if there is a date component conncected to the text comp added it to it
+    {
+        dateElement.day = data.day;
+        dateElement.month = data.month;
+        dateElement.year = data.year;
+        dateElement.hours = data.hours;
+        dateElement.minutes = data.minutes;
+        dateElement.seconds = data.seconds;
+
+    }
+    else if(data.fluxValue!==undefined) // if there is a date component conncected to the text comp added it to it
+    {
+        dateElement.fluxValue = data.fluxValue;
+
+    }
+    return dateElement;
+
+}
+
+
+function link(nodeName,nodeType,tubes, callback,req)
 {
     var connectedTubes = new Array();
     for(i in tubes)
@@ -629,13 +961,14 @@ function link(nodeName,nodeType,tubes, callback)
     }
     else{
         for(j in connectedTubes){
+
             link(connectedTubes[j].input,connectedTubes[j].typeInput,tubes, function(values)
             {
                var newvalue = {id:connectedTubes[j].output, type:connectedTubes[j].typeOutput};
-
-                values.push(newvalue);
+                if(connectedTubes[j].visibileTo.indexOf(req.session.currentUser)!=-1||connectedTubes[j].visibileTo.length==0)
+                    values.push(newvalue);
                callback(values);
-            });
+            },req);
         }
     }
 

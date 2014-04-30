@@ -10,8 +10,7 @@ exports.setupServer = function setupServer()
     try
     {
         var sio = require('socket.io');
-
-        var io = sio.listen(8080).set('log level', 2);
+        var io = sio.listen(3001).set('log level', 2);
         var pres = io.of("/notify").on('connection', function (socket) {
 
             // Clients need to send a "user" message to identify themselves...
@@ -29,11 +28,18 @@ exports.setupServer = function setupServer()
                 } catch (e) { console.log(e); }
             });
 
-            // Clients need to send a "user" message to identify themselves...
+            // update server when you know the new location of the client
             socket.on("Receive Location", function(location)
             {
                 var filteredData = {lat: location.lat, long:location.long};
                 tourtemplate.SetClientLocation(filteredData)
+            });
+
+            // update server when you know the new light value of the client
+            socket.on("Receive Light", function(light)
+            {
+                var filteredData = {fluxValue: light.fluxValue};
+                tourtemplate.SetClientLight(filteredData)
             });
 
 
@@ -42,6 +48,7 @@ exports.setupServer = function setupServer()
             {
                 try
                 {
+                    console.log("push data:",data);
                     // Make sure we have the data we need...
                     if (data == null || (data.Id || null) == null) {
                         return;

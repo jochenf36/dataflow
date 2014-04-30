@@ -2,18 +2,18 @@
 
     // Dependencies
     var BaseResizable = Dataflow.prototype.node("base-resizable");
-    var TextComp = Dataflow.prototype.node("TextComp");
+    var CurrentDate = Dataflow.prototype.node("Current Date");
 
-    TextComp.description = 'A simple text component to present static text';
+    CurrentDate.description = 'Self updating date component, always presents the current date and time of the system';
 
-    TextComp.Model = BaseResizable.Model.extend({
+    CurrentDate.Model = BaseResizable.Model.extend({
         defaults: function () {
             var defaults = BaseResizable.Model.prototype.defaults.call(this);
             defaults.label = " ";
-            defaults.type = "TextComp";
-            defaults.w = 200;
-            defaults.h = 100;
-            defaults.icon = "pencil";
+            defaults.type = "Current Date";
+            defaults.w = 300;
+            defaults.h = 70;
+            defaults.icon = "calendar";
             return defaults;
         },
         inputinput: function (value) {
@@ -23,17 +23,13 @@
         inputcontent: function (value) {
             this.view.$inner.text(value);
         }
-       ,
+        ,
         inputs: [
             {
-                id: "input",
-                type: "all"
-
-            },
-            {
-                id: "content",
-                type: "object"
+                id: "Update Frequency (milliseconds)",
+                type: "int"
             }
+
         ],
         outputs: [
             {
@@ -44,7 +40,7 @@
     });
 
 
-    TextComp.View = BaseResizable.View.extend({
+    CurrentDate.View = BaseResizable.View.extend({
         initialize: function (options) {
             BaseResizable.View.prototype.initialize.call(this, options);
 

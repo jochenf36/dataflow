@@ -1,6 +1,21 @@
 var map;
 var marker;
 
+var currentLightValue;
+function updateLightValue(lightvalue)
+{
+    console.log("updateLightValue", lightvalue);
+    if(lightvalue!==undefined)
+        currentLightValue= lightvalue;
+}
+
+function getcurrentLightValue()
+{
+    if(currentLightValue!==undefined)
+        return currentLightValue;
+    else
+    return 20; // default for browser wihtout support
+}
 
 function initialize() {
     var initLocation= new google.maps.LatLng(-34.397, 150.644);
@@ -24,7 +39,7 @@ function initialize() {
 try
 {
 
-    var socket = io.connect('http://localhost:8080/notify');
+    var socket = io.connect('http://192.168.0.121:3001/notify');
 
 
     socket.on("connect", function() {
@@ -35,16 +50,26 @@ try
 
 
         // start sending current location of the client to the server every 60000 miliseconds = 1 minute
-        var tid = setTimeout(mycode, 60000);
-        function mycode() {
+        var tid = setTimeout(myLocation, 5000);
+        function myLocation() {
             // do some stuff...
             getLocation(function(position){
 
-                console.log("sund update", location);
+                console.log("Send update Location", location);
                 socket.emit('Receive Location', {Id: 101 , lat:position.coords.latitude,long:position.coords.longitude});
 
             });
-            tid = setTimeout(mycode, 60000); // repeat myself
+            tid = setTimeout(myLocation, 5000); // repeat myself
+        };
+
+        // start sending current flux value of the client to the server every 1000 miliseconds
+        var tid2 = setTimeout(myLight, 5000);
+        function myLight() {
+            // do some stuff...
+                console.log("Send update Light", getcurrentLightValue());
+                socket.emit('Receive Light', {Id: 101 ,fluxValue: getcurrentLightValue()});
+
+            tid2 = setTimeout(myLight, 5000); // repeat myself
         };
 
 
@@ -178,6 +203,7 @@ function convertToShortDate(value)
     }
 }
 
+// make the temperature value more user friendly
 function getPrettyTemperature(max, min)
 {
     var res = (max+min)/2 ;
@@ -185,6 +211,7 @@ function getPrettyTemperature(max, min)
     return res.toFixed(0);
 }
 
+// get the right icon from our pretty images
 function getGoodIcon(value)
 {
 
@@ -327,12 +354,54 @@ function actionPlaceholder2(data) {
 }
 
 function actionPlaceholder3(data) {
-    console.log("received update for Placeholder3:", data);
+    console.log("received update for Placeholder3:", data.content, "value:");
+
+
     if(data.content!==undefined)
     {
-        $("#Placeholder3Title").remove();
-        $("#Placeholder3").html(data.content);
+        console.log("content:", data.content)
+        if(data.content.indexOf("AUDIO")<0)
+        {
+            console.log("data inzetten",data.content)
+            $("#Placeholder3Title").remove();
+            $("#Placeholder3").val(data.content);
+        }
+        else{
+            console.log("test");
 
+            $("#Placeholder3Title").remove();
+            var contentAudio = data.content.substring( data.content.indexOf(":")+1);
+            $("#Placeholder3").html(contentAudio);
+           speak(contentAudio);
+        }
+
+    }
+
+}
+
+var isAlreadySpeaking=false;
+
+function speak(content)
+{
+
+    console.log("isalready", isAlreadySpeaking);
+    if(isAlreadySpeaking==false)
+    {
+        isAlreadySpeaking=true;
+        console.log("SPeak");
+
+
+        var msg = new SpeechSynthesisUtterance(content);
+
+
+        msg.onend = function(e) {
+            console.log("end text"),
+            setTimeout(function(){  isAlreadySpeaking=false; },30000);
+
+        };
+
+
+        window.speechSynthesis.speak(msg);
     }
 
 }
@@ -391,6 +460,25 @@ function actionPlaceholder4(data) {
 
 function actionPlaceholder5(data) {
     console.log("received update for Placeholder5:", data);
+
+    $("#Placeholder5Title").remove();
+
+    var contentArray = data.content;
+
+    listContent="";
+    for(i in contentArray)
+    {
+        var element = contentArray[i];
+        listContent+=
+            "<small>"+element+"</small>";
+
+    }
+
+
+    $("#Events").html(listContent);
+
+
+
 
 }
 

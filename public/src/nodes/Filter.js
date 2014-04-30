@@ -9,6 +9,7 @@
     var Output = Dataflow.prototype.module("output");
 
     Filter.icon = 'filter';
+    Filter.description = 'A filter component that encapsulate a filter process';
 
     Filter.Model = BaseResizable.Model.extend({
         defaults: function(){
@@ -16,7 +17,7 @@
             defaults.label = " ";
             defaults.icon = Filter.icon;
             defaults.type = "Filter";
-            defaults.w = 220;
+            defaults.w =190;
             defaults.h = 90;
             defaults.nodeColor= "#D1FFE3";
             defaults.graph = {

@@ -26,14 +26,38 @@ app.get('/',function(req, res){
 
     templateLinks.push(tourguide);
 
+    var existingUser = req.session.existingUser;
+    var currentUser = req.session.currentUser;
 
-    loadExistingDocuments(function(documentLinks){
 
-        res.render('index', { templateLinks: templateLinks,
-                              documentLinks: documentLinks
-                             });
+    if(existingUser!==undefined)  // if a new user was created we have to show a message that it succeeded
+    {
 
-    })
+        delete req.session.existingUser // delete for the next possible created user
+
+        console.log("send res :", existingUser);
+        loadExistingDocuments(function(documentLinks){
+
+            res.render('index', { templateLinks: templateLinks,
+                documentLinks: documentLinks,
+                existingUser:existingUser});
+
+        })
+
+    }
+    else
+    {
+        loadExistingDocuments(function(documentLinks){
+
+console.log("CurrentUser :", currentUser);
+
+            res.render('index', { templateLinks: templateLinks,
+                documentLinks: documentLinks,
+                currentUser:currentUser
+                });
+
+        })
+    }
 
 
 
@@ -66,7 +90,7 @@ function loadExistingDocuments(callback)
 
         }
 
-        console.log(documentLinks);
+        console.log("documents:" +documentLinks);
 
         callback(documentLinks);
     });
@@ -77,3 +101,4 @@ require('./tourguideTemplate');
 require('./editor');
 require('./newTourguideDetails');
 require('./FormHandler'); // will take care of all the incoming forms
+require('./createUser');
