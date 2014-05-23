@@ -7,7 +7,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var timer = require('timer-ease'); // syntactic sugar for timer function
-
+var colors = require('colors');
 var app = module.exports = express();
 
 
@@ -47,7 +47,7 @@ var routes = require('./routes');
 
 // create HTTP server
 var server = http.createServer(app).listen(app.get('port'), app.get('host'), function(){
-    console.log("Express server listening on port " +app.get('host')+ app.get('port'));
+    console.log("Express server listening on ".green +app.get('host')+":" +app.get('port'));
 });
 
 var io = require('socket.io').listen(server);
@@ -56,43 +56,5 @@ io.set('browser client minification', true);  // send minified client
 var RealtimeNotificationServer = require('.././dataflow/Crosslets/RealTimeNotificationServer');
 
 RealtimeNotificationServer.setupServer();
-
-
-/*
-var io = require('socket.io').listen(server);
-
-io.sockets.on('connection', function (socket) {
-    socket.emit('updateMap', {});
-
-    socket.on('Update Google Maps', function (data) {
-        console.log("Maps has been updated")
-    });
-
-    // Call every 3 seconds
-    timer.every(10000, function(){
-        console.log('Update Google maps marker');
-       socket.emit('updateMap', {});
-    });
-
-});
-*/
-
-/*
-
-var yelp = require("yelp").createClient({
-    consumer_key: "8jFI0Whqoyk_YDpZFs1KjQ",
-    consumer_secret: "kBzgzxMzO9bIC5Aup6ZvzYMyMPI",
-    token: "Lt_YPwFCH617X_4AUFGud5S-UuDOap1U",
-    token_secret: "1hV1RPByupzxXT11uU9eMY2Q-AM"
-});
-
-// See http://www.yelp.com/developers/documentation/v2/search_api
-yelp.search({term: "hotel", location: "Sint-Pieters-Leeuw, België", radius_filter:"5000"}, function(error, data) {
-    console.log(error);
-    console.log(data);
-});
-
-*/
-
 
 

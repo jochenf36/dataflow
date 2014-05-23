@@ -72,25 +72,25 @@ app.post('/tourguideDetailsForm',function(req, res){
             switch(i)
             {
                 case 0:
-                    placeholder_description = "title";
+                    placeholder_description = "O - Title";
                     break;
                 case 1:
-                    placeholder_description = "weather_Forecast";
+                    placeholder_description = "1 - Weather";
                     break;
                 case 2:
-                    placeholder_description = "temperature";
+                    placeholder_description = "2 - Temperature";
                     break;
                 case 3:
-                    placeholder_description = "information";
+                    placeholder_description = "3 - Information";
                     break;
                 case 4:
-                    placeholder_description = "point_of_interests";
+                    placeholder_description = "4 - POI";
                     break;
                 case 5:
-                    placeholder_description = "holiday_events";
+                    placeholder_description = "5 - Events";
                     break;
                 case 6:
-                    placeholder_description = "current_location";
+                    placeholder_description = "6 - Map";
                     break;
                 default:
                     placeholder_description = "empty"
@@ -157,7 +157,6 @@ app.post('/loginUser',function(req, res){
           else
           {
               req.session.currentUser = login_name; // save current user in session
-
               res.send("no_errors");
           }
     });

@@ -13,6 +13,7 @@
             defaults.type = "PlaceHolder";
             defaults.w = 200;
             defaults.h = 100;
+
             defaults.nodeColor= "beige";
             return defaults;
         },

@@ -5,7 +5,7 @@
   var template = 
     '<div class="dataflow-plugin-inspector-title">'+
       '<h1>Edge</h1>'+
-      '<h2 class="dataflow-edge-inspector-id"><%= id %></h2>'+
+
     '</div>'+
     '<div class="dataflow-edge-inspector-route-choose"></div>'+
     '<ul class="dataflow-edge-inspector-events"></ul>'+

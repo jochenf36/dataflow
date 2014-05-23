@@ -103,7 +103,17 @@
     // V
     //
 
-    function paste(){
+      function deleteNode(){
+
+          // Remove selected
+          Edit.removeSelected();
+
+          // Update context
+          dataflow.currentGraph.trigger('selectionChanged');
+      }
+
+
+          function paste(){
       if (copied && copied.nodes && copied.nodes.length > 0) {
         // Deselect all
         dataflow.currentGraph.nodes.invoke("set", {selected:false});
@@ -169,13 +179,7 @@
       action: cut,
       contexts: ["node", "nodes"]
     });
-    dataflow.addContext({
-      id: "copy",
-      icon: "copy",
-      label: "copy",
-      action: copy,
-      contexts: ["node", "nodes"]
-    });
+
     dataflow.addContext({
       id: "paste",
       icon: "paste",
@@ -183,8 +187,17 @@
       action: paste,
       contexts: ["node", "nodes"]
     });
+      dataflow.addContext({
+          id: "copy",
+          icon: "eraser",
+          label: "delete",
+          action: deleteNode,
+          contexts: ["node", "nodes"]
+      });
 
-    dataflow.addContext({
+
+
+      dataflow.addContext({
       id: "edgeRemove",
       icon: "remove",
       label: "remove edge",

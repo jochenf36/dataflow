@@ -58,31 +58,35 @@ function getPlaceholders(documentName, callback)
     var placeholderArray = new Array();
 
     iServer.getDocument(documentName,function(jsonObjectDocument){
-    var arrayPlaceholders = JSON.parse(jsonObjectDocument).placeholders;
+        if(jsonObjectDocument!==undefined)
+        {
+            var arrayPlaceholders = JSON.parse(jsonObjectDocument).placeholders;
 
-        var counter=0;
-        async.whilst(function () {
-                return counter < arrayPlaceholders.length;
-            },
-            function (next) {
-                var fullnamePlaceholder = arrayPlaceholders[counter];
-                var placeholderName = fullnamePlaceholder.substring(fullnamePlaceholder.indexOf(":")+1,fullnamePlaceholder.indexOf("]")); // just get the name of the placeholder
+            var counter=0;
+            async.whilst(function () {
+                    return counter < arrayPlaceholders.length;
+                },
+                function (next) {
+                    var fullnamePlaceholder = arrayPlaceholders[counter];
+                    var placeholderName = fullnamePlaceholder.substring(fullnamePlaceholder.indexOf(":")+1,fullnamePlaceholder.indexOf("]")); // just get the name of the placeholder
 
-                iServer.getPlaceholder(placeholderName,function(jsonObjectPlaceholder){
-                placeholderArray.push(JSON.parse(jsonObjectPlaceholder));
+                    iServer.getPlaceholder(placeholderName,function(jsonObjectPlaceholder){
+                        placeholderArray.push(JSON.parse(jsonObjectPlaceholder));
 
 
-                counter++;
-                next();
-                });
+                        counter++;
+                        next();
+                    });
 
                 },
-            function (err) {
-                // All things are done!
-                callback(placeholderArray);
-            });
+                function (err) {
+                    // All things are done!
+                    callback(placeholderArray);
+                });
 
-    });
+            }
+        });
+
 };
 
 

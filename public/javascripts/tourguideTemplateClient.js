@@ -1,6 +1,10 @@
 var map;
 var marker;
 
+window.onbeforeunload = function() {
+    socket.socket.disconnect() // close the socket connection when leaving the template
+};
+
 var currentLightValue;
 function updateLightValue(lightvalue)
 {
@@ -129,7 +133,8 @@ function errorHandler(err) {
     if(err.code == 1) {
         alert("Error: Access is denied!");
     }else if( err.code == 2) {
-        alert("Error: Position is unavailable!");
+        //alert("Error: Position is unavailable!");
+        console.log("Error position", err);
     }
 }
 

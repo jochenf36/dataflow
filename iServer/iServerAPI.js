@@ -2,6 +2,7 @@
 // Contains all the Webservice requests to the iServer
 
 var request = require('request');
+var colors = require('colors');
 
 app = require('../app');
 
@@ -438,16 +439,21 @@ exports.getDocuments = function getDocuments(callback)
             , uri: uri
         }
         , function(error, response, body) {
-            if(response.statusCode == 200){
-
-                var jsonObjectDocuments=  body;
-                callback(jsonObjectDocuments); // return the retrieved user
-            }
-            else
+            if(error!=null)
             {
-                console.log('error: '+ response.statusCode, " For: ", "Adding placeholders to template")
-                console.log('Documents not found');
-                callback(undefined);
+                console.log("Unable to connect to the iServer".red + error);
+            }else{
+                if(response.statusCode == 200){
+
+                    var jsonObjectDocuments=  body;
+                    callback(jsonObjectDocuments); // return the retrieved user
+                }
+                else
+                {
+                    console.log('error: '+ response.statusCode, " For: ", "Adding placeholders to template")
+                    console.log('Documents not found');
+                    callback(undefined);
+                }
             }
 
         });

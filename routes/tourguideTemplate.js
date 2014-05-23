@@ -74,6 +74,8 @@ function setupIndividualPair(pair,socket)
                 end.updateFunction(); // first init
                 console.log("Send:",start.id , "Next in:", updateFrequency);
 
+                console.log("connected or not:" , socket.socket);
+
                 start.value.Id= 101;
 
                 socket.emit("push", start.value)
@@ -816,11 +818,11 @@ function Component(id, iServerInfo)
 // funciton to check wether a point is wihtin a circle with a certain radious
 function isInCurrentLocation(latitude, longitude, radius)
 {
-    console.log("Check loc", geolib.isPointInCircle(
+    console.log("Check loc", currentLightClient ," :" , geolib.isPointInCircle(
     {latitude: currentLocationClient.lat, longitude:currentLocationClient.long},
     {latitude: latitude, longitude: longitude},
     radius
-))
+    ))
     return geolib.isPointInCircle(
         {latitude: currentLocationClient.lat, longitude:currentLocationClient.long},
         {latitude: latitude, longitude: longitude},

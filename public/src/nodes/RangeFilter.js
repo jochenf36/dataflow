@@ -4,7 +4,7 @@
     var BaseResizable = Dataflow.prototype.node("base-resizable");
     var RangeFilter = Dataflow.prototype.node("Range Filter");
 
-    Placeholder.description = 'A specific filter that performs a filter operation by using a max and min value';
+    RangeFilter.description = 'A specific filter that performs a filter operation by using a max and min value';
 
     RangeFilter.Model = BaseResizable.Model.extend({
         defaults: function () {
